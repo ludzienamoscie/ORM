@@ -1,5 +1,11 @@
 package model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+
+import java.util.Date;
+import java.util.UUID;
+
 enum ClientType {
     adult,
     minor,
@@ -8,15 +14,37 @@ enum ClientType {
 
 public class Client {
 
-    // jakies ID
-    private java.util.Date birthday;
+    @Id
+    @Column(name="PERSONALID")
+    String personalID;
+
+    //private java.util.Date birthday;
+    @Column(name="BIRTHDAY")
+    Date birthday;
+
+    //private String phoneNumber;
+    @Column(name="PHONENUMBER")
+    String phoneNumber;
+
+    //ClientType clientType;
+    @Column(name="CLIENTTYPE")
     ClientType clientType;
-    private String firstName;
-    private String lastName;
+
+    //private String firstName;
+    @Column(name="FIRSTNAME")
+    String firstName;
+
+    //private String lastName;
+    @Column(name="LASTNAME")
+    String lastName;
+
+    public String getPersonalID() {return personalID;}
 
     public java.util.Date getBirthday() {
         return birthday;
     }
+
+    public String getPhoneNumber() {return phoneNumber;}
 
     public ClientType getClientType() {
         return clientType;
@@ -30,14 +58,16 @@ public class Client {
         return lastName;
     }
 
-    public Client(java.util.Date birthday, ClientType clientType, String firstName, String lastName) {
+    public Client(String personalID, Date birthday, String phoneNumber, ClientType clientType, String firstName, String lastName) {
+        this.personalID = personalID;
         this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
         this.clientType = clientType;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-//    public int getAge() {
+    //    public int getAge() {
 //
 //    }
 

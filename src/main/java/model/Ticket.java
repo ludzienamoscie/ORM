@@ -30,10 +30,14 @@ public class Ticket {
     @JoinColumn(name="SHOW_UUID")
     UUID show_id;
 
-    @JoinColumn(name="CLIENT_UUID")
-    UUID client_id;
+    //@JoinColumn(name="CLIENT_UUID")
+    //UUID client_id;
+    // Chyba tak powinno byc bo w klasie Client id jest jako String
+    @JoinColumn(name="PERSONALID")
+    String personalID;
 
     // konstruktor
+
 
 //    public int getSeatNr() {
 //        return seatNr;
