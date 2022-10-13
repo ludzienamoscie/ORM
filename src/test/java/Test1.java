@@ -5,6 +5,7 @@ import model.Room;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+// TO JEST TEST TEGO DOCKERA CAŁEGO WIEC NA RAZIE NIECH ZOSTANIE BO DZIALA XD
 
 public class Test1 {
     @org.junit.jupiter.api.Test

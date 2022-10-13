@@ -19,10 +19,10 @@ public class Show {
     }
 
     @Id
-    @Column(name="SHOW_ID",unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="SHOW_ID")
     private Long show_id;
 
-    //Jedno show odnosi sie do konkretnego pokoju, jeden pokoj moze odnosic sie do wielu show?
     @ManyToOne
     @JoinColumn(name="ROOM_ID")
     private Room room;

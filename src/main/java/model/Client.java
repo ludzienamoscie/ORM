@@ -17,8 +17,8 @@ public class Client {
         senior
     }
     @Id
-    // Tak jak w Ticket.java, mozna generowac tak to nie bedzie column
-    @Column(name="CLIENT_ID", unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="CLIENT_ID")
     private Long client_id;
 
     @Column(name="BIRTHDAY")

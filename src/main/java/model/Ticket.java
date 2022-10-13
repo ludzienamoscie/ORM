@@ -19,24 +19,22 @@ public class Ticket {
         seniorTicket,
         groupTicket
     }
-    @Id
     //@SequenceGenerator(initialValue = 10,name="nazwa")
     //@GeneratedValue(generator = "nazwa")
     //Jak jest generowany to nie potrzeba robic columny
-    @Column(name = "TICKET_ID", unique = true)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "TICKET_ID")
     private Long ticket_id;
 
-    //Relacja miedzy Ticket a Show to 1-N tak?
     @ManyToOne
     @JoinColumn(name = "SHOW_ID")
     private Show show;
 
-    //A tu chyba relacja 1-1 bo konkretny bilet nalezy do konkretnego klienta a klient ma konkretny jeden bilet? XD
     @OneToOne
     @JoinColumn(name = "CLIENT_ID")
     private Client client;
 
-    //Tu tez 1-1 ?
     @OneToOne
     @JoinColumn(name="SEAT_ID")
     private Seat seat;
@@ -56,7 +54,6 @@ public class Ticket {
         this.price = price;
         this.ticketType = ticketType;
     }
-
     protected Ticket() {
        }
 }
