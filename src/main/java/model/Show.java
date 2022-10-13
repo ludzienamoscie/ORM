@@ -1,11 +1,13 @@
 package model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.criteria.CriteriaBuilder;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 enum ShowType {
@@ -13,6 +15,9 @@ enum ShowType {
     show3D
 }
 
+@Getter
+@Setter
+@Entity
 public class Show {
 
     //id
@@ -20,17 +25,17 @@ public class Show {
     @Column(name="SHOW_UUID")
     UUID show_id;
 
-    // Room; To nie powinno też byc w konstruktorze?
+    // Room
     @JoinColumn(name="ROOMNUMBER")
     Integer roomNumber;
 
     // beginTime
     @Column(name="BEGINTIME")
-    Date beginTime;
+    LocalDateTime beginTime;
 
     //endTime
     @Column(name="ENDTIME")
-    Date endTime;
+    LocalDateTime endTime;
 
     // length
     //private ShowType showtype;
@@ -41,19 +46,4 @@ public class Show {
     @Column(name="AVAILABLESEATS")
     Integer availableSeats;
 
-    public Show(UUID show_id, Date beginTime, Date endTime, ShowType showType) {
-        this.show_id = show_id;
-        this.beginTime = beginTime;
-        this.endTime = endTime;
-        this.showType = showType;
-    }
-
-    public int getAvailableSeats() {
-        // ???
-        return availableSeats;
-    }
-
-    public void bookSeat(int seatNr) {
-
-    }
 }

@@ -1,11 +1,13 @@
 package model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import lombok.Getter;
+
 import java.util.UUID;
 
-// to do osobnego pliku? / czyli to chyba zostawiamy jako enum tak?
 enum TicketType{
     adultTicket,
     minorTicket,
@@ -13,6 +15,8 @@ enum TicketType{
     groupTicket
 }
 
+@Getter
+@Entity
 public class Ticket {
 
     @Id
@@ -33,14 +37,4 @@ public class Ticket {
     @Column(name = "TICKETTYPE")
     TicketType ticketType;
 
-
-    public UUID getTicket_id() {return ticket_id;}
-
-    public UUID getShow_id() {return show_id;}
-
-    public UUID getPersonalID() {return personalID;}
-
-    public double getPrice() {return price;}
-
-    public TicketType getTicketType() {return ticketType;}
 }

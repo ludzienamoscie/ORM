@@ -1,7 +1,11 @@
 package model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.UUID;
 import java.util.Date;
 
@@ -11,6 +15,9 @@ enum ClientType {
     senior
 }
 
+@Getter
+@Setter
+@Entity
 public class Client {
 
     @Id
@@ -37,40 +44,4 @@ public class Client {
     @Column(name="LASTNAME")
     String lastName;
 
-    public UUID getPersonalID() {return personalID;}
-
-    public java.util.Date getBirthday() {
-        return birthday;
-    }
-
-    public String getPhoneNumber() {return phoneNumber;}
-
-    public ClientType getClientType() {
-        return clientType;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public Client(UUID personalID, Date birthday, String phoneNumber, ClientType clientType, String firstName, String lastName) {
-        this.personalID = personalID;
-        this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
-        this.clientType = clientType;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    //    public int getAge() {
-//
-//    }
-
-    void setClientType(ClientType clientType) {
-        this.clientType = clientType;
-    }
 }

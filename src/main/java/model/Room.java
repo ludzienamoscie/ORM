@@ -1,8 +1,14 @@
 package model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+@Entity
 public class Room {
 
     //private int roomNumber;
@@ -13,16 +19,4 @@ public class Room {
     @Column(name="CAPACITY")
     Integer capacity;
 
-    public Room(int roomNumber, int capacity) {
-        this.roomNumber = roomNumber;
-        this.capacity = capacity;
-    }
-
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
 }
