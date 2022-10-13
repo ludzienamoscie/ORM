@@ -1,6 +1,7 @@
 package model;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,10 +9,11 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@Entity
 public class Seat {
     @Id
-    @Column(name="SEAT_UUID")
-    private UUID seatID;
+    @Column(name="SEAT_ID")
+    private Long seat_id;
 
     @Column(name="ROW")
     private Integer row;
@@ -19,8 +21,7 @@ public class Seat {
     @Column(name="Column")
     private Integer column;
 
-    public Seat(UUID seatID, Integer row, Integer column) {
-        this.seatID = seatID;
+    public Seat(Integer row, Integer column) {
         this.row = row;
         this.column = column;
     }

@@ -1,8 +1,6 @@
 package model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,13 +10,16 @@ import lombok.Setter;
 public class Room {
 
     @Id
-    @Column(name="ROOMNUMBER",unique = true)
-    private Integer roomNumber;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ROOM_ID")
+    private Long room_id;
 
+    @Column(name="ROOMNUMBER", unique = true)
+    private int roomNumber;
     @Column(name="CAPACITY")
-    private Integer capacity;
+    private int capacity;
 
-    public Room(Integer roomNumber, Integer capacity) {
+    public Room(int roomNumber, int capacity) {
         this.roomNumber = roomNumber;
         this.capacity = capacity;
     }

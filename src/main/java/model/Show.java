@@ -1,5 +1,6 @@
 package model;
 
+import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,12 +19,13 @@ public class Show {
     }
 
     @Id
-    @Column(name="SHOW_UUID",unique = true)
-    private UUID show_id;
+    @Column(name="SHOW_ID",unique = true)
+    private Long show_id;
 
     //Jedno show odnosi sie do konkretnego pokoju, jeden pokoj moze odnosic sie do wielu show?
-    @JoinColumn(name="ROOMNUMBER")
-    private Integer roomNumber;
+    @ManyToOne
+    @JoinColumn(name="ROOM_ID")
+    private Room room;
 
     @Column(name="BEGINTIME")
     private LocalDateTime beginTime;
@@ -38,9 +40,8 @@ public class Show {
     @Column(name="AVAILABLESEATS")
     private Integer availableSeats;
 
-    public Show(UUID show_id, Integer roomNumber, LocalDateTime beginTime, LocalDateTime endTime, ShowType showType, Integer availableSeats) {
-        this.show_id = show_id;
-        this.roomNumber = roomNumber;
+    public Show(Room room, LocalDateTime beginTime, LocalDateTime endTime, ShowType showType, Integer availableSeats) {
+        this.room = room;
         this.beginTime = beginTime;
         this.endTime = endTime;
         this.showType = showType;

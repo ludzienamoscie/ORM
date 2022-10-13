@@ -18,8 +18,8 @@ public class Client {
     }
     @Id
     // Tak jak w Ticket.java, mozna generowac tak to nie bedzie column
-    @Column(name="CLIENT_UUID", unique = true)
-    private UUID personalID;
+    @Column(name="CLIENT_ID", unique = true)
+    private Long client_id;
 
     @Column(name="BIRTHDAY")
     private Date birthday;
@@ -37,8 +37,7 @@ public class Client {
     @Column(name="LASTNAME")
     private String lastName;
 
-    public Client(UUID personalID, Date birthday, String phoneNumber, ClientType clientType, String firstName, String lastName) {
-        this.personalID = personalID;
+    public Client(Date birthday, String phoneNumber, ClientType clientType, String firstName, String lastName) {
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.clientType = clientType;
