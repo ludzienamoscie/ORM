@@ -2,9 +2,8 @@ package model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
-
-import java.util.Date;
 import java.util.UUID;
+import java.util.Date;
 
 enum ClientType {
     adult,
@@ -15,8 +14,8 @@ enum ClientType {
 public class Client {
 
     @Id
-    @Column(name="PERSONALID")
-    String personalID;
+    @Column(name="CLIENT_UUID")
+    UUID personalID;
 
     //private java.util.Date birthday;
     @Column(name="BIRTHDAY")
@@ -38,7 +37,7 @@ public class Client {
     @Column(name="LASTNAME")
     String lastName;
 
-    public String getPersonalID() {return personalID;}
+    public UUID getPersonalID() {return personalID;}
 
     public java.util.Date getBirthday() {
         return birthday;
@@ -58,7 +57,7 @@ public class Client {
         return lastName;
     }
 
-    public Client(String personalID, Date birthday, String phoneNumber, ClientType clientType, String firstName, String lastName) {
+    public Client(UUID personalID, Date birthday, String phoneNumber, ClientType clientType, String firstName, String lastName) {
         this.personalID = personalID;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
