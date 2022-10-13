@@ -9,6 +9,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
+@Table(name="Show")
 public class Show {
 
     enum ShowType {
@@ -17,9 +18,10 @@ public class Show {
     }
 
     @Id
-    @Column(name="SHOW_UUID")
+    @Column(name="SHOW_UUID",unique = true)
     private UUID show_id;
 
+    //Jedno show odnosi sie do konkretnego pokoju, jeden pokoj moze odnosic sie do wielu show?
     @JoinColumn(name="ROOMNUMBER")
     private Integer roomNumber;
 

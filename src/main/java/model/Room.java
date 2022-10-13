@@ -12,7 +12,7 @@ import lombok.Setter;
 public class Room {
 
     @Id
-    @Column(name="ROOMNUMBER")
+    @Column(name="ROOMNUMBER",unique = true)
     private Integer roomNumber;
 
     @Column(name="CAPACITY")

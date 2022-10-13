@@ -9,6 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
+@Table(name="Client")
 public class Client {
     enum ClientType {
         adult,
@@ -16,12 +17,13 @@ public class Client {
         senior
     }
     @Id
-    @Column(name="CLIENT_UUID")
+    // Tak jak w Ticket.java, mozna generowac tak to nie bedzie column
+    @Column(name="CLIENT_UUID", unique = true)
     private UUID personalID;
 
     @Column(name="BIRTHDAY")
     private Date birthday;
-
+    
     @Column(name="PHONENUMBER")
     private String phoneNumber;
 
