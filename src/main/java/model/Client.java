@@ -23,7 +23,7 @@ public class Client {
 
     @Column(name="BIRTHDAY")
     private Date birthday;
-    
+
     @Column(name="PHONENUMBER")
     private String phoneNumber;
 
@@ -37,6 +37,15 @@ public class Client {
     @Column(name="LASTNAME")
     private String lastName;
 
-    public Client() {
+    public Client(UUID personalID, Date birthday, String phoneNumber, ClientType clientType, String firstName, String lastName) {
+        this.personalID = personalID;
+        this.birthday = birthday;
+        this.phoneNumber = phoneNumber;
+        this.clientType = clientType;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    protected Client() {
     }
 }

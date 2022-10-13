@@ -19,6 +19,12 @@ public class Seat {
     @Column(name="Column")
     private Integer column;
 
-    public Seat() {
+    public Seat(UUID seatID, Integer row, Integer column) {
+        this.seatID = seatID;
+        this.row = row;
+        this.column = column;
+    }
+
+    protected Seat() {
     }
 }

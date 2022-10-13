@@ -46,6 +46,15 @@ public class Ticket {
     @Column(name = "TICKETTYPE")
     private TicketType ticketType;
 
-    public Ticket() {
+    public Ticket(UUID ticket_id, UUID show_id, UUID personalID, UUID seatID, double price, TicketType ticketType) {
+       this.ticket_id = ticket_id;
+       this.show_id = show_id;
+       this.personalID = personalID;
+       this.seatID = seatID;
+       this.price = price;
+       this.ticketType = ticketType;
     }
+
+    protected Ticket() {
+       }
 }

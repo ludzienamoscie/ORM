@@ -18,6 +18,11 @@ public class Room {
     @Column(name="CAPACITY")
     private Integer capacity;
 
-    public Room() {
+    public Room(Integer roomNumber, Integer capacity) {
+        this.roomNumber = roomNumber;
+        this.capacity = capacity;
+    }
+
+    protected Room() {
     }
 }

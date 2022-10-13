@@ -38,6 +38,15 @@ public class Show {
     @Column(name="AVAILABLESEATS")
     private Integer availableSeats;
 
-    public Show() {
+    public Show(UUID show_id, Integer roomNumber, LocalDateTime beginTime, LocalDateTime endTime, ShowType showType, Integer availableSeats) {
+        this.show_id = show_id;
+        this.roomNumber = roomNumber;
+        this.beginTime = beginTime;
+        this.endTime = endTime;
+        this.showType = showType;
+        this.availableSeats = availableSeats;
+    }
+
+    protected Show() {
     }
 }
