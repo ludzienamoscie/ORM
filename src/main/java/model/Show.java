@@ -1,49 +1,41 @@
 package model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
-
-enum ShowType {
-    show2D,
-    show3D
-}
 
 @Getter
 @Setter
 @Entity
 public class Show {
 
-    //id
+    enum ShowType {
+        show2D,
+        show3D
+    }
+
     @Id
     @Column(name="SHOW_UUID")
-    UUID show_id;
+    private UUID show_id;
 
-    // Room
     @JoinColumn(name="ROOMNUMBER")
-    Integer roomNumber;
+    private Integer roomNumber;
 
-    // beginTime
     @Column(name="BEGINTIME")
-    LocalDateTime beginTime;
+    private LocalDateTime beginTime;
 
-    //endTime
     @Column(name="ENDTIME")
-    LocalDateTime endTime;
+    private LocalDateTime endTime;
 
-    // length
-    //private ShowType showtype;
+    @Enumerated(EnumType.STRING)
     @Column(name="SHOWTYPE")
-    ShowType showType;
+    private ShowType showType;
 
-    //int availableSeats;
     @Column(name="AVAILABLESEATS")
-    Integer availableSeats;
+    private Integer availableSeats;
 
+    public Show() {
+    }
 }

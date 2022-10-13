@@ -11,12 +11,13 @@ import lombok.Setter;
 @Entity
 public class Room {
 
-    //private int roomNumber;
     @Id
     @Column(name="ROOMNUMBER")
-    Integer roomNumber;
-    //private final int capacity;
-    @Column(name="CAPACITY")
-    Integer capacity;
+    private Integer roomNumber;
 
+    @Column(name="CAPACITY")
+    private Integer capacity;
+
+    public Room() {
+    }
 }

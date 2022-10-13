@@ -1,47 +1,40 @@
 package model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.util.UUID;
 import java.util.Date;
-
-enum ClientType {
-    adult,
-    minor,
-    senior
-}
 
 @Getter
 @Setter
 @Entity
 public class Client {
-
+    enum ClientType {
+        adult,
+        minor,
+        senior
+    }
     @Id
     @Column(name="CLIENT_UUID")
-    UUID personalID;
+    private UUID personalID;
 
-    //private java.util.Date birthday;
     @Column(name="BIRTHDAY")
-    Date birthday;
+    private Date birthday;
 
-    //private String phoneNumber;
     @Column(name="PHONENUMBER")
-    String phoneNumber;
+    private String phoneNumber;
 
-    //ClientType clientType;
+    @Enumerated(EnumType.STRING)
     @Column(name="CLIENTTYPE")
-    ClientType clientType;
+    private ClientType clientType;
 
-    //private String firstName;
     @Column(name="FIRSTNAME")
-    String firstName;
+    private String firstName;
 
-    //private String lastName;
     @Column(name="LASTNAME")
-    String lastName;
+    private String lastName;
 
+    public Client() {
+    }
 }

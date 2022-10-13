@@ -2,34 +2,23 @@ package model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
 import java.util.UUID;
 
+@Getter
+@Setter
 public class Seat {
     @Id
     @Column(name="SEAT_UUID")
-    UUID seatID;
+    private UUID seatID;
 
     @Column(name="ROW")
-    Integer row;
+    private Integer row;
 
     @Column(name="Column")
-    Integer column;
+    private Integer column;
 
-    public Seat(UUID seatID, Integer row, Integer column) {
-        this.seatID = seatID;
-        this.row = row;
-        this.column = column;
-    }
-
-    public UUID getSeatID() {
-        return seatID;
-    }
-
-    public Integer getRow() {
-        return row;
-    }
-
-    public Integer getColumn() {
-        return column;
+    public Seat() {
     }
 }

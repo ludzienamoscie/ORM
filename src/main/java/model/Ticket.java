@@ -1,40 +1,40 @@
 package model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+import jakarta.persistence.*;
 import lombok.Getter;
-
+import lombok.Setter;
 import java.util.UUID;
 
-enum TicketType{
-    adultTicket,
-    minorTicket,
-    seniorTicket,
-    groupTicket
-}
-
 @Getter
+@Setter
 @Entity
 public class Ticket {
-
+   public enum TicketType{
+        adultTicket,
+        minorTicket,
+        seniorTicket,
+        groupTicket
+    }
     @Id
     @Column(name = "TICKET_UUID")
-    UUID ticket_id;
+    private UUID ticket_id;
 
     @JoinColumn(name = "SHOW_UUID")
-    UUID show_id;
+    private UUID show_id;
 
     @JoinColumn(name = "CLIENT_UUID")
-    UUID personalID;
+    private UUID personalID;
 
-    // seatNumber - co z tym robimy
+    @JoinColumn(name="SEAT_UUID")
+    private UUID seatID;
 
     @Column(name = "PRICE")
-    double price;
+    private double price;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "TICKETTYPE")
-    TicketType ticketType;
+    private TicketType ticketType;
 
+    public Ticket() {
+    }
 }
