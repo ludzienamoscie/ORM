@@ -8,7 +8,8 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-public class Seat {
+@Table(name="Seat")
+public class Seat extends AbstractEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

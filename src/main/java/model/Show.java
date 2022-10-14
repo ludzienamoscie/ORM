@@ -11,7 +11,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name="Show")
-public class Show {
+public class Show extends AbstractEntity{
 
     enum ShowType {
         show2D,

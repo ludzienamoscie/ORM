@@ -10,7 +10,7 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name="Client")
-public class Client {
+public class Client extends AbstractEntity{
     enum ClientType {
         adult,
         minor,
