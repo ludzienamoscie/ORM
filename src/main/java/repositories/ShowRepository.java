@@ -1,14 +1,25 @@
 package repositories;
 
+import model.Client;
 import model.Show;
 
+import java.util.List;
+
 public class ShowRepository implements Repository<Show>{
+
+    private List<Show> repository;
+
+    public ShowRepository(List<Show> repository){
+        this.repository = repository;
+    }
     @Override
     public void add(Show item) {
+        repository.add(item);
     }
 
     @Override
-    public void get(Show item) {
+    public Show get(int item) {
+        return repository.get(item);
     }
 
     @Override
@@ -17,5 +28,6 @@ public class ShowRepository implements Repository<Show>{
 
     @Override
     public void remove(Show item) {
+        repository.remove(item);
     }
 }

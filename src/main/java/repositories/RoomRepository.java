@@ -1,14 +1,25 @@
 package repositories;
 
+import model.Client;
 import model.Room;
 
+import java.util.List;
+
 public class RoomRepository implements Repository<Room>{
+
+    private List<Room> repository;
+
+    public RoomRepository(List<Room> repository){
+        this.repository = repository;
+    }
     @Override
     public void add(Room item) {
+        repository.add(item);
     }
 
     @Override
-    public void get(Room item) {
+    public Room get(int item) {
+        return repository.get(item);
     }
 
     @Override
@@ -17,5 +28,6 @@ public class RoomRepository implements Repository<Room>{
 
     @Override
     public void remove(Room item) {
+        repository.remove(item);
     }
 }
