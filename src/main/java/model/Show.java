@@ -13,7 +13,7 @@ import java.util.UUID;
 @Table(name="Show")
 public class Show extends AbstractEntity{
 
-    enum ShowType {
+    public enum ShowType {
         show2D,
         show3D
     }

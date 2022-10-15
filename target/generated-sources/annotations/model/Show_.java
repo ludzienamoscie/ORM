@@ -8,7 +8,7 @@ import model.Show.ShowType;
 
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
 @StaticMetamodel(Show.class)
-public abstract class Show_ {
+public abstract class Show_ extends model.AbstractEntity_ {
 
 	public static volatile SingularAttribute<Show, Long> show_id;
 	public static volatile SingularAttribute<Show, Integer> availableSeats;

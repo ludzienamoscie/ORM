@@ -12,7 +12,8 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name="Ticket")
-public class Ticket extends AbstractEntity{
+public class Ticket extends AbstractEntity {
+
    public enum TicketType{
         adultTicket,
         minorTicket,

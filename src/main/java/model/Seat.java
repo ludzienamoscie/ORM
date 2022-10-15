@@ -19,9 +19,26 @@ public class Seat extends AbstractEntity{
     @Column(name="ROW")
     private Integer row;
 
-    @Column(name="Column")
+    @Column(name="COLUMN")
     private Integer column;
 
+    @ManyToOne
+    @JoinColumn(name="ROOM_ID")
+    private Room room;
+
+    // oznaczamy jako column?
+    @Column(name="AVAILABILITY")
+    private boolean isFree;
+
+    public Seat(Long seat_id, Integer row, Integer column, Room room, boolean isFree) {
+        this.seat_id = seat_id;
+        this.row = row;
+        this.column = column;
+        this.room = room;
+        this.isFree = isFree;
+    }
+
+    // trzeba wymienic na wyzszy konstruktor i dopasowac testy. czy id moze tu byc?
     public Seat(Integer row, Integer column) {
         this.row = row;
         this.column = column;

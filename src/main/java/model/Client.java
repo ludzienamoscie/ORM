@@ -11,11 +11,13 @@ import java.util.Date;
 @Entity
 @Table(name="Client")
 public class Client extends AbstractEntity{
-    enum ClientType {
+
+    public enum ClientType {
         adult,
         minor,
         senior
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="CLIENT_ID")

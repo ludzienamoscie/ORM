@@ -7,7 +7,7 @@ import model.Ticket.TicketType;
 
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
 @StaticMetamodel(Ticket.class)
-public abstract class Ticket_ {
+public abstract class Ticket_ extends model.AbstractEntity_ {
 
 	public static volatile SingularAttribute<Ticket, Seat> seat;
 	public static volatile SingularAttribute<Ticket, Double> price;

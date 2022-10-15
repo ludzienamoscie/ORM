@@ -8,7 +8,7 @@ import model.Client.ClientType;
 
 @Generated(value = "org.hibernate.jpamodelgen.JPAMetaModelEntityProcessor")
 @StaticMetamodel(Client.class)
-public abstract class Client_ {
+public abstract class Client_ extends model.AbstractEntity_ {
 
 	public static volatile SingularAttribute<Client, Date> birthday;
 	public static volatile SingularAttribute<Client, String> firstName;

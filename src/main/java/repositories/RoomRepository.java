@@ -2,10 +2,11 @@ package repositories;
 
 import model.Client;
 import model.Room;
+import model.Ticket;
 
 import java.util.List;
 
-public class RoomRepository implements Repository<Room>{
+public class RoomRepository implements Repository<Room, Long>{
 
     private List<Room> repository;
 
@@ -18,8 +19,11 @@ public class RoomRepository implements Repository<Room>{
     }
 
     @Override
-    public Room get(int item) {
-        return repository.get(item);
+    public Room get(Long id) {
+        for(Room r : repository) {
+            if(r.getRoom_id().equals(id)) return r;
+        }
+        return null;
     }
 
     @Override

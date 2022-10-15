@@ -2,10 +2,11 @@ package repositories;
 
 import model.Client;
 import model.Show;
+import model.Ticket;
 
 import java.util.List;
 
-public class ShowRepository implements Repository<Show>{
+public class ShowRepository implements Repository<Show, Long>{
 
     private List<Show> repository;
 
@@ -18,8 +19,11 @@ public class ShowRepository implements Repository<Show>{
     }
 
     @Override
-    public Show get(int item) {
-        return repository.get(item);
+    public Show get(Long id) {
+        for(Show s : repository) {
+            if(s.getShow_id().equals(id)) return s;
+        }
+        return null;
     }
 
     @Override

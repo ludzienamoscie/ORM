@@ -5,7 +5,7 @@ import model.Ticket;
 
 import java.util.List;
 
-public class TicketRepository implements Repository<Ticket>{
+public class TicketRepository implements Repository<Ticket, Long>{
 
     private List<Ticket> repository;
 
@@ -18,8 +18,11 @@ public class TicketRepository implements Repository<Ticket>{
     }
 
     @Override
-    public Ticket get(int item) {
-        return repository.get(item);
+    public Ticket get(Long id) {
+        for(Ticket t : repository) {
+            if(t.getTicket_id().equals(id)) return t;
+        }
+        return null;
     }
 
     @Override
@@ -29,5 +32,12 @@ public class TicketRepository implements Repository<Ticket>{
     @Override
     public void remove(Ticket item) {
         repository.remove(item);
+    }
+
+    public Ticket findBySeat(Long seatId) {
+        for(Ticket t : repository) {
+            if(t.getSeat().getSeat_id().equals(seatId)) return t;
+        }
+        return null;
     }
 }

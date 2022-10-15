@@ -1,11 +1,10 @@
 package model;
 
 import com.sun.istack.NotNull;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.Version;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.annotations.NamedQuery;
+import org.junit.platform.engine.UniqueId;
 
 import java.io.Serializable;
 
@@ -14,7 +13,7 @@ public abstract class AbstractEntity implements Serializable {
 
     @Embedded
     @NotNull
-    private Id abstractEntityId; //nwm czy tak powinno byc
+    private UniqueId abstractEntityId; // nadal wyrzuca blad jak zmienilam z Id na UniqueId:(
 
     @Version
     @NotEmpty
