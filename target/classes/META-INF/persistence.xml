@@ -3,7 +3,17 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-  <persistence-unit name="CINEMA">
+  <persistence-unit name="CINEMA" transaction-type="RESOURCE_LOCAL">
+
+    <class>model.Client</class>
+    <class>model.Room</class>
+    <class>model.Seat</class>
+    <class>model.Show</class>
+    <class>model.Ticket</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <validation-mode>CALLBACK</validation-mode>
+
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5431/nbddb" /> <!-- BD Mane -->
