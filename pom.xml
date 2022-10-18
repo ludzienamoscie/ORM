@@ -22,17 +22,17 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core-jakarta</artifactId>
-            <version>5.6.11.Final</version>
+            <version>5.6.12.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-jpamodelgen-jakarta</artifactId>
-            <version>5.6.11.Final</version>
+            <version>5.6.12.Final</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
-            <version>3.0.0</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>
@@ -42,7 +42,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>RELEASE</version>
+            <version>1.18.24</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

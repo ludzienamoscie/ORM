@@ -10,6 +10,7 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name="Client")
+@Access(AccessType.FIELD)
 public class Client extends AbstractEntity{
 
     public enum ClientType {

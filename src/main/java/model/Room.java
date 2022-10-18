@@ -11,6 +11,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name="Room")
+@Access(AccessType.FIELD)
 public class Room extends AbstractEntity{
 
     @Id
@@ -18,7 +19,7 @@ public class Room extends AbstractEntity{
     @Column(name="ROOM_ID")
     private Long room_id;
 
-    // po co room number jak jest room id?
+    // po co room number jak jest room id? // bo roomid jest dla bazy danych a fizycznie jest numer pokoju
     @Column(name="ROOMNUMBER", unique = true)
     private int roomNumber;
 
@@ -31,17 +32,11 @@ public class Room extends AbstractEntity{
     @Column(name="COLUMNS")
     private Integer columns;
 
-    // tego chyba nie dajemy jako kolumne? idk
-    @OneToMany (mappedBy = "seat_id")
-    private ArrayList<Seat> seats = new ArrayList<>();
-
-    public Room(Long room_id, int roomNumber, Integer rows, Integer columns, ArrayList<Seat> seats) {
-        this.room_id = room_id;
+    public Room(int roomNumber, int capacity, Integer rows, Integer columns) {
         this.roomNumber = roomNumber;
+        this.capacity = capacity;
         this.rows = rows;
         this.columns = columns;
-        this.seats = seats;
-        this.capacity = columns * rows;
     }
 
     protected Room() {

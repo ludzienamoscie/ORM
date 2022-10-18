@@ -11,6 +11,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name="Show")
+@Access(AccessType.FIELD)
 public class Show extends AbstractEntity{
 
     public enum ShowType {

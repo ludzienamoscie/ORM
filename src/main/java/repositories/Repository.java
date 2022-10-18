@@ -11,7 +11,6 @@ public interface Repository <T,id_T> {
 
     T get (id_T id);
 
-    // przekazac trzeba predykat
     List<T> findBy(Predicate<T> predicate);
 
     void remove (T item);

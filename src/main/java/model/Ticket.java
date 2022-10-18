@@ -12,6 +12,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name="Ticket")
+@Access(AccessType.FIELD)
 public class Ticket extends AbstractEntity {
 
    public enum TicketType{

@@ -3,12 +3,13 @@ package model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.UUID;
+
 
 @Getter
 @Setter
 @Entity
 @Table(name="Seat")
+@Access(AccessType.FIELD)
 public class Seat extends AbstractEntity{
 
     @Id
@@ -26,12 +27,13 @@ public class Seat extends AbstractEntity{
     @JoinColumn(name="ROOM_ID")
     private Room room;
 
-    // oznaczamy jako column?
+    @OneToOne
+    private Ticket ticket;
+
     @Column(name="AVAILABILITY")
     private boolean isFree;
 
-    public Seat(Long seat_id, Integer row, Integer column, Room room, boolean isFree) {
-        this.seat_id = seat_id;
+    public Seat(Integer row, Integer column, Room room, boolean isFree) {
         this.row = row;
         this.column = column;
         this.room = room;
