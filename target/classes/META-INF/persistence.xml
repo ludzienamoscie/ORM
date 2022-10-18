@@ -10,6 +10,9 @@
     <class>model.Seat</class>
     <class>model.Show</class>
     <class>model.Ticket</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>NONE</shared-cache-mode>
+    <validation-mode>CALLBACK</validation-mode>
 
     <properties>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" /> <!-- DB Driver -->

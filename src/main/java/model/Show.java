@@ -30,7 +30,7 @@ public class Show extends AbstractEntity{
     @Column(name="BEGINTIME")
     private LocalDateTime beginTime;
 
-    @Column(name="ENDTIME")
+    @Column(name="ENDTIME", columnDefinition = "TIMESTAMP CHECK (ENDTIME > BEGINTIME)")
     private LocalDateTime endTime;
 
     @Enumerated(EnumType.STRING)
