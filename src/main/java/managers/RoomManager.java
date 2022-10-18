@@ -14,5 +14,4 @@ public class RoomManager {
     public RoomManager(RoomRepository roomRepository){
         this.roomRepository = roomRepository;
     }
-
 }

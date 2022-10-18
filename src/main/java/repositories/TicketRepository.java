@@ -4,6 +4,8 @@ import model.Client;
 import model.Ticket;
 
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class TicketRepository implements Repository<Ticket, Long>{
 
@@ -26,7 +28,8 @@ public class TicketRepository implements Repository<Ticket, Long>{
     }
 
     @Override
-    public void findBy(Ticket item) {
+    public List<Ticket> findBy(Predicate<Ticket> predicate){
+        return repository.stream().filter(predicate).collect(Collectors.toList());
     }
 
     @Override
@@ -39,5 +42,10 @@ public class TicketRepository implements Repository<Ticket, Long>{
             if(t.getSeat().getSeat_id().equals(seatId)) return t;
         }
         return null;
+    }
+
+    @Override
+    public int size() {
+        return repository.size();
     }
 }

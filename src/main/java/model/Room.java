@@ -32,7 +32,7 @@ public class Room extends AbstractEntity{
     private Integer columns;
 
     // tego chyba nie dajemy jako kolumne? idk
-    @OneToMany
+    @OneToMany (mappedBy = "seat_id")
     private ArrayList<Seat> seats = new ArrayList<>();
 
     public Room(Long room_id, int roomNumber, Integer rows, Integer columns, ArrayList<Seat> seats) {
@@ -42,12 +42,6 @@ public class Room extends AbstractEntity{
         this.columns = columns;
         this.seats = seats;
         this.capacity = columns * rows;
-    }
-
-    // to trzeba usunac i zmienic na ten wyzej, wiec trzeba testy dopasowac
-    public Room(int roomNumber, int capacity) {
-        this.roomNumber = roomNumber;
-        this.capacity = capacity;
     }
 
     protected Room() {

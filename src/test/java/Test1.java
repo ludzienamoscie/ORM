@@ -17,10 +17,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class Test1 {
     @org.junit.jupiter.api.Test
     void metoda() {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("CINEMA");
         EntityManager em = emf.createEntityManager();
-        Room room = new Room(1,1);
-        Room room2 = new Room(1,1);
+        Room room = new Room(1,1,3,3,9);
+        Room room2 = new Room(2,1);
         em.getTransaction().begin();
         em.persist(room);
         assertThrows(Exception.class,()->em.persist(room2));

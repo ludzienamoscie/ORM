@@ -5,6 +5,8 @@ import model.Show;
 import model.Ticket;
 
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ShowRepository implements Repository<Show, Long>{
 
@@ -27,11 +29,17 @@ public class ShowRepository implements Repository<Show, Long>{
     }
 
     @Override
-    public void findBy(Show item) {
+    public List<Show> findBy(Predicate<Show> predicate){
+        return repository.stream().filter(predicate).collect(Collectors.toList());
     }
 
     @Override
     public void remove(Show item) {
         repository.remove(item);
+    }
+
+    @Override
+    public int size() {
+        return repository.size();
     }
 }

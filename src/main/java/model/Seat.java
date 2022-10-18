@@ -38,12 +38,6 @@ public class Seat extends AbstractEntity{
         this.isFree = isFree;
     }
 
-    // trzeba wymienic na wyzszy konstruktor i dopasowac testy. czy id moze tu byc?
-    public Seat(Integer row, Integer column) {
-        this.row = row;
-        this.column = column;
-    }
-
     protected Seat() {
     }
 }

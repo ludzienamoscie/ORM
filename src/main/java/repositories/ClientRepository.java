@@ -4,6 +4,8 @@ import model.Client;
 import model.Ticket;
 
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class ClientRepository implements Repository<Client, Long>{
 
@@ -27,11 +29,17 @@ public class ClientRepository implements Repository<Client, Long>{
     }
 
     @Override
-    public void findBy(Client item) {
+    public List<Client> findBy(Predicate<Client> predicate){
+        return repository.stream().filter(predicate).collect(Collectors.toList());
     }
 
     @Override
     public void remove(Client item) {
         repository.remove(item);
+    }
+
+    @Override
+    public int size() {
+        return repository.size();
     }
 }
