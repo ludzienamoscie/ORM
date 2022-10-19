@@ -41,6 +41,10 @@ public class Show extends AbstractEntity{
     @Column(name="AVAILABLESEATS")
     private Integer availableSeats;
 
+    public void decreaseSeats(){
+        availableSeats--;
+    }
+
     public Show(Room room, LocalDateTime beginTime, LocalDateTime endTime, ShowType showType) {
         this.room = room;
         this.beginTime = beginTime;

@@ -20,7 +20,9 @@ public class TicketManager {
     public boolean tryBook (Show show, Client client, double price, Ticket.TicketType ticketType){
         if(!isAvailable(show)) return false;
         Ticket ticket = new Ticket(show,client,price,ticketType);
-        ticketRepository.add(ticket);
+        if(ticketRepository.add(ticket)==null){
+            return false;
+        }
         return true;
     }
 //    // wymagana jest transakcja (do pilnowania ACID)
