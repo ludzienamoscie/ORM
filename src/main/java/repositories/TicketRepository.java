@@ -33,11 +33,14 @@ public class TicketRepository implements Repository<Ticket, Long>{
         }
     }
     @Override
-    public void remove(Ticket item) {
+    public boolean remove(Ticket item) {
         try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
             manager.getTransaction().begin();
             manager.remove(manager.merge(item));
             manager.getTransaction().commit();
+            return true;
+        }catch (Exception exception){
+            return false;
         }
     }
 

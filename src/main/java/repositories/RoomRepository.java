@@ -21,14 +21,19 @@ public class RoomRepository implements Repository<Room, Long>{
             manager.persist(item);
             manager.getTransaction().commit();
             return item;
+        }catch (Exception exception) {
+            return null;
         }
     }
     @Override
-    public void remove(Room item) {
+    public boolean remove(Room item) {
         try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
             manager.getTransaction().begin();
             manager.remove(manager.merge(item));
             manager.getTransaction().commit();
+            return true;
+        }catch (Exception exception){
+            return false;
         }
     }
 

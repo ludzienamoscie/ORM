@@ -20,14 +20,19 @@ public class ClientRepository implements Repository<Client, Long>{
             manager.persist(item);
             manager.getTransaction().commit();
             return item;
+        }catch (Exception exception) {
+            return null;
         }
     }
     @Override
-    public void remove(Client item) {
+    public boolean remove(Client item) {
         try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
             manager.getTransaction().begin();
             manager.remove(manager.merge(item));
             manager.getTransaction().commit();
+            return true;
+        }catch (Exception exception){
+            return false;
         }
     }
 

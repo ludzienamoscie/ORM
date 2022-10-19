@@ -19,7 +19,6 @@ public class Room extends AbstractEntity{
     @Column(name="ROOM_ID")
     private Long room_id;
 
-    // po co room number jak jest room id? // bo roomid jest dla bazy danych a fizycznie jest numer pokoju
     @Column(name="ROOMNUMBER", unique = true)
     private int roomNumber;
 

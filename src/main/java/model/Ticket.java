@@ -21,9 +21,7 @@ public class Ticket extends AbstractEntity {
         seniorTicket,
         groupTicket
     }
-    //@SequenceGenerator(initialValue = 10,name="nazwa")
-    //@GeneratedValue(generator = "nazwa")
-    //Jak jest generowany to nie potrzeba robic columny
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TICKET_ID")

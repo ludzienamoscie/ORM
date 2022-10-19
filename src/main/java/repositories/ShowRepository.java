@@ -22,15 +22,20 @@ public class ShowRepository implements Repository<Show, Long>{
             manager.persist(item);
             manager.getTransaction().commit();
             return item;
+        }catch (Exception exception) {
+            return null;
         }
     }
 
     @Override
-    public void remove(Show item) {
+    public boolean remove(Show item) {
         try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
             manager.getTransaction().begin();
             manager.remove(manager.merge(item));
             manager.getTransaction().commit();
+            return true;
+        }catch (Exception exception){
+            return false;
         }
     }
 

@@ -26,4 +26,7 @@ public class TicketManager {
         }
         return true;
     }
+    public boolean remove(Ticket ticket){
+        return ticketRepository.remove(ticket);
+    }
 }

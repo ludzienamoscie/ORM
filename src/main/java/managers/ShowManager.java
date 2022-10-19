@@ -13,13 +13,17 @@ public class ShowManager {
         this.showRepository = showRepository;
     }
 
-    public Show add(Room room, LocalDateTime beginTime, LocalDateTime endTime, Show.ShowType showType){
+    public boolean add(Room room, LocalDateTime beginTime, LocalDateTime endTime, Show.ShowType showType){
         Show show = new Show(room,beginTime,endTime, showType);
-        return showRepository.add(show);
+        if(showRepository.add(show)==null){
+            return false;
+        }
+        return true;
     }
 
-    public void remove(Show show){
-        showRepository.remove(show);
+    public boolean remove(Show show){
+
+        return showRepository.remove(show);
     }
 
     public Show get(Long id){
