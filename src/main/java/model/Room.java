@@ -26,17 +26,17 @@ public class Room extends AbstractEntity{
     @Column(name="CAPACITY")
     private int capacity;
 
-    @Column(name="ROWS")
-    private Integer rows;
+//    @Column(name="ROWS")
+//    private Integer rows;
+//
+//    @Column(name="COLUMNS")
+//    private Integer columns;
 
-    @Column(name="COLUMNS")
-    private Integer columns;
-
-    public Room(int roomNumber, int capacity, Integer rows, Integer columns) {
+    public Room(int roomNumber, int capacity) {
         this.roomNumber = roomNumber;
         this.capacity = capacity;
-        this.rows = rows;
-        this.columns = columns;
+//        this.rows = rows;
+//        this.columns = columns;
     }
 
     protected Room() {

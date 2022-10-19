@@ -9,14 +9,12 @@ import model.Ticket.TicketType;
 @StaticMetamodel(Ticket.class)
 public abstract class Ticket_ extends model.AbstractEntity_ {
 
-	public static volatile SingularAttribute<Ticket, Seat> seat;
 	public static volatile SingularAttribute<Ticket, Double> price;
 	public static volatile SingularAttribute<Ticket, Show> show;
 	public static volatile SingularAttribute<Ticket, Client> client;
 	public static volatile SingularAttribute<Ticket, TicketType> ticketType;
 	public static volatile SingularAttribute<Ticket, Long> ticket_id;
 
-	public static final String SEAT = "seat";
 	public static final String PRICE = "price";
 	public static final String SHOW = "show";
 	public static final String CLIENT = "client";

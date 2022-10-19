@@ -12,7 +12,7 @@ public class RoomRepository implements Repository<Room, Long>{
 
     private List<Room> repository;
 
-    public RoomRepository(List<Room> repository){
+    public RoomRepository(){
         this.repository = repository;
     }
     @Override

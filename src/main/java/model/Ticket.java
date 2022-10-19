@@ -37,10 +37,6 @@ public class Ticket extends AbstractEntity {
     @JoinColumn(name = "CLIENT_ID")
     private Client client;
 
-    @OneToOne
-    @JoinColumn(name="SEAT_ID")
-    private Seat seat;
-
     @NotNull
     @Column(name = "PRICE")
     private double price;
@@ -49,10 +45,9 @@ public class Ticket extends AbstractEntity {
     @Column(name = "TICKETTYPE")
     private TicketType ticketType;
 
-    public Ticket(Show show, Client client, Seat seat, double price, TicketType ticketType) {
+    public Ticket(Show show, Client client,double price, TicketType ticketType) {
         this.show = show;
         this.client = client;
-        this.seat = seat;
         this.price = price;
         this.ticketType = ticketType;
     }

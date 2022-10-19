@@ -12,7 +12,7 @@ public class ShowRepository implements Repository<Show, Long>{
 
     private List<Show> repository;
 
-    public ShowRepository(List<Show> repository){
+    public ShowRepository(){
         this.repository = repository;
     }
     @Override

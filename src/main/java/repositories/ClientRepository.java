@@ -11,7 +11,7 @@ public class ClientRepository implements Repository<Client, Long>{
 
     private List<Client> repository;
 
-    public ClientRepository(List<Client> repository){
+    public ClientRepository(){
         this.repository = repository;
     }
 

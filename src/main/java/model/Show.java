@@ -41,12 +41,12 @@ public class Show extends AbstractEntity{
     @Column(name="AVAILABLESEATS")
     private Integer availableSeats;
 
-    public Show(Room room, LocalDateTime beginTime, LocalDateTime endTime, ShowType showType, Integer availableSeats) {
+    public Show(Room room, LocalDateTime beginTime, LocalDateTime endTime, ShowType showType) {
         this.room = room;
         this.beginTime = beginTime;
         this.endTime = endTime;
         this.showType = showType;
-        this.availableSeats = availableSeats;
+        this.availableSeats = room.getCapacity();
     }
 
     protected Show() {
