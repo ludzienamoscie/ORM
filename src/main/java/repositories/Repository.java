@@ -11,9 +11,9 @@ public interface Repository <T,id_T> {
 
     T get (id_T id);
 
-//    List<T> findBy(Predicate<T> predicate);
-
     void remove (T item);
+
+    //    List<T> findBy(Predicate<T> predicate);
 
 //    int size();
 

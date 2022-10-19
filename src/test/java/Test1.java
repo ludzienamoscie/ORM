@@ -1,6 +1,8 @@
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import managers.ClientManager;
+import managers.TicketManager;
 import model.Client;
 import model.Room;
 import model.Show;
@@ -39,17 +41,22 @@ public class Test1 {
 
         }
     }
+    private static final TicketRepository ticketRepository = new TicketRepository();
 
     @org.junit.jupiter.api.Test
     void repositoriesTest() {
-        Date birthday1 = new Date(2001,02,03);
-        Client client1 = new Client(birthday1,"123456789", Client.ClientType.adult, "Anna", "Metoda");
+        try(EntityManager manager = emf.createEntityManager()) {
 
-        ClientRepository clientRepository = new ClientRepository();
-        clientRepository.add(client1);
+            TicketManager ticketManager = new TicketManager(ticketRepository);
 
-        // nie generuje klientowi id
-        //assertNotNull(clientRepository.get(client1.getClient_id()));
+            Date birthday1 = new Date(2001, 02, 03);
+            Client client = new Client(birthday1, "123456789", Client.ClientType.adult, "Jan", "Kowalski");
+            Room room = new Room(1, 2);
+            Show show = new Show(room, LocalDateTime.now().plusDays(3), LocalDateTime.now().plusDays(3).plusHours(2), Show.ShowType.show3D);
+
+            ticketManager.tryBook(show,client,10,Ticket.TicketType.adultTicket);
+
+        }
     }
 
 }

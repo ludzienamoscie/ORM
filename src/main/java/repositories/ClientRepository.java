@@ -38,7 +38,8 @@ public class ClientRepository implements Repository<Client, Long>{
         }
     }
 
-//    @Override
+
+    //    @Override
 //    public List<Client> findBy(Predicate<Client> predicate){
 //        return repository.stream().filter(predicate).collect(Collectors.toList());
 //    }
