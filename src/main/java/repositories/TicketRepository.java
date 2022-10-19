@@ -52,15 +52,4 @@ public class TicketRepository implements Repository<Ticket, Long>{
         if(show.getAvailableSeats() > 0) return true;
         else return false;
     }
-
-//    @Override
-//    public List<Ticket> findBy(Predicate<Ticket> predicate){
-//        return repository.stream().filter(predicate).collect(Collectors.toList());
-//    }
-
-
-//    @Override
-//    public int size() {
-//        return repository.size();
-//    }
 }

@@ -40,14 +40,4 @@ public class ShowRepository implements Repository<Show, Long>{
             return manager.find(Show.class, show_id);
         }
     }
-
-//    @Override
-//    public List<Show> findBy(Predicate<Show> predicate){
-//        return repository.stream().filter(predicate).collect(Collectors.toList());
-//    }
-//
-//    @Override
-//    public int size() {
-//        return repository.size();
-//    }
 }

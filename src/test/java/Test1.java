@@ -89,5 +89,4 @@ public class Test1 {
         assertFalse(ticketManager.tryBook(show,client,10, Ticket.TicketType.adultTicket));
 
     }
-
 }

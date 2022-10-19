@@ -37,15 +37,4 @@ public class ClientRepository implements Repository<Client, Long>{
             return manager.find(Client.class, client_id);
         }
     }
-
-
-    //    @Override
-//    public List<Client> findBy(Predicate<Client> predicate){
-//        return repository.stream().filter(predicate).collect(Collectors.toList());
-//    }
-
-//    @Override
-//    public int size() {
-//        return repository.size();
-//    }
 }

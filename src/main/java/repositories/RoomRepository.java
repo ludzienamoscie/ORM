@@ -38,15 +38,4 @@ public class RoomRepository implements Repository<Room, Long>{
             return manager.find(Room.class, room_id);
         }
     }
-
-//    @Override
-//    public List<Room> findBy(Predicate<Room> predicate){
-//        return repository.stream().filter(predicate).collect(Collectors.toList());
-//    }
-//
-//
-//    @Override
-//    public int size() {
-//        return repository.size();
-//    }
 }
