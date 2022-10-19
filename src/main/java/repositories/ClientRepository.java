@@ -1,5 +1,7 @@
 package repositories;
 
+import Util.EntityManagerCreator;
+import jakarta.persistence.EntityManager;
 import model.Client;
 import model.Ticket;
 
@@ -7,39 +9,42 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import static model.Client_.client_id;
+
 public class ClientRepository implements Repository<Client, Long>{
 
-    private List<Client> repository;
-
-    public ClientRepository(){
-        this.repository = repository;
-    }
-
     @Override
-    public void add(Client item) {
-        repository.add(item);
+    public Client add(Client item) {
+        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
+            manager.getTransaction().begin();
+            manager.persist(item);
+            manager.getTransaction().commit();
+            return item;
+        }
+    }
+    @Override
+    public void remove(Client item) {
+        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
+            manager.getTransaction().begin();
+            manager.remove(manager.merge(item));
+            manager.getTransaction().commit();
+        }
     }
 
     @Override
     public Client get(Long id) {
-        for(Client c : repository) {
-            if(c.getClient_id().equals(id)) return c;
+        try(EntityManager manager = EntityManagerCreator.getEntityManager()){
+            return manager.find(Client.class, client_id);
         }
-        return null;
     }
 
-    @Override
-    public List<Client> findBy(Predicate<Client> predicate){
-        return repository.stream().filter(predicate).collect(Collectors.toList());
-    }
+//    @Override
+//    public List<Client> findBy(Predicate<Client> predicate){
+//        return repository.stream().filter(predicate).collect(Collectors.toList());
+//    }
 
-    @Override
-    public void remove(Client item) {
-        repository.remove(item);
-    }
-
-    @Override
-    public int size() {
-        return repository.size();
-    }
+//    @Override
+//    public int size() {
+//        return repository.size();
+//    }
 }

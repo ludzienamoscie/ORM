@@ -24,7 +24,6 @@ public class Test1 {
     void method() {
 
         try(EntityManager em = emf.createEntityManager()) {
-            TicketRepository ticketRepository = new TicketRepository(new ArrayList<>());
             Date birthday1 = new Date(2001, 02, 03);
             Room room = new Room(1, 9);
             Client client = new Client(birthday1, "123456789", Client.ClientType.adult, "Jan", "Kowalski");
