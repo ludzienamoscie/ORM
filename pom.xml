@@ -68,6 +68,21 @@
             <version>1.9.0</version>
             <scope>compile</scope>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.mongodb</groupId>-->
+<!--            <artifactId>mongodb-driver-sync</artifactId>-->
+<!--            <version>4.7.1</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.mongodb</groupId>-->
+<!--            <artifactId>mongodb-crypt</artifactId>-->
+<!--            <version></version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>ch.qos.logback</groupId>-->
+<!--            <artifactId>logback-classic</artifactId>-->
+<!--            <version>1.2.11</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>
