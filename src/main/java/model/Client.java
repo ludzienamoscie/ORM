@@ -3,50 +3,55 @@ package model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import java.util.UUID;
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import java.util.Date;
+
 
 @Getter
 @Setter
-@Entity
-@Table(name="Client")
-@Access(AccessType.FIELD)
 public class Client extends AbstractEntity{
 
+    //    Nie wem jak to przerobic
     public enum ClientType {
         adult,
         minor,
         senior
     }
 
+//    Nie wem jak to przerobic
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="CLIENT_ID")
     private Long client_id;
 
-    @Column(name="BIRTHDAY")
-    private Date birthday;
-
-    @Column(name="PHONENUMBER")
-    private String phoneNumber;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name="CLIENTTYPE")
-    private ClientType clientType;
-
-    @Column(name="FIRSTNAME")
-    private String firstName;
-
-    @Column(name="LASTNAME")
-    private String lastName;
-
-    public Client(Date birthday, String phoneNumber, ClientType clientType, String firstName, String lastName) {
+    @BsonCreator
+    public Client(@BsonProperty("birthday") Date birthday,
+                  @BsonProperty("phoneNumber") String phoneNumber,
+                  @BsonProperty("clientType") ClientType clientType,
+                  @BsonProperty("firstName") String firstName,
+                  @BsonProperty("lastname") String lastName) {
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.clientType = clientType;
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+    @BsonProperty("birthday")
+    private Date birthday;
+
+    @BsonProperty("phoneNumber")
+    private String phoneNumber;
+
+    @BsonProperty("clientType")
+    private ClientType clientType;
+
+    @BsonProperty("firstName")
+    private String firstName;
+
+    @BsonProperty("lastname")
+    private String lastName;
 
     protected Client() {
     }

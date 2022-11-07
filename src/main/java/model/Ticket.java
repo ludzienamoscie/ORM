@@ -4,17 +4,17 @@ import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import javax.annotation.processing.Generated;
 import java.util.UUID;
 
 @Getter
 @Setter
-@Entity
-@Table(name="Ticket")
-@Access(AccessType.FIELD)
 public class Ticket extends AbstractEntity {
 
+    //    Nie wem jak to przerobic
    public enum TicketType{
         adultTicket,
         minorTicket,
@@ -22,28 +22,36 @@ public class Ticket extends AbstractEntity {
         groupTicket
     }
 
+    //    Nie wem jak to przerobic
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "TICKET_ID")
     private Long ticket_id;
 
+    //    Nie wem jak to przerobic
     @ManyToOne
     @JoinColumn(name = "SHOW_ID")
+    @BsonProperty("show")
     private Show show;
 
+    //    Nie wem jak to przerobic
     @OneToOne
     @JoinColumn(name = "CLIENT_ID")
+    @BsonProperty("client")
     private Client client;
 
     @NotNull
-    @Column(name = "PRICE")
+    @BsonProperty("price")
     private double price;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "TICKETTYPE")
+    @BsonProperty("ticketType")
     private TicketType ticketType;
 
-    public Ticket(Show show, Client client,double price, TicketType ticketType) {
+    @BsonCreator
+    public Ticket(@BsonProperty("show") Show show,
+                  @BsonProperty("client") Client client,
+                  @BsonProperty("price") double price,
+                  @BsonProperty("ticketType") TicketType ticketType) {
         this.show = show;
         this.client = client;
         this.price = price;

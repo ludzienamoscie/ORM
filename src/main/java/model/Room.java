@@ -3,29 +3,31 @@ package model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-@Entity
-@Table(name="Room")
-@Access(AccessType.FIELD)
 public class Room extends AbstractEntity{
 
+    //    Nie wem jak to przerobic
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ROOM_ID")
     private Long room_id;
 
-    @Column(name="ROOMNUMBER", unique = true)
+    @BsonProperty("roomNumber")
     private int roomNumber;
 
-    @Column(name="CAPACITY")
+    @BsonProperty("capacity")
     private int capacity;
 
-    public Room(int roomNumber, int capacity) {
+    @BsonCreator
+    public Room(@BsonProperty("roomNumber") int roomNumber,
+                @BsonProperty("capacity") int capacity) {
         this.roomNumber = roomNumber;
         this.capacity = capacity;
     }
