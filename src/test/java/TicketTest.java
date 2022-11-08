@@ -46,11 +46,9 @@ public class TicketTest {
 
             //Sprawdzenie czy ticket zostanie dodany za pomoca Repository
             assertNotNull(ticketRepository.add(ticket));
-            //Capacity expected - 1
 
             //Sprawdzenie czy ticket zostanie dodany za pomoca Managera
             assertTrue(ticketManager.tryBook(show,client,5, Ticket.TicketType.adultTicket));
-            //Capacity expected - 0
 
             //Sprawdzenie czy nie mozna dodac kolejnego ticketu
             assertFalse(ticketManager.tryBook(show,client,5, Ticket.TicketType.adultTicket));
