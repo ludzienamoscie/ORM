@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import repositories.UniqueIdMgd;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +14,30 @@ import java.util.List;
 @Setter
 public class Room extends AbstractEntity{
 
-    //    Nie wem jak to przerobic
-    @Id
+    @BsonCreator
+    public Room(@BsonProperty("id")UniqueIdMgd entityId,
+                @BsonProperty("room_id") Long room_id,
+                @BsonProperty("roomNumber") int roomNumber,
+                @BsonProperty("capacity") int capacity) {
+        super(entityId);
+        this.room_id = room_id;
+        this.roomNumber = roomNumber;
+        this.capacity = capacity;
+    }
+
+    public Room(
+            Long room_id,
+            int roomNumber,
+            int capacity
+    ){
+        super(new UniqueIdMgd());
+        this.room_id = room_id;
+        this.roomNumber = roomNumber;
+        this.capacity = capacity;
+    }
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ROOM_ID")
+    @BsonProperty("room_id")
     private Long room_id;
 
     @BsonProperty("roomNumber")
@@ -24,13 +45,6 @@ public class Room extends AbstractEntity{
 
     @BsonProperty("capacity")
     private int capacity;
-
-    @BsonCreator
-    public Room(@BsonProperty("roomNumber") int roomNumber,
-                @BsonProperty("capacity") int capacity) {
-        this.roomNumber = roomNumber;
-        this.capacity = capacity;
-    }
 
     @Override
     public void close() throws Exception {

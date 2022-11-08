@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
+import repositories.UniqueIdMgd;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -14,21 +15,32 @@ import java.util.UUID;
 @Setter
 public class Show extends AbstractEntity{
 
+    @BsonCreator
+    public Show(@BsonProperty("id") UniqueIdMgd entityId,
+                @BsonProperty("show_id") Long show_id,
+                @BsonProperty("room") Room room,
+                @BsonProperty("beginTime") LocalDateTime beginTime,
+                @BsonProperty("endTime") LocalDateTime endTime,
+                @BsonProperty("showType") ShowType showType) {
+        super(entityId);
+        this.show_id = show_id;
+        this.room = room;
+        this.beginTime = beginTime;
+        this.endTime = endTime;
+        this.showType = showType;
+        this.availableSeats = room.getCapacity();
+    }
+
     //    Nie wem jak to przerobic
     public enum ShowType {
         show2D,
         show3D
     }
 
-    //    Nie wem jak to przerobic
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="SHOW_ID")
+    @BsonProperty("show_id")
     private Long show_id;
 
-    //    Nie wem jak to przerobic
-    @ManyToOne
-    @JoinColumn(name="ROOM_ID")
     @BsonProperty("room")
     private Room room;
 
@@ -42,23 +54,11 @@ public class Show extends AbstractEntity{
     private ShowType showType;
 
     // nie wiem jak to przerobic jak nie jest w konstruktorze
-    @Column(name="AVAILABLESEATS")
+
     private Integer availableSeats;
 
     public void decreaseSeats(){
         availableSeats--;
-    }
-
-    @BsonCreator
-    public Show(@BsonProperty("room") Room room,
-                @BsonProperty("beginTime") LocalDateTime beginTime,
-                @BsonProperty("endTime") LocalDateTime endTime,
-                @BsonProperty("showType") ShowType showType) {
-        this.room = room;
-        this.beginTime = beginTime;
-        this.endTime = endTime;
-        this.showType = showType;
-        this.availableSeats = room.getCapacity();
     }
 
     @Override
