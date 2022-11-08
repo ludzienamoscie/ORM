@@ -32,6 +32,9 @@ public class Room extends AbstractEntity{
         this.capacity = capacity;
     }
 
-    protected Room() {
+    @Override
+    public void close() throws Exception {
+
     }
+
 }

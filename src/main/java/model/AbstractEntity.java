@@ -3,17 +3,24 @@ package model;
 import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.hibernate.annotations.NamedQuery;
+import repositories.UniqueIdMgd;
 
 
 import java.io.Serializable;
 
 @MappedSuperclass
-public abstract class AbstractEntity implements Serializable {
+public abstract class AbstractEntity implements AutoCloseable {
 
-    @Version
-    private long version;
+    public AbstractEntity(UniqueIdMgd entityId) {
+        this.entityId = entityId;
+    }
 
-    protected AbstractEntity() {
+    @BsonProperty("_id")
+    private final UniqueIdMgd entityId;
+
+    public UniqueIdMgd getEntityId() {
+        return entityId;
     }
 }

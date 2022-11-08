@@ -57,6 +57,8 @@ public class Ticket extends AbstractEntity {
         this.price = price;
         this.ticketType = ticketType;
     }
-    protected Ticket() {
-       }
+    @Override
+    public void close() throws Exception {
+    }
+
 }

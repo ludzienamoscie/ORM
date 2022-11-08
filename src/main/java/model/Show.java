@@ -61,6 +61,9 @@ public class Show extends AbstractEntity{
         this.availableSeats = room.getCapacity();
     }
 
-    protected Show() {
+    @Override
+    public void close() throws Exception {
+
     }
+
 }

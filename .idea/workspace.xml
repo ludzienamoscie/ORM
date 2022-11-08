@@ -5,16 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/mapper/ClientMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mapper/RoomMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mapper/ShowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mapper/TicketMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/UniqueIdMgd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/UniqueIdCodec.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/UniqueIdCodec.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/UniqueIdCodecProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/UniqueIdCodecProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TicketTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TicketTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TicketTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +156,7 @@
       <workItem from="1666190509752" duration="26094000" />
       <workItem from="1666218499335" duration="6000" />
       <workItem from="1666260940927" duration="4600000" />
-      <workItem from="1667933314288" duration="1895000" />
+      <workItem from="1667933314288" duration="3605000" />
     </task>
     <servers />
   </component>

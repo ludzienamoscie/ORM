@@ -6,7 +6,7 @@ public class UniqueIdMgd {
 
     private UUID uuid;
 
-    public UniqueIdMgd(){
+    public UniqueIdMgd() {
         this.uuid = UUID.randomUUID();
     }
 
@@ -25,7 +25,4 @@ public class UniqueIdMgd {
     public String toString() {
         return uuid.toString();
     }
-
-
-
 }
