@@ -1,48 +1,39 @@
 package repositories;
 
 import Util.EntityManagerCreator;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import jakarta.persistence.EntityManager;
 import model.Client;
 import model.Room;
 import model.Show;
 import model.Ticket;
-
+import org.bson.conversions.Bson;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import static model.Room_.room_id;
-import static model.Show_.show_id;
 
-public class ShowRepository implements Repository<Show, Long>{
+
+public class ShowRepository extends AbstractRepository implements Repository<Show, Long>{
+
+    MongoCollection<Show> showCollection = mongoDatabase.getCollection("shows", Show.class);
+
     @Override
     public Show add(Show item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            manager.getTransaction().begin();
-            manager.persist(item);
-            manager.getTransaction().commit();
-            return item;
-        }catch (Exception exception) {
-            return null;
-        }
+        showCollection.insertOne(item);
+        return item;
     }
 
     @Override
-    public boolean remove(Show item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            manager.getTransaction().begin();
-            manager.remove(manager.merge(item));
-            manager.getTransaction().commit();
-            return true;
-        }catch (Exception exception){
-            return false;
-        }
+    public void remove(Show item) {
+        Bson filter = Filters.eq("_id", item.getUUID());
+        showCollection.findOneAndDelete(filter);
     }
 
     @Override
     public Show get(Long id) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()){
-            return manager.find(Show.class, show_id);
-        }
+        Bson filter = Filters.eq("_id", id);
+        return showCollection.find(filter).first();
     }
 }

@@ -1,45 +1,31 @@
 package repositories;
 
 import Util.EntityManagerCreator;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import jakarta.persistence.EntityManager;
 import model.Client;
 import model.Ticket;
+import org.bson.conversions.Bson;
 
-import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-import static model.Client_.client_id;
+public class ClientRepository extends AbstractRepository implements Repository<Client, Long>{
 
-public class ClientRepository implements Repository<Client, Long>{
-
+    MongoCollection<Client> clientCollection = mongoDatabase.getCollection("clients", Client.class);
     @Override
     public Client add(Client item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            manager.getTransaction().begin();
-            manager.persist(item);
-            manager.getTransaction().commit();
-            return item;
-        }catch (Exception exception) {
-            return null;
-        }
+        clientCollection.insertOne(item);
+        return item;
     }
     @Override
-    public boolean remove(Client item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            manager.getTransaction().begin();
-            manager.remove(manager.merge(item));
-            manager.getTransaction().commit();
-            return true;
-        }catch (Exception exception){
-            return false;
-        }
+    public void remove(Client item) {
+        Bson filter = Filters.eq("_id", item.getUUID());
+        clientCollection.findOneAndDelete(filter);
     }
 
     @Override
     public Client get(Long id) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()){
-            return manager.find(Client.class, client_id);
-        }
+        Bson filter = Filters.eq("_id", id);
+        return clientCollection.find(filter).first();
     }
 }

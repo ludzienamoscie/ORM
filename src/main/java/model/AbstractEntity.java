@@ -9,18 +9,18 @@ import repositories.UniqueIdMgd;
 
 
 import java.io.Serializable;
+import java.util.UUID;
 
-@MappedSuperclass
-public abstract class AbstractEntity implements AutoCloseable {
+public abstract class AbstractEntity {
 
-    public AbstractEntity(UniqueIdMgd entityId) {
-        this.entityId = entityId;
+    public AbstractEntity(UUID uuid) {
+        this.uuid = uuid;
     }
 
     @BsonProperty("_id")
-    private final UniqueIdMgd entityId;
+    private final UUID uuid;
 
-    public UniqueIdMgd getEntityId() {
-        return entityId;
+    public UUID getUUID() {
+        return uuid;
     }
 }

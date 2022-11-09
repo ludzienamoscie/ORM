@@ -1,54 +1,36 @@
 package repositories;
 
-import Util.EntityManagerCreator;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.LockModeType;
-import model.Room;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import model.Show;
 import model.Ticket;
+import org.bson.conversions.Bson;
 
-import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+public class TicketRepository extends AbstractRepository implements Repository<Ticket, Long>{
 
-import static model.Room_.room_id;
-import static model.Ticket_.show;
-import static model.Ticket_.ticket_id;
-
-public class TicketRepository implements Repository<Ticket, Long>{
+    MongoCollection<Ticket> ticketCollection = mongoDatabase.getCollection("tickets", Ticket.class);
 
     @Override
-    public Ticket add(Ticket item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            manager.getTransaction().begin();
+    public synchronized Ticket add(Ticket item) {
             Show show = manager.find(Show.class,item.getShow().getShow_id());
             if(isAvailable(show) == false ){
-                manager.getTransaction().rollback();
                 return null;
             }
-            manager.persist(item);
+            ticketCollection.insertOne(item);
             show.decreaseSeats();
-            manager.getTransaction().commit();
             return item;
-        }
+
     }
     @Override
-    public boolean remove(Ticket item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            manager.getTransaction().begin();
-            manager.remove(manager.merge(item));
-            manager.getTransaction().commit();
-            return true;
-        }catch (Exception exception){
-            return false;
-        }
+    public void remove(Ticket item) {
+        Bson filter = Filters.eq("_id", item.getUUID());
+        ticketCollection.findOneAndDelete(filter);
     }
 
     @Override
     public Ticket get(Long id) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()){
-            return manager.find(Ticket.class, ticket_id);
-        }
+        Bson filter = Filters.eq("_id", id);
+        return ticketCollection.find(filter).first();
     }
 
     public boolean isAvailable(Show show){

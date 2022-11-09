@@ -18,15 +18,15 @@ public class TicketManager {
         else return false;
     }
 
-    public boolean tryBook(Long ticket_id,Show show, Client client, double price, Ticket.TicketType ticketType) {
+    public boolean tryBook(Show show, Client client, double price, Ticket.TicketType ticketType) {
         if (!isAvailable(show)) return false;
-        Ticket ticket = new Ticket(ticket_id,show, client, price, ticketType);
+        Ticket ticket = new Ticket(show, client, price, ticketType);
         if (ticketRepository.add(ticket) == null) {
             return false;
         }
         return true;
     }
-    public boolean remove(Ticket ticket){
-        return ticketRepository.remove(ticket);
+    public void remove(Ticket ticket){
+        ticketRepository.remove(ticket);
     }
 }

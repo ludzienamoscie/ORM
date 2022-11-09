@@ -5,7 +5,11 @@
       <database-info product="Mongo DB" version="6.0.2" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.17" dbms="MONGO" exact-version="6.0.2" exact-driver-version="1.17" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <user-name>admin</user-name>
-      <schema-mapping />
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" negative="1" />
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>

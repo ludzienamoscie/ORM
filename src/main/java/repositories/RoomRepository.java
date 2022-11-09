@@ -1,46 +1,32 @@
 package repositories;
 
 import Util.EntityManagerCreator;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import jakarta.persistence.EntityManager;
 import model.Client;
 import model.Room;
 import model.Ticket;
+import org.bson.conversions.Bson;
 
-import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
+public class RoomRepository extends AbstractRepository implements Repository<Room, Long>{
 
-import static model.Room_.room_id;
-
-public class RoomRepository implements Repository<Room, Long>{
+    MongoCollection<Room> roomCollection = mongoDatabase.getCollection("rooms", Room.class);
 
     @Override
     public Room add(Room item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            manager.getTransaction().begin();
-            manager.persist(item);
-            manager.getTransaction().commit();
-            return item;
-        }catch (Exception exception) {
-            return null;
-        }
+        roomCollection.insertOne(item);
+        return item;
     }
     @Override
-    public boolean remove(Room item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            manager.getTransaction().begin();
-            manager.remove(manager.merge(item));
-            manager.getTransaction().commit();
-            return true;
-        }catch (Exception exception){
-            return false;
-        }
+    public void remove(Room item) {
+        Bson filter = Filters.eq("_id", item.getUUID());
+        roomCollection.findOneAndDelete(filter);
     }
 
     @Override
     public Room get(Long id) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()){
-            return manager.find(Room.class, room_id);
-        }
+        Bson filter = Filters.eq("_id", id);
+        return roomCollection.find(filter).first();
     }
 }

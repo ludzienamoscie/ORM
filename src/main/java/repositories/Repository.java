@@ -11,6 +11,6 @@ public interface Repository <T,id_T> {
 
     T get (id_T id);
 
-    boolean remove (T item);
+    void remove (T item);
 
 }
