@@ -5,14 +5,16 @@ import com.mongodb.client.model.Filters;
 import model.Client;
 import org.bson.conversions.Bson;
 
-public class ClientRepository extends AbstractRepository implements Repository<Client, Long>{
+public class ClientRepository extends AbstractRepository implements Repository<Client, Long> {
 
     MongoCollection<Client> clientCollection = mongoDatabase.getCollection("clients", Client.class);
+
     @Override
     public Client add(Client item) {
         clientCollection.insertOne(item);
         return item;
     }
+
     @Override
     public void remove(Client item) {
         Bson filter = Filters.eq("_id", item.getUUID());
@@ -24,4 +26,9 @@ public class ClientRepository extends AbstractRepository implements Repository<C
         Bson filter = Filters.eq("_id", id);
         return clientCollection.find(filter).first();
     }
+
+    public long size() {
+        return clientCollection.countDocuments();
+    }
+
 }
