@@ -6,7 +6,9 @@ import model.Client;
 import model.Ticket;
 import org.bson.conversions.Bson;
 
-public class ClientRepository extends AbstractRepository implements Repository<Client, Long> {
+import java.util.UUID;
+
+public class ClientRepository extends AbstractRepository implements Repository<Client, UUID> {
 
     MongoCollection<Client> clientCollection = mongoDatabase.getCollection("clients", Client.class);
 
@@ -23,7 +25,7 @@ public class ClientRepository extends AbstractRepository implements Repository<C
     }
 
     @Override
-    public Client get(Long id) {
+    public Client get(UUID id) {
         Bson filter = Filters.eq("_id", id);
         return clientCollection.find(filter).first();
     }

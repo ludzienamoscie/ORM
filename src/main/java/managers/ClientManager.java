@@ -4,6 +4,7 @@ import model.Client;
 import repositories.ClientRepository;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class ClientManager {
     ClientRepository clientRepository;
@@ -20,9 +21,9 @@ public class ClientManager {
         return true;
     }
     public void remove(Client client){
-       clientRepository.remove(client);
+        clientRepository.remove(client);
     }
-    public Client get(Long id){
+    public Client get(UUID id){
         return clientRepository.get(id);
     }
 }

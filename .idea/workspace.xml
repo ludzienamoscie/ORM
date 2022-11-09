@@ -5,36 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
-      <change afterPath="$PROJECT_DIR$/target/classes/Util/AbstractMongoRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Util/EntityManagerCreator.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Util/UniqueIdCodec.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Util/UniqueIdCodecProvider.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/managers/ClientManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/managers/RoomManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/managers/ShowManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/managers/TicketManager.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Client$ClientType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Room.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Show$ShowType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Show.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Ticket$TicketType.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/model/Ticket.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repositories/AbstractRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repositories/ClientRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repositories/Repository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repositories/RoomRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repositories/ShowRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/ClientTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/RoomTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/ShowTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/TicketTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
     </list>
+    <list id="41373aa6-6216-41d0-bbba-2dce12bdd681" name="Changes by miszczu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

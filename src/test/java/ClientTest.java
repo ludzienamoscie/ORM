@@ -1,8 +1,13 @@
+import com.mongodb.client.model.Filters;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import managers.ClientManager;
 import model.Client;
+import org.bson.BsonDocumentReader;
+import org.bson.conversions.Bson;
+import org.bson.json.JsonObject;
+import org.bson.json.JsonWriter;
 import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.Test;
 import repositories.ClientRepository;
@@ -36,8 +41,8 @@ public class ClientTest {
 
         //Sprawdzenie czy drugi identyczny klient sie nie doda
 //            assertNull(clientRepository.add(client1))
-//        clientRepository.add(client1);
-//        assertEquals(oldSize + 1, clientRepository.size());
+        clientRepository.add(client1);
+        assertEquals(oldSize + 1 , clientRepository.size());
 
         //Sprawdzenie czy clientManager dodaje klienta
         assertTrue(clientManager.add(date, "400400400", Client.ClientType.minor, "Janina", "Kowalska"));
@@ -58,12 +63,31 @@ public class ClientTest {
         long oldSize = clientRepository.size();
         System.out.print(oldSize);
         //Sprawdzenie czy client1 zostanie usuniety za pomoca Managera
-//        clientRepository.remove(client1);
-//        assertEquals(oldSize - 1, clientRepository.size());
+        clientRepository.remove(client1);
+        assertEquals(oldSize - 1, clientRepository.size());
 //
 //        //Sprawdzenie czy client2 zostanie usuniety za pomoca Repository
-//        clientRepository.remove(client2);
-//        assertEquals(oldSize - 2, clientRepository.size());
+        clientRepository.remove(client2);
+        assertEquals(oldSize - 2, clientRepository.size());
 
+    }
+
+    @Test
+    void updateClientTest() {
+        Date date = new Date(2000, 10, 9);
+        Client client = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
+        clientRepository.add(client);
+        Client client2 = clientRepository.get(client.getUUID());
+        client2.setClientType(Client.ClientType.senior);
+
+        clientRepository.update(client, client2);
+
+        assertEquals(client2.getClientType(), clientRepository.get(client.getUUID()));
+    }
+
+    @Test
+    void toDocTest() {
+        Date date = new Date(2000, 10, 9);
+        Client client = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
     }
 }
