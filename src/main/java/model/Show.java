@@ -1,16 +1,11 @@
 package model;
 
-import com.sun.istack.NotNull;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import net.bytebuddy.asm.Advice;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import repositories.UniqueIdMgd;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 import java.util.UUID;
 
 @Getter
@@ -19,11 +14,13 @@ public class Show extends AbstractEntity{
 
     @BsonCreator
     public Show(@BsonProperty("_id") UUID uuid,
+                @BsonProperty("show_id") Long show_id,
                 @BsonProperty("room") Room room,
                 @BsonProperty("beginTime") LocalDateTime beginTime,
                 @BsonProperty("endTime") LocalDateTime endTime,
                 @BsonProperty("showType") ShowType showType) {
         super(uuid);
+        this.show_id = show_id;
         this.room = room;
         this.beginTime = beginTime;
         this.endTime = endTime;
@@ -32,12 +29,14 @@ public class Show extends AbstractEntity{
     }
 
     public Show(
+            Long show_id,
             Room room,
             LocalDateTime beginTime,
             LocalDateTime endTime,
             ShowType showType
     ){
         super(UUID.randomUUID());
+        this.show_id = show_id;
         this.room = room;
         this.beginTime = beginTime;
         this.endTime = endTime;
@@ -49,8 +48,8 @@ public class Show extends AbstractEntity{
         show3D
     }
 
-//    @BsonProperty("show_id")
-//    private Long show_id;
+    @BsonProperty("show_id")
+    private Long show_id;
 
     @BsonProperty("room")
     private Room room;

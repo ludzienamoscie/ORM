@@ -1,16 +1,10 @@
 package model;
 
-import com.sun.istack.NotNull;
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
-import repositories.UniqueIdMgd;
 
-import javax.annotation.processing.Generated;
-import java.util.Objects;
-import java.util.StringJoiner;
 import java.util.UUID;
 
 @Getter

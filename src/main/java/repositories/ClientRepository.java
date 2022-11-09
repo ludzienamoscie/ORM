@@ -1,13 +1,9 @@
 package repositories;
 
-import Util.EntityManagerCreator;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
-import jakarta.persistence.EntityManager;
 import model.Client;
-import model.Ticket;
 import org.bson.conversions.Bson;
-
 
 public class ClientRepository extends AbstractRepository implements Repository<Client, Long>{
 
