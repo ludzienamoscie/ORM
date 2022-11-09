@@ -9,9 +9,6 @@ import repositories.UniqueIdMgd;
 
 import java.util.Date;
 
-
-@Getter
-@Setter
 public class Client extends AbstractEntity{
 
     @BsonCreator
@@ -81,5 +78,51 @@ public class Client extends AbstractEntity{
 
     }
 
+    public Long getClient_id() {
+        return client_id;
+    }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public ClientType getClientType() {
+        return clientType;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setClient_id(Long client_id) {
+        this.client_id = client_id;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setClientType(ClientType clientType) {
+        this.clientType = clientType;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }

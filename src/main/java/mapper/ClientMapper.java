@@ -1,6 +1,7 @@
 package mapper;
 
 import model.Client;
+import repositories.UniqueIdMgd;
 import org.bson.Document;
 
 import static org.hibernate.jpamodelgen.util.Constants.ID;
