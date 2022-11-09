@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="">
+    <list default="true" id="773b02e9-fa76-42e9-a8ca-39e3a9b353c9" name="Changes" comment="-">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2022_08_46__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2022_08_46__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Show.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ShowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ShowTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TicketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyFile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/keyFile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongod.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongod.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -71,17 +70,7 @@
       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TicketTest.ticketAddTest">
-    <configuration name="ClientTest.clientAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ORM" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ClientTest" />
-      <option name="METHOD_NAME" value="clientAddTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Docker.docker: Compose Deployment">
     <configuration name="ClientTest.clientRemoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
@@ -122,13 +111,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker: Compose Deployment" />
         <item itemvalue="JUnit.TicketTest.ticketAddTest" />
         <item itemvalue="JUnit.ClientTest.clientRemoveTest" />
         <item itemvalue="JUnit.TicketTest.ticketRemoveTest" />
         <item itemvalue="JUnit.TicketTest.versionTest" />
-        <item itemvalue="JUnit.ClientTest.clientAddTest" />
       </list>
     </recent_temporary>
   </component>
