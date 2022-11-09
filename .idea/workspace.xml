@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
-      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/AbstractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/ClientMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +173,7 @@
       <workItem from="1666218499335" duration="6000" />
       <workItem from="1666260940927" duration="4600000" />
       <workItem from="1667933314288" duration="4815000" />
-      <workItem from="1668005019722" duration="1842000" />
+      <workItem from="1668005019722" duration="2749000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>

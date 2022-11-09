@@ -9,13 +9,12 @@ import repositories.UniqueIdMgd;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-@Getter
-@Setter
 public class Room extends AbstractEntity{
 
     @BsonCreator
-    public Room(@BsonProperty("id")UniqueIdMgd entityId,
+    public Room(@BsonProperty("_id")UniqueIdMgd entityId,
                 @BsonProperty("room_id") Long room_id,
                 @BsonProperty("roomNumber") int roomNumber,
                 @BsonProperty("capacity") int capacity) {
@@ -48,7 +47,42 @@ public class Room extends AbstractEntity{
 
     @Override
     public void close() throws Exception {
-
     }
 
+    public Long getRoom_id() {
+        return room_id;
+    }
+
+    public void setRoom_id(Long room_id) {
+        this.room_id = room_id;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return roomNumber == room.roomNumber && capacity == room.capacity && Objects.equals(room_id, room.room_id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(room_id, roomNumber, capacity);
+    }
 }

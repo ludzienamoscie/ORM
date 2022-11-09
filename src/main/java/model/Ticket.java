@@ -9,14 +9,14 @@ import org.bson.codecs.pojo.annotations.BsonProperty;
 import repositories.UniqueIdMgd;
 
 import javax.annotation.processing.Generated;
+import java.util.Objects;
+import java.util.StringJoiner;
 import java.util.UUID;
 
-@Getter
-@Setter
 public class Ticket extends AbstractEntity {
 
     @BsonCreator
-    public Ticket(@BsonProperty("id") UniqueIdMgd entityId,
+    public Ticket(@BsonProperty("_id") UniqueIdMgd entityId,
                   @BsonProperty("ticket_id") Long ticket_id,
                   @BsonProperty("show") Show show,
                   @BsonProperty("client") Client client,
@@ -77,4 +77,56 @@ public class Ticket extends AbstractEntity {
     public void close() throws Exception {
     }
 
+    public Long getTicket_id() {
+        return ticket_id;
+    }
+
+    public void setTicket_id(Long ticket_id) {
+        this.ticket_id = ticket_id;
+    }
+
+    public Show getShow() {
+        return show;
+    }
+
+    public void setShow(Show show) {
+        this.show = show;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public TicketType getTicketType() {
+        return ticketType;
+    }
+
+    public void setTicketType(TicketType ticketType) {
+        this.ticketType = ticketType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ticket ticket = (Ticket) o;
+        return Double.compare(ticket.price, price) == 0 && Objects.equals(ticket_id, ticket.ticket_id) && Objects.equals(show, ticket.show) && Objects.equals(client, ticket.client) && ticketType == ticket.ticketType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ticket_id, show, client, price, ticketType);
+    }
 }

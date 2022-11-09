@@ -8,11 +8,12 @@ import org.bson.codecs.pojo.annotations.BsonProperty;
 import repositories.UniqueIdMgd;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Client extends AbstractEntity{
 
     @BsonCreator
-    public Client(@BsonProperty("id") UniqueIdMgd entityId,
+    public Client(@BsonProperty("_id") UniqueIdMgd entityId,
                   @BsonProperty("client_id") Long client_id,
                   @BsonProperty("birthday") Date birthday,
                   @BsonProperty("phoneNumber") String phoneNumber,
@@ -124,5 +125,18 @@ public class Client extends AbstractEntity{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(client_id, client.client_id) && Objects.equals(birthday, client.birthday) && Objects.equals(phoneNumber, client.phoneNumber) && clientType == client.clientType && Objects.equals(firstName, client.firstName) && Objects.equals(lastName, client.lastName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(client_id, birthday, phoneNumber, clientType, firstName, lastName);
     }
 }
