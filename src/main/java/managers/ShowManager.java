@@ -13,8 +13,8 @@ public class ShowManager {
         this.showRepository = showRepository;
     }
 
-    public boolean add(Room room, LocalDateTime beginTime, LocalDateTime endTime, Show.ShowType showType){
-        Show show = new Show(room,beginTime,endTime, showType);
+    public boolean add(Long show_id,Room room, LocalDateTime beginTime, LocalDateTime endTime, Show.ShowType showType){
+        Show show = new Show(show_id,room,beginTime,endTime, showType);
         if(showRepository.add(show)==null){
             return false;
         }

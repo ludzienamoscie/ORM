@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import net.bytebuddy.asm.Advice;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 import repositories.UniqueIdMgd;
@@ -29,6 +30,21 @@ public class Show extends AbstractEntity{
         this.endTime = endTime;
         this.showType = showType;
         this.availableSeats = room.getCapacity();
+    }
+
+    public Show(
+            Long show_id,
+            Room room,
+            LocalDateTime beginTime,
+            LocalDateTime endTime,
+            ShowType showType
+    ){
+        super(new UniqueIdMgd());
+        this.show_id = show_id;
+        this.room = room;
+        this.beginTime = beginTime;
+        this.endTime = endTime;
+        this.showType = showType;
     }
 
     //    Nie wem jak to przerobic

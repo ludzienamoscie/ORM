@@ -29,6 +29,22 @@ public class Ticket extends AbstractEntity {
         this.price = price;
         this.ticketType = ticketType;
     }
+
+    public Ticket(
+            Long ticket_id,
+            Show show,
+            Client client,
+            double price,
+            TicketType ticketType
+    ){
+        super(new UniqueIdMgd());
+        this.ticket_id = ticket_id;
+        this.show = show;
+        this.client = client;
+        this.price = price;
+        this.ticketType = ticketType;
+    }
+
     //    Nie wem jak to przerobic
    public enum TicketType{
         adultTicket,
