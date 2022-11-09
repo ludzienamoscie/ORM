@@ -29,4 +29,10 @@ public class RoomRepository extends AbstractRepository implements Repository<Roo
         Bson filter = Filters.eq("_id", id);
         return roomCollection.find(filter).first();
     }
+    @Override
+    public void update(Room item1, Room item2){
+        Bson filter1 = Filters.eq("_id", item1.getUUID());
+        Bson filter2 = Filters.eq("_id", item2.getUUID());
+        roomCollection.updateOne(filter1,filter2);
+    }
 }

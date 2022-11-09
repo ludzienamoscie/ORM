@@ -24,4 +24,11 @@ public class ClientRepository extends AbstractRepository implements Repository<C
         Bson filter = Filters.eq("_id", id);
         return clientCollection.find(filter).first();
     }
+
+    @Override
+    public void update(Client item1, Client item2){
+        Bson filter1 = Filters.eq("_id", item1.getUUID());
+        Bson filter2 = Filters.eq("_id", item2.getUUID());
+        clientCollection.updateOne(filter1,filter2);
+    }
 }
