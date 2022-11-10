@@ -5,33 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/managers/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/RoomManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/managers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ShowManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/managers/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/TicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ShowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ShowRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/ClientManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/ClientManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/RoomManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/RoomManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/ShowManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/ShowManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/TicketManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/TicketManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/ClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/ClientRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/Repository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/Repository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/RoomRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/RoomRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/ShowRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/ShowRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/ClientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ClientTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -107,7 +82,7 @@
       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClientTest.clientRemoveTest">
+  <component name="RunManager" selected="JUnit.ClientTest.getClientTest">
     <configuration name="ClientTest.clientAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
@@ -123,6 +98,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ClientTest" />
       <option name="METHOD_NAME" value="clientRemoveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientTest.getClientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ClientTest" />
+      <option name="METHOD_NAME" value="getClientTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -148,21 +133,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClientTest.getClientTest" />
         <item itemvalue="JUnit.ClientTest.clientRemoveTest" />
-        <item itemvalue="JUnit.ClientTest.updateClientTest" />
         <item itemvalue="JUnit.ClientTest.clientAddTest" />
+        <item itemvalue="JUnit.ClientTest.updateClientTest" />
         <item itemvalue="JUnit.EntityTest.entityTest" />
-        <item itemvalue="Docker.docker: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
