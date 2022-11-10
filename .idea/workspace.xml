@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
-      <change beforePath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="small test changes">
+      <change beforePath="$PROJECT_DIR$/src/test/java/ShowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ShowTest.java" afterDir="false" />
     </list>
     <list id="41373aa6-6216-41d0-bbba-2dce12bdd681" name="Changes by miszczu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +80,7 @@
       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RoomTest.roomAddTest">
+  <component name="RunManager" selected="JUnit.TicketTest.ticketAddTest">
     <configuration name="ClientTest.clientAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
@@ -114,6 +111,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ShowTest.showAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ShowTest" />
+      <option name="METHOD_NAME" value="showAddTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TicketTest.ticketAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
@@ -124,21 +131,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TicketTest.ticketAddTest" />
+        <item itemvalue="JUnit.ShowTest.showAddTest" />
         <item itemvalue="JUnit.RoomTest.roomAddTest" />
         <item itemvalue="JUnit.ClientTest.updateClientTest" />
         <item itemvalue="JUnit.ClientTest.clientAddTest" />
-        <item itemvalue="Docker.docker: Compose Deployment" />
-        <item itemvalue="JUnit.TicketTest.ticketAddTest" />
       </list>
     </recent_temporary>
   </component>
