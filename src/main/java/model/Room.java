@@ -3,6 +3,7 @@ package model;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import java.util.UUID;
@@ -12,10 +13,10 @@ import java.util.UUID;
 public class Room extends AbstractEntity{
 
     @BsonCreator
-    public Room(@BsonProperty("_id") UUID uuid,
+    public Room(@BsonId UUID uuid,
                 @BsonProperty("roomNumber") int roomNumber,
                 @BsonProperty("capacity") int capacity) {
-        super(uuid);
+        this.uuid = uuid;
         this.roomNumber = roomNumber;
         this.capacity = capacity;
     }
@@ -24,13 +25,15 @@ public class Room extends AbstractEntity{
             int roomNumber,
             int capacity
     ){
-        super(UUID.randomUUID());
+        this.uuid = UUID.randomUUID();
         this.roomNumber = roomNumber;
         this.capacity = capacity;
     }
 
 //    @BsonProperty("room_id")
 //    private Long room_id;
+    @BsonId
+    private UUID uuid;
     @BsonProperty("roomNumber")
     private int roomNumber;
 

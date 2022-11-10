@@ -27,7 +27,7 @@ public class ShowRepository extends AbstractRepository implements Repository<Sho
 
     @Override
     public void remove(Show item) {
-        Bson filter = Filters.eq("_id", item.getUUID());
+        Bson filter = Filters.eq("_id", item.getUuid());
         showCollection.findOneAndDelete(filter);
     }
 
@@ -39,8 +39,8 @@ public class ShowRepository extends AbstractRepository implements Repository<Sho
 
     @Override
     public void update(Show item1, Show item2){
-        Bson filter1 = Filters.eq("_id", item1.getUUID());
-        Bson filter2 = Filters.eq("_id", item2.getUUID());
+        Bson filter1 = Filters.eq("_id", item1.getUuid());
+        Bson filter2 = Filters.eq("_id", item2.getUuid());
         showCollection.updateOne(filter1,filter2);
     }
 }

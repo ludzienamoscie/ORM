@@ -13,7 +13,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
-public class Client {
+public class Client extends AbstractEntity{
 
     @BsonCreator
     public Client(@BsonId UUID uuid,
@@ -37,6 +37,7 @@ public class Client {
             String firstName,
             String lastName
     ){
+        this.uuid = UUID.randomUUID();
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.clientType = clientType;

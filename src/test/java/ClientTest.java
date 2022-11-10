@@ -27,7 +27,7 @@ public class ClientTest {
     @Test
     void clientAddTest() {
         Date date = new Date(2000, 10, 9);
-        Client client1 = new Client(UUID.randomUUID(),date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
+        Client client1 = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
         assertNotNull(clientRepository.add(client1));
 
 //            ClientManager clientManager = new ClientManager(clientRepository);
@@ -45,7 +45,7 @@ public class ClientTest {
 //        assertEquals(oldSize + 1 , clientRepository.size());
 
         //Sprawdzenie czy clientManager dodaje klienta
-        assertTrue(clientManager.add(UUID.randomUUID(),date, "400400400", Client.ClientType.minor, "Janina", "Kowalska"));
+        assertTrue(clientManager.add(date, "400400400", Client.ClientType.minor, "Janina", "Kowalska"));
 
         assertEquals(oldSize + 1, clientRepository.size());
     }
@@ -57,8 +57,8 @@ public class ClientTest {
         ClientManager clientManager = new ClientManager(clientRepository);
 
         Date date = new Date(2000, 10, 9);
-        Client client1 = new Client(UUID.randomUUID(),date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
-        Client client2 = new Client(UUID.randomUUID(),date, "400400400", Client.ClientType.minor, "Janina", "Kowalska");
+        Client client1 = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
+        Client client2 = new Client(date, "400400400", Client.ClientType.minor, "Janina", "Kowalska");
 
         assertNotNull(clientRepository.add(client1));
         assertNotNull(clientRepository.add(client2));

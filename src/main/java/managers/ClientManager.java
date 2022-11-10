@@ -13,8 +13,8 @@ public class ClientManager {
         this.clientRepository = clientRepository;
     }
 
-    public boolean add(UUID uuid,Date birthday, String phoneNumber, Client.ClientType clientType, String firstName, String lastName){
-        Client client = new Client(uuid,birthday,phoneNumber, clientType,firstName,lastName);
+    public boolean add(Date birthday, String phoneNumber, Client.ClientType clientType, String firstName, String lastName){
+        Client client = new Client(birthday,phoneNumber, clientType,firstName,lastName);
         if(clientRepository.add(client) == null ){
             return false;
         }

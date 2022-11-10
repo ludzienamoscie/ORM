@@ -27,7 +27,7 @@ public class TicketRepository extends AbstractRepository implements Repository<T
     }
     @Override
     public void remove(Ticket item) {
-        Bson filter = Filters.eq("_id", item.getUUID());
+        Bson filter = Filters.eq("_id", item.getUuid());
         ticketCollection.findOneAndDelete(filter);
     }
 
@@ -39,8 +39,8 @@ public class TicketRepository extends AbstractRepository implements Repository<T
 
     @Override
     public void update(Ticket item1, Ticket item2){
-        Bson filter1 = Filters.eq("_id", item1.getUUID());
-        Bson filter2 = Filters.eq("_id", item2.getUUID());
+        Bson filter1 = Filters.eq("_id", item1.getUuid());
+        Bson filter2 = Filters.eq("_id", item2.getUuid());
         ticketCollection.updateOne(filter1,filter2);
     }
 

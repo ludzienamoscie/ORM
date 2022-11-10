@@ -20,7 +20,7 @@ public class RoomRepository extends AbstractRepository implements Repository<Roo
     }
     @Override
     public void remove(Room item) {
-        Bson filter = Filters.eq("_id", item.getUUID());
+        Bson filter = Filters.eq("_id", item.getUuid());
         roomCollection.findOneAndDelete(filter);
     }
 
@@ -31,8 +31,8 @@ public class RoomRepository extends AbstractRepository implements Repository<Roo
     }
     @Override
     public void update(Room item1, Room item2){
-        Bson filter1 = Filters.eq("_id", item1.getUUID());
-        Bson filter2 = Filters.eq("_id", item2.getUUID());
+        Bson filter1 = Filters.eq("_id", item1.getUuid());
+        Bson filter2 = Filters.eq("_id", item2.getUuid());
         roomCollection.updateOne(filter1,filter2);
     }
 }

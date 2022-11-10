@@ -3,6 +3,7 @@ package model;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import java.util.UUID;
@@ -12,12 +13,12 @@ import java.util.UUID;
 public class Ticket extends AbstractEntity {
 
     @BsonCreator
-    public Ticket(@BsonProperty("_id") UUID uuid,
+    public Ticket(@BsonId UUID uuid,
                   @BsonProperty("show") Show show,
                   @BsonProperty("client") Client client,
                   @BsonProperty("price") double price,
                   @BsonProperty("ticketType") TicketType ticketType) {
-        super(uuid);
+        this.uuid = uuid;
         this.show = show;
         this.client = client;
         this.price = price;
@@ -30,7 +31,7 @@ public class Ticket extends AbstractEntity {
             double price,
             TicketType ticketType
     ){
-        super(UUID.randomUUID());
+        this.uuid = UUID.randomUUID();
         this.show = show;
         this.client = client;
         this.price = price;
@@ -43,6 +44,8 @@ public class Ticket extends AbstractEntity {
         seniorTicket,
         groupTicket
     }
+    @BsonId
+    private UUID uuid;
 
     @BsonProperty("ticket_id")
     private Long ticket_id;
