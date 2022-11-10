@@ -51,9 +51,6 @@ public class Client extends AbstractEntity{
         senior
     }
 
-//    @BsonProperty("client_id")
-//    private Long client_id;
-
     @BsonId
     private UUID uuid;
     @BsonProperty("birthday")

@@ -9,7 +9,7 @@ public interface Repository <T,id_T> {
 
     T add (T item);
 
-    T get (id_T id);
+    T get (T item);
 
     void remove (T item);
 

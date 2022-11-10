@@ -47,9 +47,6 @@ public class Ticket extends AbstractEntity {
     @BsonId
     private UUID uuid;
 
-    @BsonProperty("ticket_id")
-    private Long ticket_id;
-
     @BsonProperty("show")
     private Show show;
 

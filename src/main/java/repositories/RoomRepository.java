@@ -1,12 +1,8 @@
 package repositories;
 
-import Util.EntityManagerCreator;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
-import jakarta.persistence.EntityManager;
-import model.Client;
 import model.Room;
-import model.Ticket;
 import org.bson.conversions.Bson;
 
 public class RoomRepository extends AbstractRepository implements Repository<Room, Long>{
@@ -25,8 +21,8 @@ public class RoomRepository extends AbstractRepository implements Repository<Roo
     }
 
     @Override
-    public Room get(Long id) {
-        Bson filter = Filters.eq("_id", id);
+    public Room get(Room room) {
+        Bson filter = Filters.eq("_id", room.getUuid());
         return roomCollection.find(filter).first();
     }
     @Override

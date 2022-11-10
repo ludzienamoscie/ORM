@@ -20,7 +20,7 @@ public class RoomManager {
     public void remove(Room room){
         roomRepository.remove(room);
     }
-    public Room get(Long id){
-        return roomRepository.get(id);
+    public Room get(Room room){
+        return roomRepository.get(room);
     }
 }

@@ -3,7 +3,6 @@ package repositories;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import model.Client;
-import model.Ticket;
 import org.bson.conversions.Bson;
 
 import java.util.UUID;
@@ -25,8 +24,8 @@ public class ClientRepository extends AbstractRepository implements Repository<C
     }
 
     @Override
-    public Client get(UUID id) {
-        Bson filter = Filters.eq("_id", id);
+    public Client get(Client client) {
+        Bson filter = Filters.eq("_id", client.getUuid());
         return clientCollection.find(filter).first();
     }
 

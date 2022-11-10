@@ -23,7 +23,7 @@ public class ClientManager {
     public void remove(Client client){
         clientRepository.remove(client);
     }
-    public Client get(UUID id){
-        return clientRepository.get(id);
+    public Client get(Client client){
+        return clientRepository.get(client);
     }
 }

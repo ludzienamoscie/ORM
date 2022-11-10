@@ -30,8 +30,6 @@ public class Room extends AbstractEntity{
         this.capacity = capacity;
     }
 
-//    @BsonProperty("room_id")
-//    private Long room_id;
     @BsonId
     private UUID uuid;
     @BsonProperty("roomNumber")

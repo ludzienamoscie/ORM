@@ -4,7 +4,6 @@ import Util.EntityManagerCreator;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import jakarta.persistence.EntityManager;
-import model.Client;
 import model.Show;
 import model.Ticket;
 import org.bson.conversions.Bson;
@@ -32,8 +31,8 @@ public class TicketRepository extends AbstractRepository implements Repository<T
     }
 
     @Override
-    public Ticket get(Long id) {
-        Bson filter = Filters.eq("_id", id);
+    public Ticket get(Ticket ticket) {
+        Bson filter = Filters.eq("_id", ticket.getUuid());
         return ticketCollection.find(filter).first();
     }
 
@@ -45,8 +44,6 @@ public class TicketRepository extends AbstractRepository implements Repository<T
     }
 
     public boolean isAvailable(Show show){
-        if(show.getAvailableSeats() > 0) return true;
-        else return false;
+        return show.getAvailableSeats() > 0;
     }
-
 }

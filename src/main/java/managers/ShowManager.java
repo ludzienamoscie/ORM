@@ -25,7 +25,7 @@ public class ShowManager {
         showRepository.remove(show);
     }
 
-    public Show get(Long id){
-        return showRepository.get(id);
+    public Show get(Show show){
+        return showRepository.get(show);
     }
 }
