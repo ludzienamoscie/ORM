@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
     </list>
+    <list id="41373aa6-6216-41d0-bbba-2dce12bdd681" name="Changes by miszczu" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +26,7 @@
   <component name="Git.Pull.Settings">
     <option name="OPTIONS">
       <set>
-        <option value="NO_COMMIT" />
+        <option value="REBASE" />
       </set>
     </option>
   </component>
@@ -82,7 +83,7 @@
       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClientTest.clientRemoveTest">
+  <component name="RunManager" selected="JUnit.RoomTest.roomAddTest">
     <configuration name="ClientTest.clientAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
@@ -93,21 +94,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientTest.clientRemoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ORM" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ClientTest" />
-      <option name="METHOD_NAME" value="clientRemoveTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ClientTest.updateClientTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ClientTest" />
       <option name="METHOD_NAME" value="updateClientTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoomTest.roomAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RoomTest" />
+      <option name="METHOD_NAME" value="roomAddTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,9 +134,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClientTest.clientRemoveTest" />
-        <item itemvalue="JUnit.ClientTest.clientAddTest" />
+        <item itemvalue="JUnit.RoomTest.roomAddTest" />
         <item itemvalue="JUnit.ClientTest.updateClientTest" />
+        <item itemvalue="JUnit.ClientTest.clientAddTest" />
         <item itemvalue="Docker.docker: Compose Deployment" />
         <item itemvalue="JUnit.TicketTest.ticketAddTest" />
       </list>

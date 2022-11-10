@@ -25,18 +25,24 @@ public class ClientTest {
 
     @Test
     void clientAddTest() {
-        Date date = new Date(100, 9, 9);
+        Date date = new Date(2000, 10, 9);
         Client client1 = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
-
-        //Sprawdzenie czy clientRepository dodaje klienta
-        long oldSize1 = clientRepository.size();
         assertNotNull(clientRepository.add(client1));
-        assertEquals(oldSize1 + 1, clientRepository.size());
 
-        //Sprawdzenie czy drugi identyczny klient doda sie z innym id
-        long oldSize2 = clientRepository.size();
-        clientRepository.add(client1);
-        assertEquals(oldSize2 + 1 , clientRepository.size());
+//            ClientManager clientManager = new ClientManager(clientRepository);
+//
+//            Date date = new Date(2000,10,9);
+//            Client client1 = new Client(date,"500500500", Client.ClientType.adult,"Jan","Kowalski");
+//
+        //Sprawdzenie czy clientRepository dodaje klienta
+        long oldSize = clientRepository.size();
+        assertNotNull(clientRepository.add(client1));
+        assertEquals(oldSize + 1, clientRepository.size());
+
+        //Sprawdzenie czy drugi identyczny klient sie nie doda
+//            assertNull(clientRepository.add(client1))
+//        clientRepository.add(client1);
+//        assertEquals(oldSize + 1 , clientRepository.size());
 
         //Sprawdzenie czy clientManager dodaje klienta
         assertTrue(clientManager.add(date, "400400400", Client.ClientType.minor, "Janina", "Kowalska"));
@@ -47,7 +53,7 @@ public class ClientTest {
 
         ClientManager clientManager = new ClientManager(clientRepository);
 
-        Date date = new Date(100, 10, 9);
+        Date date = new Date(2000, 10, 9);
         Client client1 = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
         Client client2 = new Client(date, "400400400", Client.ClientType.minor, "Janina", "Kowalska");
 

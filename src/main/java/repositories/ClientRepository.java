@@ -13,7 +13,7 @@ public class ClientRepository extends AbstractRepository implements Repository<C
     MongoCollection<Client> clientCollection = mongoDatabase.getCollection("clients", Client.class);
 
     @Override
-    public Client add(Client item) {
+    public synchronized Client add(Client item) {
         clientCollection.insertOne(item);
         return item;
     }
