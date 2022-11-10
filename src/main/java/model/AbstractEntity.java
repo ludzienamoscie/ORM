@@ -1,5 +1,6 @@
 package model;
 
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
 
@@ -11,7 +12,8 @@ public abstract class AbstractEntity {
         this.uuid = uuid;
     }
 
-    @BsonProperty("_id")
+    //@BsonProperty("_id")
+    @BsonId
     private final UUID uuid;
 
     public UUID getUUID() {

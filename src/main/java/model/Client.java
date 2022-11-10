@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.bson.codecs.pojo.annotations.BsonCreator;
+import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import java.util.Date;
@@ -12,16 +13,16 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
-public class Client extends AbstractEntity{
+public class Client {
 
     @BsonCreator
-    public Client(@BsonProperty("_id") UUID uuid,
+    public Client(@BsonId UUID uuid,
                   @BsonProperty("birthday") Date birthday,
                   @BsonProperty("phoneNumber") String phoneNumber,
                   @BsonProperty("clientType") ClientType clientType,
                   @BsonProperty("firstName") String firstName,
                   @BsonProperty("lastname") String lastName) {
-        super(uuid);
+        this.uuid = uuid;
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.clientType = clientType;
@@ -36,7 +37,6 @@ public class Client extends AbstractEntity{
             String firstName,
             String lastName
     ){
-        super(UUID.randomUUID());
         this.birthday = birthday;
         this.phoneNumber = phoneNumber;
         this.clientType = clientType;
@@ -53,6 +53,8 @@ public class Client extends AbstractEntity{
 //    @BsonProperty("client_id")
 //    private Long client_id;
 
+    @BsonId
+    private UUID uuid;
     @BsonProperty("birthday")
     private Date birthday;
 

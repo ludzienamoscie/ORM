@@ -20,7 +20,7 @@ public class ClientRepository extends AbstractRepository implements Repository<C
 
     @Override
     public void remove(Client item) {
-        Bson filter = Filters.eq("_id", item.getUUID());
+        Bson filter = Filters.eq("_id", item.getUuid());
         clientCollection.findOneAndDelete(filter);
     }
 
@@ -32,8 +32,8 @@ public class ClientRepository extends AbstractRepository implements Repository<C
 
     @Override
     public void update(Client item1, Client item2){
-        Bson filter1 = Filters.eq("_id", item1.getUUID());
-        Bson filter2 = Filters.eq("_id", item2.getUUID());
+        Bson filter1 = Filters.eq("_id", item1.getUuid());
+        Bson filter2 = Filters.eq("_id", item2.getUuid());
         clientCollection.updateOne(filter1,filter2);
     }
     public long size() {
