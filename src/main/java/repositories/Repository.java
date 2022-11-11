@@ -13,5 +13,5 @@ public interface Repository <T,id_T> {
 
     void remove (T item);
 
-    void update (T item1, T item2);
+    void update (T item1);
 }

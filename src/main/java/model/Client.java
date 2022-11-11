@@ -65,6 +65,6 @@ public class Client extends AbstractEntity{
     @BsonProperty("firstName")
     private String firstName;
 
-    @BsonProperty("lastname")
+    @BsonProperty("lastName")
     private String lastName;
 }

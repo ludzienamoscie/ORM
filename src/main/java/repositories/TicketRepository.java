@@ -3,15 +3,19 @@ package repositories;
 import Util.EntityManagerCreator;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import jakarta.persistence.EntityManager;
 import model.Show;
 import model.Ticket;
 import org.bson.conversions.Bson;
 
+import java.util.UUID;
+
 public class TicketRepository extends AbstractRepository implements Repository<Ticket, Long>{
 
     MongoCollection<Ticket> ticketCollection = mongoDatabase.getCollection("tickets", Ticket.class);
 
+    //create
     @Override
     public synchronized Ticket add(Ticket item) {
         try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
@@ -24,26 +28,40 @@ public class TicketRepository extends AbstractRepository implements Repository<T
             return item;
         }
     }
+
+    //delete
     @Override
     public void remove(Ticket item) {
         Bson filter = Filters.eq("_id", item.getUuid());
         ticketCollection.findOneAndDelete(filter);
     }
 
+    //read
     @Override
     public Ticket get(Ticket ticket) {
         Bson filter = Filters.eq("_id", ticket.getUuid());
         return ticketCollection.find(filter).first();
     }
 
+    public Ticket getByUUID(UUID uuid){
+        Bson filter = Filters.eq("_id",uuid);
+        return ticketCollection.find(filter).first();
+    }
+
     @Override
-    public void update(Ticket item1, Ticket item2){
-        Bson filter1 = Filters.eq("_id", item1.getUuid());
-        Bson filter2 = Filters.eq("_id", item2.getUuid());
-        ticketCollection.updateOne(filter1,filter2);
+    public void update(Ticket ticket){
+        Bson filter = Filters.eq("_id", ticket.getUuid());
+        Bson update = Updates.combine(
+                Updates.set("price",ticket.getPrice())
+        );
+        ticketCollection.updateOne(filter,update);
     }
 
     public boolean isAvailable(Show show){
         return show.getAvailableSeats() > 0;
+    }
+
+    public long size() {
+        return ticketCollection.countDocuments();
     }
 }

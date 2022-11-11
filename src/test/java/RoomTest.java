@@ -15,51 +15,69 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RoomTest {
 
-//    private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("CINEMA");
-
     private static final RoomRepository roomRepository = new RoomRepository();
+
+    private RoomManager roomManager = new RoomManager(roomRepository);
 
     @Test
     void roomAddTest(){
+        Room room = new Room(7,10);
+        long oldSize1 = roomRepository.size();
 
-//        RoomManager roomManager = new RoomManager(roomRepository);
+        //Sprawdzenie czy roomRepository dodaje pokoj
+        assertNotNull(roomRepository.add(room));
+        assertEquals(oldSize1 + 1,roomRepository.size());
 
-        Room room1 = new Room(7,10);
-        Room room2 = new Room(8,12);
+        long oldSize2 = roomRepository.size();
 
-        //Sprawdzenie czy roomRepository dodaje pokoje
-        assertNotNull(roomRepository.add(room1));
-        assertNotNull(roomRepository.add(room2));
-
-        //Sprawdzenie czy drugi identyczny pokoj sie nie doda
-//        assertNull(roomRepository.add(room1));
-
-        //Sprawdzenie czy roomManager dodaje pokoje
-//        assertTrue(roomManager.add(1,1));
-//        assertTrue(roomManager.add(2,5));
-
-        //Sprawdzenie czy pokoj z powtarzajacym roomNumber sie nie doda
-//        assertFalse(roomManager.add(1,10));
-
+        //Sprawdzenie czy roomManager dodaje pokoj
+        assertTrue(roomManager.add(23,1));
+        assertEquals(oldSize2 + 1, roomRepository.size());
     }
 //
     @Test
     void roomRemoveTest(){
+        Room room1 = new Room(1,1);
+        Room room2 = new Room(2,1);
 
-//            RoomManager roomManager = new RoomManager(roomRepository);
+        assertNotNull(roomRepository.add(room1));
+        assertNotNull(roomRepository.add(room2));
 
-//            Room room1 = new Room(1,1);
-//            Room room2 = new Room(2,1);
-//
-//            assertNotNull(roomRepository.add(room1));
-//            assertNotNull(roomRepository.add(room2));
-//
-//            //Sprawdzenie czy pokoj1 zostanie usuniety za pomoca Managera
-//            assertTrue(roomManager.remove(room1));
-//
-//            //Sprawdzenie czy pokoj2 zostanie usuniety za pomoca Repository
-//            assertTrue(roomRepository.remove(room2));
+        long oldSize1 = roomRepository.size();
 
+        //Sprawdzenie czy room1 zostanie usuniety za pomoca repository
+        roomRepository.remove(room1);
+        assertEquals(oldSize1 - 1, roomRepository.size());
+
+        long oldSize2 = roomRepository.size();
+
+        //Sprawdzenie czy room2 zostanie usuniety za pomoca managera
+        roomManager.remove(room2);
+        assertEquals(oldSize2 - 1, roomRepository.size());
+    }
+
+    @Test
+    void getRoomTest(){
+        Room room = new Room(1,1);
+        roomRepository.add(room);
+
+        //Sprawdzenie czy UUID room'u bedzie sie zgadzal przy uzyciu funkcji get
+        assertEquals(room.getUuid(),roomRepository.get(room).getUuid());
+    }
+
+    @Test
+    void updateClientTest(){
+        Room room = new Room(1,1);
+        roomRepository.add(room);
+
+        room.setRoomNumber(23);
+        room.setCapacity(100);
+        roomRepository.update(room);
+
+        Room room_updated = roomRepository.getByUUID(room.getUuid());
+
+        assertEquals(23,room_updated.getRoomNumber());
+        assertEquals(100,room_updated.getCapacity());
     }
 
 }

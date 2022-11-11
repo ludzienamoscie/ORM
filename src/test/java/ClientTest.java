@@ -9,19 +9,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ClientTest {
 
-
-
     private static final ClientRepository clientRepository = new ClientRepository();
     private ClientManager clientManager = new ClientManager(clientRepository);
 
     @Test
     void clientAddTest() {
         Date date = new Date(2000, 10, 9);
-        Client client1 = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
+        Client client = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
         long oldSize1 = clientRepository.size();
 
         //Sprawdzenie czy clientRepository dodaje klienta
-        assertNotNull(clientRepository.add(client1));
+        assertNotNull(clientRepository.add(client));
         assertEquals(oldSize1 + 1, clientRepository.size());
 
         long oldSize2 = clientRepository.size();
@@ -34,9 +32,6 @@ public class ClientTest {
 
     @Test
     void clientRemoveTest() {
-
-        ClientManager clientManager = new ClientManager(clientRepository);
-
         Date date = new Date(2000, 10, 9);
         Client client1 = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
         Client client2 = new Client(date, "400400400", Client.ClientType.minor, "Janina", "Kowalska");
@@ -46,14 +41,14 @@ public class ClientTest {
 
         long oldSize1 = clientRepository.size();
 
-        //Sprawdzenie czy client1 zostanie usuniety za pomoca Managera
+        //Sprawdzenie czy client1 zostanie usuniety za pomoca Repository
         clientRepository.remove(client1);
         assertEquals(oldSize1 - 1, clientRepository.size());
 
         long oldSize2 = clientRepository.size();
 
-       //Sprawdzenie czy client2 zostanie usuniety za pomoca Repository
-        clientRepository.remove(client2);
+       //Sprawdzenie czy client2 zostanie usuniety za pomoca Managera
+        clientManager.remove(client2);
         assertEquals(oldSize2 - 1, clientRepository.size());
     }
 
@@ -65,5 +60,22 @@ public class ClientTest {
 
         //Sprawdzenie czy uuid clienta bedzie sie zgadzal przy uzyciu funkcji get
         assertEquals(client.getUuid(),clientRepository.get(client).getUuid());
+    }
+
+    @Test
+    void updateClientTest() {
+        Date date = new Date(2000, 10, 9);
+        Client client = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
+        clientRepository.add(client);
+
+        client.setFirstName("Janek");
+        client.setLastName("Kowalewicz");
+        clientRepository.update(client);
+
+        Client client_updated = clientRepository.getByUUID(client.getUuid());
+
+        assertEquals("Janek",client_updated.getFirstName());
+        assertEquals("Kowalewicz",client_updated.getLastName());
+
     }
 }
