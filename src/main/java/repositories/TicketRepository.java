@@ -18,15 +18,16 @@ public class TicketRepository extends AbstractRepository implements Repository<T
     //create
     @Override
     public synchronized Ticket add(Ticket item) {
-        try(EntityManager manager = EntityManagerCreator.getEntityManager()) {
-            Show show = manager.find(Show.class,item.getShow().getShow_id());
-            if(!isAvailable(show)){
-                return null;
-            }
-            ticketCollection.insertOne(item);
-            show.decreaseSeats();
-            return item;
-        }
+
+//        Show show = item.getShow();
+//        if(!isAvailable(show)){
+//                return null;
+//        }
+//        ticketCollection.insertOne(item);
+//        show.decreaseSeats();
+//        return item;
+        ticketCollection.insertOne(item);
+        return item;
     }
 
     //delete

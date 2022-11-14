@@ -43,43 +43,76 @@ public class TicketTest {
 
             //Sprawdzenie czy ticket zostanie dodany za pomoca Repository
             assertNotNull(ticketRepository.add(ticket));
-            assertEquals(oldSize1 + 1, clientRepository.size());
+            assertEquals(oldSize1 + 1, ticketRepository.size());
 
             long oldSize2 = ticketRepository.size();
 
             //Sprawdzenie czy ticket zostanie dodany za pomoca Managera
             assertTrue(ticketManager.tryBook(show,client,5, Ticket.TicketType.adultTicket));
-            assertEquals(oldSize2 + 1, clientRepository.size());
-
-            //Sprawdzenie czy nie mozna dodac kolejnego ticketu
-            assertFalse(ticketManager.tryBook(show,client,5, Ticket.TicketType.adultTicket));
+            assertEquals(oldSize2 + 1, ticketRepository.size());
 
     }
-//
-//    @Test
-//    void ticketRemoveTest(){
-//            TicketManager ticketManager = new TicketManager(ticketRepository);
-//            ClientManager clientManager = new ClientManager(clientRepository);
-//            ShowManager showManager = new ShowManager(showRepository);
-//            RoomManager roomManager = new RoomManager(roomRepository);
-//
-//            Date date = new Date(2000,1,1);
-//            Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
-//            Room room = new Room(1,2);
-//            Show show = new Show(room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
-//            Ticket ticket = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
-//            Ticket ticket2 = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
-//
-//            clientRepository.add(client);
-//            roomRepository.add(room);
-//            showRepository.add(show);
-//
-//            ticketRepository.add(ticket);
-//            ticketRepository.add(ticket2);
-//
-//            //Sprawdzenie czy mozna usunac za pomoca Managera
-//            assertTrue(ticketManager.remove(ticket));
-//            //Sprawdzenie czy mozna usunac za pomoca Repository
-//            assertTrue(ticketRepository.remove(ticket2));
-//    }
+
+    @Test
+    void ticketRemoveTest(){
+            Date date = new Date(2000,1,1);
+            Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
+            Room room = new Room(1,2);
+            Show show = new Show(1l, room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
+            Ticket ticket = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
+            Ticket ticket2 = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
+
+            clientRepository.add(client);
+            roomRepository.add(room);
+            showRepository.add(show);
+
+            assertNotNull(ticketRepository.add(ticket));
+            assertNotNull(ticketRepository.add(ticket2));
+
+            long oldSize1 = ticketRepository.size();
+
+            //Sprawdzenie czy mozna usunac za pomoca Repository
+            ticketRepository.remove(ticket);
+            assertEquals(oldSize1 - 1, ticketRepository.size());
+
+            long oldSize2 = ticketRepository.size();
+
+            //Sprawdzenie czy mozna usunac za pomoca Repository
+            ticketRepository.remove(ticket2);
+            assertEquals(oldSize2 - 1, ticketRepository.size());
+    }
+
+    @Test
+    void getTicketTest(){
+        Date date = new Date(2000,1,1);
+        Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
+        Room room = new Room(1,2);
+        Show show = new Show(1l, room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
+        Ticket ticket = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
+
+        ticketRepository.add(ticket);
+
+        //Sprawdzenie czy uuid ticketu bedzie sie zgadzal przy uzyciu funkcji get
+        assertEquals(ticket.getUuid(),ticketRepository.get(ticket).getUuid());
+
+    }
+
+    @Test
+    void updateTicketTest(){
+        Date date = new Date(2000,1,1);
+        Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
+        Room room = new Room(1,2);
+        Show show = new Show(1l, room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
+        Ticket ticket = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
+
+        ticketRepository.add(ticket);
+
+        ticket.setPrice(29);
+        ticketRepository.update(ticket);
+
+        Ticket ticket_updated = ticketRepository.getByUUID(ticket.getUuid());
+
+        assertEquals(29,ticket_updated.getPrice());
+    }
+
 }

@@ -1,6 +1,7 @@
 package managers;
 
 import model.*;
+import org.hibernate.mapping.TableOwner;
 import repositories.TicketRepository;
 
 public class TicketManager {
@@ -15,9 +16,15 @@ public class TicketManager {
     }
 
     public boolean tryBook(Show show, Client client, double price, Ticket.TicketType ticketType) {
-        if (!isAvailable(show)) return false;
-        Ticket ticket = new Ticket(show, client, price, ticketType);
-        return ticketRepository.add(ticket) != null;
+//        if (!isAvailable(show)) return false;
+//        Ticket ticket = new Ticket(show, client, price, ticketType);
+//        return ticketRepository.add(ticket) != null;
+
+        Ticket ticket = new Ticket(show, client,price,ticketType);
+        if(ticketRepository.add(ticket) == null){
+            return false;
+        }
+        return true;
     }
     public void remove(Ticket ticket){
         ticketRepository.remove(ticket);
