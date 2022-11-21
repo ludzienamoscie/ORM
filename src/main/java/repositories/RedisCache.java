@@ -3,6 +3,7 @@ package repositories;
 import com.lambdaworks.redis.RedisClient;
 import com.lambdaworks.redis.RedisConnection;
 import com.lambdaworks.redis.RedisURI;
+import redis.clients.jedis.Jedis;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -37,8 +38,18 @@ public class RedisCache implements AutoCloseable {
         connection = redisClient.connect();
     }
 
+    public void cleanCache() {
+        // do wyczyszczenia calosci
+//        connection.flushall();
+        // do wyczyszczenia jednej bazy
+        connection.flushdb();
+
+    }
+
     @Override
     public void close() {
+        // Chcemy zawsze czyscic przed zamknieciem?
+        cleanCache();
         connection.close();
         redisClient.shutdown();
     }
