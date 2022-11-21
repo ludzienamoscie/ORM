@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="init push">
-      <change afterPath="$PROJECT_DIR$/docker/overrides.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Util/JedisClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2022_08_46__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2022_08_46__Changes_.xml" afterDir="false" />
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="Start of configuration for redis">
+      <change afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/keyFile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/mongod.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/Dockerfile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/keyFile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/mongod.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +62,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "C:/Users/Maja/Desktop/documents/semestr V/nierelacyjne bazy/project/ORM/src/main/java/Util",
+    "last_opened_file_path": "C:/Users/Maja/Desktop/documents/semestr V/nierelacyjne bazy/project/ORM/docker",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
@@ -84,6 +78,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\docker" />
       <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\src\main\java\Util" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -185,7 +180,8 @@
       <workItem from="1668014483186" duration="9499000" />
       <workItem from="1668121787427" duration="4112000" />
       <workItem from="1668465959871" duration="1228000" />
-      <workItem from="1668684560041" duration="1978000" />
+      <workItem from="1668684560041" duration="2837000" />
+      <workItem from="1669026667011" duration="510000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>
@@ -201,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668684671505</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Start of configuration for redis">
+      <created>1668687086015</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668687086015</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +224,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value=".git ignore updated" />
     <MESSAGE value="init push" />
-    <option name="LAST_COMMIT_MESSAGE" value="init push" />
+    <MESSAGE value="Start of configuration for redis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start of configuration for redis" />
   </component>
 </project>
