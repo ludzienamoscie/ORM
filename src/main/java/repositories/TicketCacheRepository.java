@@ -80,7 +80,7 @@ public class TicketCacheRepository extends TicketRepository {
     public void remove(Ticket ticket){
         if(connected){
             try{
-                pool.jsonDel("rents:" + ticket.getUuid());
+                pool.jsonDel("tickets:" + ticket.getUuid());
             } catch (Exception e){
                 jedisConnectionExceptionHandler(e);
                 remove(ticket);
@@ -98,7 +98,7 @@ public class TicketCacheRepository extends TicketRepository {
         if(connected){
             Ticket ticket = null;
             try{
-                String json = pool.jsonGetAsPlainString("rents:" + uuid, Path.ROOT_PATH);
+                String json = pool.jsonGetAsPlainString("tickets:" + uuid, Path.ROOT_PATH);
                 ticket = gson.fromJson(json,Ticket.class);
             } catch (Exception e){
                 jedisConnectionExceptionHandler(e);
@@ -132,7 +132,7 @@ public class TicketCacheRepository extends TicketRepository {
         boolean successful = super.update(ticket);
         if(connected && successful) {
             try{
-                pool.jsonSet("rents:" + ticket.getUuid(), gson.toJson(ticket));
+                pool.jsonSet("tickets:" + ticket.getUuid(), gson.toJson(ticket));
             } catch (Exception e){
                 jedisConnectionExceptionHandler(e);
                 update(ticket);
