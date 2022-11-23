@@ -96,6 +96,11 @@
             <artifactId>lettuce</artifactId>
             <version>3.2.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse</groupId>
+            <artifactId>yasson</artifactId>
+            <version>3.0.1</version>
+        </dependency>
     </dependencies>
 
 </project>

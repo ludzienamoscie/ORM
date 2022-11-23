@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="added back mongo docker files, updated docker-compose.yml and added back mongo, started with cache, updated pom.xml">
-      <change afterPath="$PROJECT_DIR$/src/test/java/RedisTest.java" afterDir="false" />
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="a simple redis cache file">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_16_00_[Changes]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/RedisCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/RedisCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/JedisClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/JedisClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RedisTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,12 +88,22 @@
       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RedisTest">
+  <component name="RunManager" selected="JUnit.RedisTest.redisTest">
     <configuration name="RedisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RedisTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.SimpleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RedisTest" />
+      <option name="METHOD_NAME" value="SimpleTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -115,19 +127,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TicketTest.updateTicketTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ORM" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TicketTest" />
-      <option name="METHOD_NAME" value="updateTicketTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker.redis-stack: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
+          <option name="services">
+            <list>
+              <option value="redis-stack" />
+            </list>
+          </option>
           <option name="sourceFilePath" value="docker/docker-compose.yml" />
         </settings>
       </deployment>
@@ -135,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RedisTest" />
         <item itemvalue="JUnit.RedisTest.redisTest" />
+        <item itemvalue="JUnit.RedisTest.SimpleTest" />
+        <item itemvalue="Docker.docker.redis-stack: Compose Deployment" />
+        <item itemvalue="JUnit.RedisTest" />
         <item itemvalue="JUnit.TicketTest" />
-        <item itemvalue="Docker.docker: Compose Deployment" />
-        <item itemvalue="JUnit.TicketTest.updateTicketTest" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +186,10 @@
       <workItem from="1668465959871" duration="1228000" />
       <workItem from="1668684560041" duration="2837000" />
       <workItem from="1669026667011" duration="1451000" />
-      <workItem from="1669028217533" duration="656000" />
+      <workItem from="1669028217533" duration="825000" />
+      <workItem from="1669130237068" duration="587000" />
+      <workItem from="1669152209200" duration="151000" />
+      <workItem from="1669188899379" duration="1548000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>
@@ -209,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669027426929</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="a simple redis cache file">
+      <created>1669029033377</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669029033377</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +248,7 @@
     <MESSAGE value="init push" />
     <MESSAGE value="Start of configuration for redis" />
     <MESSAGE value="added back mongo docker files, updated docker-compose.yml and added back mongo, started with cache, updated pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="added back mongo docker files, updated docker-compose.yml and added back mongo, started with cache, updated pom.xml" />
+    <MESSAGE value="a simple redis cache file" />
+    <option name="LAST_COMMIT_MESSAGE" value="a simple redis cache file" />
   </component>
 </project>

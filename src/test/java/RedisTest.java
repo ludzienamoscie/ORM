@@ -1,5 +1,11 @@
+import Util.JedisClientConfig;
 import com.lambdaworks.redis.*;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
 import org.junit.jupiter.api.Test;
+import redis.clients.jedis.DefaultJedisClientConfig;
+import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.JedisPooled;
 import repositories.RedisCache;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,29 +14,21 @@ import java.util.Properties;
 
 public class RedisTest {
 
-    @Test
-    void redisTest() {
+    protected DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().build();
+    protected JedisPooled RedisClient;
+    protected Jsonb jsonb;
 
-//        String connectionString;
-//        String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-//        String appConfigPath = rootPath + "app.properties";
-//        Properties appProps = new Properties();
-//
-//        try {
-//            appProps.load(new FileInputStream(appConfigPath));
-//            connectionString = appProps.getProperty("connectionString");
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException("Property file not found");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        RedisClient redisClient = new RedisClient(RedisURI.create(connectionString));
-//        RedisConnection<String, String> connection = redisClient.connect();
-//        System.out.println("Success connecting to Redis");
-//
-//        connection.close();
-//        redisClient.shutdown();
+    @Test
+    public void redisTest() {
+
+        this.jedisClientConfig = DefaultJedisClientConfig.builder().build();
+        this.RedisClient = new JedisPooled(new HostAndPort("localhost", 6379), jedisClientConfig);
+        this.jsonb = JsonbBuilder.create();
+
+        RedisClient.setex("1", 360, "test");
+        RedisClient.setex("1", 40, "zmiana");
+        RedisClient.setnx("2","nbd");
+
     }
 
 }
