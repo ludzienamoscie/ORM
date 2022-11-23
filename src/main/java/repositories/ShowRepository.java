@@ -40,7 +40,7 @@ public class ShowRepository extends AbstractRepository implements Repository<Sho
     }
 
     @Override
-    public void update(Show show){
+    public boolean update(Show show){
         Bson filter = Filters.eq("_id", show.getUuid());
         Bson update = Updates.combine(
                 Updates.set("show_id",show.getShow_id()),
@@ -49,6 +49,7 @@ public class ShowRepository extends AbstractRepository implements Repository<Sho
                 Updates.set("endTime",show.getEndTime())
         );
         showCollection.updateOne(filter,update);
+        return true;
     }
 
     public long size() {

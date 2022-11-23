@@ -40,7 +40,7 @@ public class ClientRepository extends AbstractRepository implements Repository<C
 
     //update
     @Override
-    public void update(Client client){
+    public boolean update(Client client){
        Bson filter = Filters.eq("_id",client.getUuid());
        Bson update = Updates.combine(
                Updates.set("birthday",client.getBirthday()),
@@ -49,6 +49,7 @@ public class ClientRepository extends AbstractRepository implements Repository<C
                Updates.set("lastName",client.getLastName())
        );
        clientCollection.updateOne(filter,update);
+       return true;
 
     }
     public long size() {

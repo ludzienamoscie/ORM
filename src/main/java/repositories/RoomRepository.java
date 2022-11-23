@@ -40,13 +40,14 @@ public class RoomRepository extends AbstractRepository implements Repository<Roo
 
     //update
     @Override
-    public void update(Room room){
+    public boolean update(Room room){
         Bson filter = Filters.eq("_id", room.getUuid());
         Bson update = Updates.combine(
                 Updates.set("roomNumber",room.getRoomNumber()),
                 Updates.set("capacity",room.getCapacity())
         );
         roomCollection.updateOne(filter,update);
+        return true;
     }
 
     public long size() {

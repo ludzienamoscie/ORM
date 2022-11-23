@@ -42,7 +42,7 @@ public class RedisTest {
 //    private static final ShowRepository showRepository = new ShowRepository();
 //    private static final RoomRepository roomRepository = new RoomRepository();
 //    private static final ClientRepository clientRepository = new ClientRepository();
-//
+
 //    @Test
 //    public void decoratorTest() {
 //        this.jedisClientConfig = DefaultJedisClientConfig.builder().build();

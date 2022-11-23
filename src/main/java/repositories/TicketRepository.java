@@ -50,12 +50,13 @@ public class TicketRepository extends AbstractRepository implements Repository<T
     }
 
     @Override
-    public void update(Ticket ticket){
+    public boolean update(Ticket ticket){
         Bson filter = Filters.eq("_id", ticket.getUuid());
         Bson update = Updates.combine(
                 Updates.set("price",ticket.getPrice())
         );
         ticketCollection.updateOne(filter,update);
+        return true;
     }
 
     public boolean isAvailable(Show show){
