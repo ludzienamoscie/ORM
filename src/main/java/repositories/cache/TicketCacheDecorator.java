@@ -27,15 +27,15 @@ public class TicketCacheDecorator extends RepositoryDecorator<Ticket> {
         if(TicketCache.isHealthy()) {
             cache.save(ticket);
         }
-        return decoratedRepository.add(ticket);
+        return repository.add(ticket);
     }
 
     @Override
     public Ticket get(Ticket ticket) {
         if(TicketCache.isHealthy()) {
-            return cache.get(ticket.getUuid());
+            cache.get(ticket.getUuid());
         }
-        return decoratedRepository.get(ticket);
+        return repository.get(ticket);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class TicketCacheDecorator extends RepositoryDecorator<Ticket> {
         if(TicketCache.isHealthy()) {
             cache.save(ticket);
         }
-        decoratedRepository.update(ticket);
+        repository.update(ticket);
     }
 
     @Override
@@ -51,6 +51,6 @@ public class TicketCacheDecorator extends RepositoryDecorator<Ticket> {
         if(TicketCache.isHealthy()) {
             cache.delete(ticket);
         }
-        decoratedRepository.remove(ticket);
+        repository.remove(ticket);
     }
 }

@@ -1,0 +1,95 @@
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	
++++ b/.idea/dataSources.local.xml	
+@@ -2,8 +2,15 @@
+ <project version="4">
+   <component name="dataSourceStorageLocal" created-in="IU-222.4345.14">
+     <data-source name="@localhost" uuid="a727ba9e-30c5-4697-b22b-a269f40d2c6e">
+-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" exact-version="0" />
+-      <schema-mapping />
++      <database-info product="Mongo DB" version="" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.17" dbms="UNKNOWN" exact-version="0" />
++      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
++      <secret-storage>master_key</secret-storage>
++      <user-name>admin</user-name>
++      <schema-mapping>
++        <introspection-scope>
++          <node kind="schema" negative="1" />
++        </introspection-scope>
++      </schema-mapping>
+     </data-source>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,12 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="a simple redis cache file">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_16_00_[Changes]/shelved.patch" beforeDir="false" />
++    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
++      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/JedisClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/JedisClientConfig.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/test/java/RedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RedisTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/RedisCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/RedisCache.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -118,14 +116,13 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="TicketTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+-      <module name="ORM" />
+-      <option name="PACKAGE_NAME" value="" />
+-      <option name="MAIN_CLASS_NAME" value="TicketTest" />
+-      <option name="TEST_OBJECT" value="class" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
++    <configuration name="docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
++      <deployment type="docker-compose.yml">
++        <settings>
++          <option name="sourceFilePath" value="docker/docker-compose.yml" />
++        </settings>
++      </deployment>
++      <method v="2" />
+     </configuration>
+     <configuration name="docker.redis-stack: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+       <deployment type="docker-compose.yml">
+@@ -143,10 +140,10 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="JUnit.RedisTest.redisTest" />
++        <item itemvalue="Docker.docker: Compose Deployment" />
+         <item itemvalue="JUnit.RedisTest.SimpleTest" />
+         <item itemvalue="Docker.docker.redis-stack: Compose Deployment" />
+         <item itemvalue="JUnit.RedisTest" />
+-        <item itemvalue="JUnit.TicketTest" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -231,6 +228,9 @@
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="UnknownFeatures">
++    <option featureType="com.intellij.fileTypeFactory" implementationName="*.conf" />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">

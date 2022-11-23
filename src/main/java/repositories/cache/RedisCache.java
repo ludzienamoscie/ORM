@@ -17,7 +17,7 @@ import java.util.TimerTask;
 
 import static redis.clients.jedis.util.JedisURIHelper.getHostAndPort;
 
-public class RedisCache implements AutoCloseable {
+public class RedisCache {
 
     RedisClient redisClient;
     RedisConnection<String, String> connection;
@@ -92,7 +92,6 @@ public class RedisCache implements AutoCloseable {
 
     protected static JedisPooled pool;
 
-    @Override
     public void close() {
         connection.close();
         redisClient.shutdown();
