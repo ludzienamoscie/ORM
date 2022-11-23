@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="a simple redis cache file">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_11_2022_16_00_[Changes]/shelved.patch" beforeDir="false" />
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="redisTest passed, success connecting to redis at localhost:8001 in browser">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/RepositoryDecorator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/cache/TicketCache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repositories/cache/TicketCacheDecorator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Util/JedisClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/JedisClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/RedisCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/cache/RedisCache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ShowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ShowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/RedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RedisTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +96,7 @@
       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RedisTest.redisTest">
+  <component name="RunManager" selected="JUnit.RedisTest.healthTest">
     <configuration name="RedisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
@@ -108,21 +116,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RedisTest.healthTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RedisTest" />
+      <option name="METHOD_NAME" value="healthTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RedisTest.redisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RedisTest" />
       <option name="METHOD_NAME" value="redisTest" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TicketTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ORM" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TicketTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RedisTest.healthTest" />
         <item itemvalue="JUnit.RedisTest.redisTest" />
         <item itemvalue="JUnit.RedisTest.SimpleTest" />
         <item itemvalue="Docker.docker.redis-stack: Compose Deployment" />
         <item itemvalue="JUnit.RedisTest" />
-        <item itemvalue="JUnit.TicketTest" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +198,7 @@
       <workItem from="1669028217533" duration="825000" />
       <workItem from="1669130237068" duration="587000" />
       <workItem from="1669152209200" duration="151000" />
-      <workItem from="1669188899379" duration="1548000" />
+      <workItem from="1669188899379" duration="6849000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>
@@ -226,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669029033377</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="redisTest passed, success connecting to redis at localhost:8001 in browser">
+      <created>1669190508526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669190508526</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +265,7 @@
     <MESSAGE value="Start of configuration for redis" />
     <MESSAGE value="added back mongo docker files, updated docker-compose.yml and added back mongo, started with cache, updated pom.xml" />
     <MESSAGE value="a simple redis cache file" />
-    <option name="LAST_COMMIT_MESSAGE" value="a simple redis cache file" />
+    <MESSAGE value="redisTest passed, success connecting to redis at localhost:8001 in browser" />
+    <option name="LAST_COMMIT_MESSAGE" value="redisTest passed, success connecting to redis at localhost:8001 in browser" />
   </component>
 </project>

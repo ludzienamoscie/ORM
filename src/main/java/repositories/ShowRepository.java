@@ -9,7 +9,7 @@ import org.bson.conversions.Bson;
 
 import java.util.UUID;
 
-public class ShowRepository extends AbstractRepository implements Repository<Show, Long>{
+public class ShowRepository extends AbstractRepository implements Repository<Show>{
 
     MongoCollection<Show> showCollection = mongoDatabase.getCollection("shows", Show.class);
 

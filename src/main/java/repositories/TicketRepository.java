@@ -11,7 +11,7 @@ import org.bson.conversions.Bson;
 
 import java.util.UUID;
 
-public class TicketRepository extends AbstractRepository implements Repository<Ticket, Long>{
+public class TicketRepository extends AbstractRepository implements Repository<Ticket>{
 
     MongoCollection<Ticket> ticketCollection = mongoDatabase.getCollection("tickets", Ticket.class);
 

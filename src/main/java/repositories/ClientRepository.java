@@ -8,7 +8,7 @@ import org.bson.conversions.Bson;
 
 import java.util.UUID;
 
-public class ClientRepository extends AbstractRepository implements Repository<Client, UUID> {
+public class ClientRepository extends AbstractRepository implements Repository<Client> {
 
     MongoCollection<Client> clientCollection = mongoDatabase.getCollection("clients", Client.class);
 

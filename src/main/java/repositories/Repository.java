@@ -5,7 +5,7 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.function.Predicate;
 
-public interface Repository <T,id_T> {
+public interface Repository <T> {
 
     T add (T item);
 

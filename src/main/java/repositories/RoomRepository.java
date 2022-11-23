@@ -8,7 +8,7 @@ import org.bson.conversions.Bson;
 
 import java.util.UUID;
 
-public class RoomRepository extends AbstractRepository implements Repository<Room, Long>{
+public class RoomRepository extends AbstractRepository implements Repository<Room>{
 
     MongoCollection<Room> roomCollection = mongoDatabase.getCollection("rooms", Room.class);
 
