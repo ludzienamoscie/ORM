@@ -33,7 +33,7 @@ public class TicketTest {
             Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
             Room room = new Room(1,2);
             Show show = new Show(1l, room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
-            Ticket ticket = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
+            Ticket ticket = new Ticket(1l,show,client,10, Ticket.TicketType.minorTicket);
 
             clientRepository.add(client);
             roomRepository.add(room);
@@ -48,7 +48,7 @@ public class TicketTest {
             long oldSize2 = ticketRepository.size();
 
             //Sprawdzenie czy ticket zostanie dodany za pomoca Managera
-            assertTrue(ticketManager.tryBook(show,client,5, Ticket.TicketType.adultTicket));
+            assertTrue(ticketManager.tryBook(2l,show,client,5, Ticket.TicketType.adultTicket));
             assertEquals(oldSize2 + 1, ticketRepository.size());
 
     }
@@ -59,8 +59,8 @@ public class TicketTest {
             Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
             Room room = new Room(1,2);
             Show show = new Show(1l, room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
-            Ticket ticket = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
-            Ticket ticket2 = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
+            Ticket ticket = new Ticket(1l,show,client,10, Ticket.TicketType.minorTicket);
+            Ticket ticket2 = new Ticket(2l,show,client,10, Ticket.TicketType.minorTicket);
 
             clientRepository.add(client);
             roomRepository.add(room);
@@ -88,7 +88,7 @@ public class TicketTest {
         Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
         Room room = new Room(1,2);
         Show show = new Show(1l, room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
-        Ticket ticket = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
+        Ticket ticket = new Ticket(1l,show,client,10, Ticket.TicketType.minorTicket);
 
         ticketRepository.add(ticket);
 
@@ -103,7 +103,7 @@ public class TicketTest {
         Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
         Room room = new Room(1,2);
         Show show = new Show(1l, room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
-        Ticket ticket = new Ticket(show,client,10, Ticket.TicketType.minorTicket);
+        Ticket ticket = new Ticket(1l,show,client,10, Ticket.TicketType.minorTicket);
 
         ticketRepository.add(ticket);
 

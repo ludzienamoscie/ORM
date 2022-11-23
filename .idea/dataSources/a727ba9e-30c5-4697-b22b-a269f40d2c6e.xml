@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.43">
+    <root id="1">
+      <ServerVersion>6.0.2</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="test">
+      <Current>1</Current>
+    </schema>
+  </database-model>
+</dataSource>

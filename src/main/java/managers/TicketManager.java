@@ -15,13 +15,13 @@ public class TicketManager {
         return show.getAvailableSeats() > 0;
     }
 
-    public boolean tryBook(Show show, Client client, double price, Ticket.TicketType ticketType) {
+    public boolean tryBook(Long ticket,Show show, Client client, double price, Ticket.TicketType ticketType) {
 //        if (!isAvailable(show)) return false;
 //        Ticket ticket = new Ticket(show, client, price, ticketType);
 //        return ticketRepository.add(ticket) != null;
 
-        Ticket ticket = new Ticket(show, client,price,ticketType);
-        if(ticketRepository.add(ticket) == null){
+        Ticket ticket1 = new Ticket(ticket,show, client,price,ticketType);
+        if(ticketRepository.add(ticket1) == null){
             return false;
         }
         return true;
@@ -32,5 +32,9 @@ public class TicketManager {
 
     public Ticket get(Ticket ticket){
         return ticketRepository.get(ticket);
+    }
+
+    public Ticket getByTicket(Long ticket){
+        return ticketRepository.getByTicket(ticket);
     }
 }

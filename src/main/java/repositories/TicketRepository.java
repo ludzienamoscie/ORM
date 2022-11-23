@@ -49,6 +49,11 @@ public class TicketRepository extends AbstractRepository implements Repository<T
         return ticketCollection.find(filter).first();
     }
 
+    public Ticket getByTicket(Long ticket){
+        Bson filter = Filters.eq("ticket",ticket);
+        return ticketCollection.find(filter).first();
+    }
+
     @Override
     public boolean update(Ticket ticket){
         Bson filter = Filters.eq("_id", ticket.getUuid());

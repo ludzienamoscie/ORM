@@ -25,14 +25,14 @@ public class TicketCacheRepository extends TicketRepository {
         try{
             gson = new GsonBuilder().create();
 
-            Config config = ConfigProvider.getConfig();
-
-            String host = config.getValue("jedis.host",String.class);
-            int port = config.getValue("jedis.port",Integer.class);
+//            Config config = ConfigProvider.getConfig();
+//
+//            String host = config.getValue("jedis.host",String.class);
+//            int port = config.getValue("jedis.port",Integer.class);
 
             JedisClientConfig clientConfig = DefaultJedisClientConfig.builder().socketTimeoutMillis(100).build();
-            jedis = new Jedis(new HostAndPort(host,port),clientConfig);
-            pool = new JedisPooled(new HostAndPort(host,port),clientConfig);
+            jedis = new Jedis(new HostAndPort("localhost",6379),clientConfig);
+            pool = new JedisPooled(new HostAndPort("localhost",6379),clientConfig);
 
             pool.set("ping","ping");
             connected = true;
@@ -145,9 +145,43 @@ public class TicketCacheRepository extends TicketRepository {
         return successful;
     }
 
+    @Override
+    public Ticket getByTicket(Long number) {
+        if(connected){
+            Ticket ticket = null;
+            try{
+                String json = pool.jsonGetAsPlainString("tickets:" + number, Path.ROOT_PATH);
+                ticket = gson.fromJson(json,Ticket.class);
+            } catch (Exception e){
+                jedisConnectionExceptionHandler(e);
+                getByTicket(number);
+            }
+
+            if(ticket != null){
+                System.out.println("Got ticket from cache");
+                return ticket;
+            } else {
+                Ticket ticket1 = super.getByTicket(number);
+                try{
+                    if(ticket1 != null){
+                        addToCache(ticket1);
+                    }
+                } catch (Exception e){
+                    jedisConnectionExceptionHandler(e);
+                }
+                return ticket1;
+            }
+        }else{
+            if(healthcheck()){
+                getByTicket(number);
+            }
+        }
+        return super.getByTicket(number);
+    }
+
     private void addToCache(Ticket ticket){
-        pool.jsonSet("tickets:" + ticket.getUuid(), gson.toJson(ticket));
-        pool.expire("tickets:" + ticket.getUuid(), 60);
+        pool.jsonSet("tickets:" + ticket.getTicket(), gson.toJson(ticket));
+        pool.expire("tickets:" + ticket.getTicket(), 60);
     }
     private void jedisConnectionExceptionHandler(Exception e){
         e.printStackTrace();

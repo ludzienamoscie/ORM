@@ -1,5 +1,6 @@
+RedisTest.class
 ShowTest.class
 TicketTest.class
+BenchmarkTest.class
 ClientTest.class
-EntityTest.class
 RoomTest.class

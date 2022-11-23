@@ -1,5 +1,6 @@
 import jakarta.json.bind.Jsonb;
 import jakarta.json.bind.JsonbBuilder;
+import managers.TicketManager;
 import model.Client;
 import model.Room;
 import model.Show;
@@ -8,10 +9,7 @@ import org.junit.jupiter.api.Test;
 import redis.clients.jedis.DefaultJedisClientConfig;
 import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisPooled;
-import repositories.ClientRepository;
-import repositories.RoomRepository;
-import repositories.ShowRepository;
-import repositories.TicketRepository;
+import repositories.*;
 //import repositories.cache.TicketCache;
 //import repositories.cache.TicketCacheDecorator;
 
@@ -21,6 +19,11 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RedisTest {
+    private static final TicketRepository ticketRepository = new TicketRepository();
+    private static final TicketRepository ticketCacheRepository = new TicketCacheRepository();
+
+    private static final TicketManager ticketManager = new TicketManager(ticketRepository);
+    private static final TicketManager ticketManagerCache = new TicketManager(ticketCacheRepository);
 
     protected DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().build();
     protected JedisPooled RedisClient;
@@ -28,14 +31,17 @@ public class RedisTest {
 
     @Test
     public void redisTest() {
-
         this.jedisClientConfig = DefaultJedisClientConfig.builder().build();
         this.RedisClient = new JedisPooled(new HostAndPort("localhost", 6379), jedisClientConfig);
         this.jsonb = JsonbBuilder.create();
 
-        RedisClient.setex("1", 360, "test");
-        RedisClient.setex("1", 40, "zmiana");
-        RedisClient.setnx("2","nbd");
+        Date date = new Date(2000,1,1);
+        Client client = new Client(date,"100100100", Client.ClientType.minor,"Janek","Kowalski");
+        Room room = new Room(1,2);
+        Show show = new Show(1l, room, LocalDateTime.now(),LocalDateTime.now().plusHours(2), Show.ShowType.show3D);
+
+        assertTrue(ticketManagerCache.tryBook(1l,show,client,10, Ticket.TicketType.minorTicket));
+
     }
 
 //    static TicketCacheDecorator ticketCacheDecorator = new TicketCacheDecorator(new TicketRepository());
