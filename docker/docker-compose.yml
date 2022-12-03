@@ -1,56 +1,25 @@
 version: '3.9'
 services:
 
-  mongo:
-    build: .
-    image: mongocustom:1
-    container_name: mongodb
-    hostname: mongodb
-    networks:
-      - mongonet
+  cassandra1:
+    image: docker.io/bitnami/cassandra:latest
+    hostname: cassandra1
     ports:
-      - "27017:27017"
-    restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=adminpassword
-    command: --config /etc/mongod.conf
-    healthcheck:
-      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
-      interval: 10s
-      timeout: 2s
-      retries: 5
-
-  mongoinit:
-      build: .
-      image: mongocustom:1
-      hostname: mongodbinit
-      container_name: mongodbinit
-      networks:
-        - mongonet
-      depends_on:
-        mongo:
-          condition: service_healthy
-      command: >
-        mongosh --host mongodb:27017 --username admin --password adminpassword --authenticationDatabase admin --eval
-        '
-        rs.initiate();
-        '
-
-  redis-stack:
-    image: redis/redis-stack:latest
+      - 7000:7000
+      - 9042:9042
     volumes:
-      - redis-stack-data:/bitnami/redis/data
-    ports:
-      - "8001:8001"
-      - "6379:6379"
+      - cassandra1_data:/bitnami
     networks:
-      - redisnet
-
-volumes:
-  redis-stack-data:
-    driver: local
-
-networks:
-  mongonet: {}
-  redisnet: {}
+      - cassandranet
+    environment:
+      - CASSANDRA_LISTEN_ADDRESS=cassandra1
+      - CASSANDRA_BROADCAST_ADDRESS=cassandra1
+      - CASSANDRA_SEEDS=cassandra1,cassandra2
+      - CASSANDRA_CLUSTER_NAME=nbd-cassandra-cluster
+      - CASSANDRA_DATACENTER=dc1
+      - CASSANDRA_PASSWORD_SEEDER=yes
+      - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
+      - CASSANDRA_USER=cassandra
+      - CASSANDRA_PASSWORD=cassandrapassword
+      - MAX_HEAP_SIZE=2G
+      - HEAP_NEWSIZE=200M
