@@ -1,8 +1,9 @@
 package model;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import com.datastax.oss.driver.api.mapper.annotations.CqlName;
+import com.datastax.oss.driver.api.mapper.annotations.Entity;
+import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
+import lombok.*;
 import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
@@ -12,23 +13,23 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@Data
 @ToString
+@RequiredArgsConstructor
+@NoArgsConstructor
+//@EqualsAndHashCode(exclude = {"firstName", "lastName", "clientType", "addressId"})
+@Entity(defaultKeyspace = "cinema")
+@CqlName("clients_id")
 public class Client extends AbstractEntity{
 
-    @BsonCreator
-    public Client(@BsonId UUID uuid,
-                  @BsonProperty("birthday") Date birthday,
-                  @BsonProperty("phoneNumber") String phoneNumber,
-                  @BsonProperty("clientType") ClientType clientType,
-                  @BsonProperty("firstName") String firstName,
-                  @BsonProperty("lastname") String lastName) {
-        this.uuid = uuid;
-        this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
-        this.clientType = clientType;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+//    public Client() {
+//        this.uuid = uuid;
+//        this.birthday = birthday;
+//        this.phoneNumber = phoneNumber;
+//        this.clientType = clientType;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//    }
 
     public Client(
             Date birthday,
@@ -45,26 +46,38 @@ public class Client extends AbstractEntity{
         this.lastName = lastName;
     }
 
+    @ToString
+    @RequiredArgsConstructor
+    @NoArgsConstructor
     public enum ClientType {
         adult,
         minor,
         senior
     }
 
-    @BsonId
+    @NonNull
+    @PartitionKey
+    @CqlName("ID")
     private UUID uuid;
-    @BsonProperty("birthday")
+
+    @NonNull
+    @CqlName("birthday")
     private Date birthday;
 
-    @BsonProperty("phoneNumber")
+    @NonNull
+    @CqlName("phoneNumber")
     private String phoneNumber;
 
-    @BsonProperty("clientType")
+    @CqlName("clientType")
     private ClientType clientType;
 
+    @NonNull
+    @CqlName("firstName")
     @BsonProperty("firstName")
     private String firstName;
 
+    @NonNull
+    @CqlName("lastName")
     @BsonProperty("lastName")
     private String lastName;
 }

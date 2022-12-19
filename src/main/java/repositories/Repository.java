@@ -7,6 +7,10 @@ import java.util.function.Predicate;
 
 public interface Repository <T> {
 
+//    public Repository)() {
+//        initSession();
+//    }
+
     T add (T item);
 
     T get (T item);

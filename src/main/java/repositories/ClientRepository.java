@@ -10,50 +10,50 @@ import java.util.UUID;
 
 public class ClientRepository extends AbstractRepository implements Repository<Client> {
 
-    MongoCollection<Client> clientCollection = mongoDatabase.getCollection("clients", Client.class);
+//    MongoCollection<Client> clientCollection = mongoDatabase.getCollection("clients", Client.class);
 
     //create
     @Override
     public synchronized Client add(Client item) {
-        clientCollection.insertOne(item);
+//        clientCollection.insertOne(item);
         return item;
     }
 
     //delete
     @Override
     public void remove(Client item) {
-        Bson filter = Filters.eq("_id", item.getUuid());
-        clientCollection.findOneAndDelete(filter);
+//        Bson filter = Filters.eq("_id", item.getUuid());
+//        clientCollection.findOneAndDelete(filter);
     }
 
     //read
     @Override
     public Client get(Client client) {
-        Bson filter = Filters.eq("_id", client.getUuid());
-        return clientCollection.find(filter).first();
+//        Bson filter = Filters.eq("_id", client.getUuid());
+//        return clientCollection.find(filter).first();
     }
 
     public Client getByUUID(UUID uuid){
-        Bson filter = Filters.eq("_id",uuid);
-        return clientCollection.find(filter).first();
+//        Bson filter = Filters.eq("_id",uuid);
+//        return clientCollection.find(filter).first();
     }
 
     //update
     @Override
     public boolean update(Client client){
-       Bson filter = Filters.eq("_id",client.getUuid());
-       Bson update = Updates.combine(
-               Updates.set("birthday",client.getBirthday()),
-               Updates.set("phoneNumber", client.getPhoneNumber()),
-               Updates.set("firstName",client.getFirstName()),
-               Updates.set("lastName",client.getLastName())
-       );
-       clientCollection.updateOne(filter,update);
+//       Bson filter = Filters.eq("_id",client.getUuid());
+//       Bson update = Updates.combine(
+//               Updates.set("birthday",client.getBirthday()),
+//               Updates.set("phoneNumber", client.getPhoneNumber()),
+//               Updates.set("firstName",client.getFirstName()),
+//               Updates.set("lastName",client.getLastName())
+//       );
+//       clientCollection.updateOne(filter,update);
        return true;
 
     }
     public long size() {
-        return clientCollection.countDocuments();
+//        return clientCollection.countDocuments();
     }
 
 }

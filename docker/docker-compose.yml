@@ -23,3 +23,35 @@ services:
       - CASSANDRA_PASSWORD=cassandrapassword
       - MAX_HEAP_SIZE=2G
       - HEAP_NEWSIZE=200M
+
+  cassandra2:
+    image: docker.io/bitnami/cassandra:latest
+    hostname: cassandra2
+    ports:
+      - "7001:7000"
+      - "9043:9042"
+    volumes:
+      - cassandra2_data:/bitnami
+    networks:
+      - cassandranet
+    environment:
+      - CASSANDRA_LISTEN_ADDRESS=cassandra2
+      - CASSANDRA_BROADCAST_ADDRESS=cassandra2
+      - CASSANDRA_SEEDS=cassandra1,cassandra2
+      - CASSANDRA_CLUSTER_NAME=nbd_cassandra_cluster
+      - CASSANDRA_DATACENTER=dc1
+      - CASSANDRA_PASSWORD_SEEDER=yes
+      - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
+      - CASSANDRA_USER=cassandra
+      - CASSANDRA_PASSWORD=cassandra
+      - MAX_HEAP_SIZE=2G
+      - HEAP_NEWSIZE=200M
+
+volumes:
+  cassandra1_data:
+    driver: local
+  cassandra2_data:
+    driver: local
+
+networks:
+  cassandranet: {}
