@@ -1,59 +1,94 @@
 package repositories;
 
+import Util.CassandraNamespaces;
+import managers.CinemaManager;
+import com.datastax.oss.driver.api.core.CqlSession;
+import com.datastax.oss.driver.api.core.cql.Row;
+import com.datastax.oss.driver.api.querybuilder.QueryBuilder;
+import com.datastax.oss.driver.api.querybuilder.relation.Relation;
+import com.datastax.oss.driver.api.querybuilder.select.Select;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import model.Client;
 import org.bson.conversions.Bson;
 
+import java.sql.ResultSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class ClientRepository extends AbstractRepository implements Repository<Client> {
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.literal;
 
-//    MongoCollection<Client> clientCollection = mongoDatabase.getCollection("clients", Client.class);
+public class ClientRepository extends AbstractRepository<Client> implements Repository<Client> {
 
-    //create
+    public ClientRepository(CqlSession session) {
+        super(session);
+    }
+
     @Override
-    public synchronized Client add(Client item) {
-//        clientCollection.insertOne(item);
-        return item;
+    protected Client rowToEntity(Row row) {
+        return new Client(row.getLocalDate(CassandraNamespaces.BIRTHDAY),
+                row.getString(CassandraNamespaces.PHONENUMBER),
+                row.getString(CassandraNamespaces.FIRSTNAME),
+                row.getString(CassandraNamespaces.LASTNAME),
+                row.getString(CassandraNamespaces.CLIENTTYPE));
+    }
+
+    @Override
+    public Client get(Object element) {
+        Select getClientByPersonalID = QueryBuilder
+                .selectFrom(CassandraNamespaces.CLIENTS_ID)
+                .all()
+                .where(Relation.column("personalID").isEqualTo(literal(element.toString())));
+        return Optional.ofNullable(readClient((ResultSet) session.execute(getClientByPersonalID.build())))
+                .orElseThrow();
+    }
+
+    @Override
+    public void add(Client... elements) {
+        Stream.of(elements).forEach(this::createClient);
     }
 
     //delete
     @Override
-    public void remove(Client item) {
-//        Bson filter = Filters.eq("_id", item.getUuid());
-//        clientCollection.findOneAndDelete(filter);
+    public void remove(Client... elements) {
+        Stream.of(elements).forEach(this::deleteClient);
     }
 
-    //read
     @Override
-    public Client get(Client client) {
-//        Bson filter = Filters.eq("_id", client.getUuid());
-//        return clientCollection.find(filter).first();
+    public void update(Client... elements) {
+        Stream.of(elements).forEach(this::updateClient);
     }
 
-    public Client getByUUID(UUID uuid){
-//        Bson filter = Filters.eq("_id",uuid);
-//        return clientCollection.find(filter).first();
-    }
-
-    //update
     @Override
-    public boolean update(Client client){
-//       Bson filter = Filters.eq("_id",client.getUuid());
-//       Bson update = Updates.combine(
-//               Updates.set("birthday",client.getBirthday()),
-//               Updates.set("phoneNumber", client.getPhoneNumber()),
-//               Updates.set("firstName",client.getFirstName()),
-//               Updates.set("lastName",client.getLastName())
-//       );
-//       clientCollection.updateOne(filter,update);
-       return true;
+    public List<Client> find(Object... elements) {
+        Select getClientsByPersonalID = QueryBuilder
+                .selectFrom(CassandraNamespaces.CLIENTS_ID)
+                .all();
+        Stream.of(elements).forEach(element ->
+                getClientsByPersonalID.where(Relation.column("client_ID")
+                        .isEqualTo(literal(element.toString()))));
 
+        return session.execute(getClientsByPersonalID.build()).all()
+                .stream()
+                .map(this::rowToEntity)
+                .collect(Collectors.toList());
     }
-    public long size() {
-//        return clientCollection.countDocuments();
+
+    @Override
+    public List<Client> getAll() {
+        Select getClientsByPersonalID = QueryBuilder
+                .selectFrom(CassandraNamespaces.CLIENTS_ID)
+                .all();
+
+        return session.execute(getClientsByPersonalID.build()).all()
+                .stream()
+                .map(this::rowToEntity)
+                .collect(Collectors.toList());
     }
 
 }

@@ -39,15 +39,16 @@ public class Ticket extends AbstractEntity {
 
     public Ticket(
             Long ticket,
-            Show show,
-            Client client,
+            UUID show_id,
+            UUID client_id,
             double price,
-            TicketType ticketType
+            String ticketType
     ){
         this.uuid = UUID.randomUUID();
         this.ticket = ticket;
-        this.show = show;
-        this.client = client;
+        this.show_id = show_id;
+        // wywala u mnie, ze nie mozna resolve symbol client_id, nie wiem czemu
+        this.client_id = client_id;
         this.price = price;
         this.ticketType = ticketType;
     }
@@ -59,7 +60,13 @@ public class Ticket extends AbstractEntity {
         adultTicket,
         minorTicket,
         seniorTicket,
-        groupTicket
+        groupTicket;
+
+        @NonNull
+        @Getter
+        @CqlName("typeInfo")
+        private String typeInfo;
+
     }
     @NonNull
     @PartitionKey
@@ -73,13 +80,13 @@ public class Ticket extends AbstractEntity {
 
     @NonNull
     @PartitionKey
-    @CqlName("show")
-    private Show show;
+    @CqlName("show_ID")
+    private UUID show_id;
 
     @NonNull
     @PartitionKey
-    @CqlName("client")
-    private Client client;
+    @CqlName("client_ID")
+    private UUID client;
 
     @NonNull
     @PartitionKey
@@ -89,6 +96,7 @@ public class Ticket extends AbstractEntity {
     @NonNull
     @PartitionKey
     @CqlName("ticketType")
-    private TicketType ticketType;
+    // nie wiem jak to zrobic ogolnie dla TicketType a nie tylko dla jednego
+    private String ticketType = TicketType.adultTicket.getTypeInfo();
 
 }

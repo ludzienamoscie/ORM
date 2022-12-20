@@ -2,20 +2,22 @@ package repositories;
 
 import jakarta.transaction.Transactional;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.function.Predicate;
 
 public interface Repository <T> {
 
-//    public Repository)() {
-//        initSession();
-//    }
+    T get(Object element);
 
-    T add (T item);
+    void add(T... elements);
 
-    T get (T item);
+    void remove(T... elements);
 
-    void remove (T item);
+    void update(T... elements);
 
-    boolean update (T item1);
+    List<T> find(Object... elements);
+
+    List<T> getAll();
+
 }

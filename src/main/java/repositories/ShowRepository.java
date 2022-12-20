@@ -1,58 +1,100 @@
 package repositories;
 
 
+import Util.CassandraNamespaces;
+import com.datastax.oss.driver.api.core.CqlSession;
+import com.datastax.oss.driver.api.core.cql.PreparedStatement;
+import com.datastax.oss.driver.api.core.cql.Row;
+import com.datastax.oss.driver.api.querybuilder.QueryBuilder;
+import com.datastax.oss.driver.api.querybuilder.relation.Relation;
+import com.datastax.oss.driver.api.querybuilder.select.Select;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
+import model.Room;
 import model.Show;
 import org.bson.conversions.Bson;
 
+import java.sql.ResultSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class ShowRepository extends AbstractRepository implements Repository<Show>{
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.bindMarker;
 
-    MongoCollection<Show> showCollection = mongoDatabase.getCollection("shows", Show.class);
+public class ShowRepository extends AbstractRepository<Show> implements Repository<Show>{
 
-    //create
-    @Override
-    public Show add(Show item) {
-        showCollection.insertOne(item);
-        return item;
-    }
-
-    //delete
-    @Override
-    public void remove(Show item) {
-        Bson filter = Filters.eq("_id", item.getUuid());
-        showCollection.findOneAndDelete(filter);
-    }
-
-    //read
-    @Override
-    public Show get(Show show) {
-        Bson filter = Filters.eq("_id", show.getUuid());
-        return showCollection.find(filter).first();
-    }
-
-    public Show getByUUID(UUID uuid){
-        Bson filter = Filters.eq("_id",uuid);
-        return showCollection.find(filter).first();
+    public ShowRepository(CqlSession session) {
+        super(session);
     }
 
     @Override
-    public boolean update(Show show){
-        Bson filter = Filters.eq("_id", show.getUuid());
-        Bson update = Updates.combine(
-                Updates.set("show_id",show.getShow_id()),
-                Updates.set("room",show.getRoom()),
-                Updates.set("beginTime",show.getBeginTime()),
-                Updates.set("endTime",show.getEndTime())
-        );
-        showCollection.updateOne(filter,update);
-        return true;
+    protected Show rowToEntity(Row row) {
+        return new Show(row.getLong(CassandraNamespaces.SHOWS_ID),
+                row.getUuid(CassandraNamespaces.ROOM_ID),
+                // nie ma LocalDateTime??
+                row.getLocalDate(CassandraNamespaces.BEGINTIME),
+                row.getLocalDate(CassandraNamespaces.ENDTIME),
+                row.getString(CassandraNamespaces.SHOWTYPE));
     }
 
-    public long size() {
-        return showCollection.countDocuments();
+    @Override
+    public Show get(Object element) {
+        Select getShowByID = QueryBuilder
+                .selectFrom(CassandraNamespaces.SHOWS_ID)
+                .all()
+                .where(Relation.column("uuid").isEqualTo(bindMarker()));
+
+        PreparedStatement preparedStatement = session.prepare(getShowByID.build());
+
+        return Optional.ofNullable(readShow((ResultSet) session.execute(preparedStatement.bind(element))))
+                .orElseThrow();
     }
+
+    @Override
+    public void add(Show... elements) {
+        Stream.of(elements).forEach(this::createShow);
+    }
+
+    @Override
+    public void remove(Show... elements) {
+        Stream.of(elements).forEach(this::deleteShow);
+    }
+
+    @Override
+    public void update(Show... elements) {
+        Stream.of(elements).forEach(this::updateShow);
+    }
+
+    @Override
+    public List<Show> find(Object... elements) {
+        Select getShowsByID = QueryBuilder
+                .selectFrom(CassandraNamespaces.SHOWS_ID)
+                .all();
+        Stream.of(elements).forEach(element ->
+                getShowsByID.where(Relation.column("uuid")
+                        .isEqualTo(bindMarker())));
+
+        PreparedStatement preparedStatement = session.prepare(getShowsByID.build());
+
+        return session.execute(preparedStatement.bind(elements)).all()
+                .stream()
+                .map(this::rowToEntity)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Show> getAll() {
+        Select getShows = QueryBuilder
+                .selectFrom(CassandraNamespaces.SHOWS_ID)
+                .all();
+
+        return session.execute(getShows.build()).all()
+                .stream()
+                .map(this::rowToEntity)
+                .collect(Collectors.toList());
+    }
+
 }

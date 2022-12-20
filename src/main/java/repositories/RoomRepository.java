@@ -1,56 +1,97 @@
 package repositories;
 
+import Util.CassandraNamespaces;
+import com.datastax.oss.driver.api.core.CqlSession;
+import com.datastax.oss.driver.api.core.cql.PreparedStatement;
+import com.datastax.oss.driver.api.core.cql.Row;
+import com.datastax.oss.driver.api.querybuilder.QueryBuilder;
+import com.datastax.oss.driver.api.querybuilder.relation.Relation;
+import com.datastax.oss.driver.api.querybuilder.select.Select;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
+import model.Client;
 import model.Room;
 import org.bson.conversions.Bson;
 
+import java.sql.ResultSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class RoomRepository extends AbstractRepository implements Repository<Room>{
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.bindMarker;
+import static com.datastax.oss.driver.api.querybuilder.QueryBuilder.literal;
 
-    MongoCollection<Room> roomCollection = mongoDatabase.getCollection("rooms", Room.class);
+public class RoomRepository extends AbstractRepository<Room> implements Repository<Room>{
 
-    //create
+    public RoomRepository(CqlSession session) {
+        super(session);
+    }
+
     @Override
-    public Room add(Room item) {
-        roomCollection.insertOne(item);
-        return item;
+    protected Room rowToEntity(Row row) {
+        return new Room(row.getInt(CassandraNamespaces.ROOMNUMBER),
+                row.getInt(CassandraNamespaces.CAPACITY));
     }
 
-    //delete
     @Override
-    public void remove(Room item) {
-        Bson filter = Filters.eq("_id", item.getUuid());
-        roomCollection.findOneAndDelete(filter);
+    public Room get(Object element) {
+        Select getRoomByID = QueryBuilder
+                .selectFrom(CassandraNamespaces.ROOMS_ID)
+                .all()
+                .where(Relation.column("uuid").isEqualTo(bindMarker()));
+
+        PreparedStatement preparedStatement = session.prepare(getRoomByID.build());
+
+        return Optional.ofNullable(readRoom((ResultSet) session.execute(preparedStatement.bind(element))))
+                .orElseThrow();
     }
 
-    //read
     @Override
-    public Room get(Room room) {
-        Bson filter = Filters.eq("_id", room.getUuid());
-        return roomCollection.find(filter).first();
+    public void add(Room... elements) {
+        Stream.of(elements).forEach(this::createRoom);
     }
 
-    public Room getByUUID(UUID uuid){
-        Bson filter = Filters.eq("_id",uuid);
-        return roomCollection.find(filter).first();
-    }
-
-    //update
     @Override
-    public boolean update(Room room){
-        Bson filter = Filters.eq("_id", room.getUuid());
-        Bson update = Updates.combine(
-                Updates.set("roomNumber",room.getRoomNumber()),
-                Updates.set("capacity",room.getCapacity())
-        );
-        roomCollection.updateOne(filter,update);
-        return true;
+    public void remove(Room... elements) {
+        Stream.of(elements).forEach(this::deleteRoom);
     }
 
-    public long size() {
-        return roomCollection.countDocuments();
+    @Override
+    public void update(Room... elements) {
+        Stream.of(elements).forEach(this::updateRoom);
     }
+
+    @Override
+    public List<Room> find(Object... elements) {
+        Select getRoomsByID = QueryBuilder
+                .selectFrom(CassandraNamespaces.ROOMS_ID)
+                .all();
+        Stream.of(elements).forEach(element ->
+                getRoomsByID.where(Relation.column("uuid")
+                        .isEqualTo(bindMarker())));
+
+        PreparedStatement preparedStatement = session.prepare(getRoomsByID.build());
+
+        return session.execute(preparedStatement.bind(elements)).all()
+                .stream()
+                .map(this::rowToEntity)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Room> getAll() {
+        Select getRooms = QueryBuilder
+                .selectFrom(CassandraNamespaces.ROOMS_ID)
+                .all();
+
+        return session.execute(getRooms.build()).all()
+                .stream()
+                .map(this::rowToEntity)
+                .collect(Collectors.toList());
+    }
+
+
 }

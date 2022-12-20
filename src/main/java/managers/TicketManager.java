@@ -15,12 +15,12 @@ public class TicketManager {
         return show.getAvailableSeats() > 0;
     }
 
-    public boolean tryBook(Long ticket,Show show, Client client, double price, Ticket.TicketType ticketType) {
+    public boolean tryBook(Long ticket,String show_id, String client_id, double price, String ticketType) {
 //        if (!isAvailable(show)) return false;
 //        Ticket ticket = new Ticket(show, client, price, ticketType);
 //        return ticketRepository.add(ticket) != null;
 
-        Ticket ticket1 = new Ticket(ticket,show, client,price,ticketType);
+        Ticket ticket1 = new Ticket(ticket,show_id, client_id,price,ticketType);
         if(ticketRepository.add(ticket1) == null){
             return false;
         }

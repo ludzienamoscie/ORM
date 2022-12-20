@@ -40,14 +40,14 @@ public class Show extends AbstractEntity{
 
     public Show(
             Long show_id,
-            Room room,
+            UUID room_id,
             LocalDateTime beginTime,
             LocalDateTime endTime,
-            ShowType showType
+            String showType
     ){
         this.uuid = UUID.randomUUID();
         this.show_id = show_id;
-        this.room = room;
+        this.room_id = room_id;
         this.beginTime = beginTime;
         this.endTime = endTime;
         this.showType = showType;
@@ -58,7 +58,12 @@ public class Show extends AbstractEntity{
     @NoArgsConstructor
     public enum ShowType {
         show2D,
-        show3D
+        show3D;
+
+        @NonNull
+        @Getter
+        @CqlName("typeInfo")
+        private String typeInfo;
     }
     @NonNull
     @PartitionKey
@@ -73,8 +78,8 @@ public class Show extends AbstractEntity{
 
     @NonNull
     @PartitionKey
-    @CqlName("room")
-    private Room room;
+    @CqlName("room_ID")
+    private UUID room_id;
 
     @NonNull
     @CqlName("beginTime")
@@ -86,7 +91,8 @@ public class Show extends AbstractEntity{
 
     @NonNull
     @CqlName("showType")
-    private ShowType showType;
+    // nie wiem jak to zrobic ogolnie dla ShowType a nie tylko dla jednego
+    private String showType = ShowType.show2D.getTypeInfo();
 
     @NonNull
     @CqlName("availableSeats")

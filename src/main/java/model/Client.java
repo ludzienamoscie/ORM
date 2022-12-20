@@ -8,6 +8,9 @@ import org.bson.codecs.pojo.annotations.BsonCreator;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.codecs.pojo.annotations.BsonProperty;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -32,9 +35,9 @@ public class Client extends AbstractEntity{
 //    }
 
     public Client(
-            Date birthday,
+            LocalDate birthday,
             String phoneNumber,
-            ClientType clientType,
+            String clientType,
             String firstName,
             String lastName
     ){
@@ -49,27 +52,34 @@ public class Client extends AbstractEntity{
     @ToString
     @RequiredArgsConstructor
     @NoArgsConstructor
-    public enum ClientType {
+    public enum ClientType implements Serializable {
         adult,
         minor,
-        senior
+        senior;
+
+        @NonNull
+        @Getter
+        @CqlName("typeInfo")
+        private String typeInfo;
+
     }
 
     @NonNull
     @PartitionKey
-    @CqlName("ID")
+    @CqlName("client_ID")
     private UUID uuid;
 
     @NonNull
     @CqlName("birthday")
-    private Date birthday;
+    private LocalDate birthday;
 
     @NonNull
     @CqlName("phoneNumber")
     private String phoneNumber;
 
     @CqlName("clientType")
-    private ClientType clientType;
+    // nie wiem jak to zrobic ogolnie dla ClientType a nie tylko dla jednego
+    private String clientType = ClientType.adult.getTypeInfo();
 
     @NonNull
     @CqlName("firstName")

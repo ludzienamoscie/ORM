@@ -4,29 +4,77 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="added basic configuration in docker-compose.yml, updated pom.xml, added NbdAddressTranslator and session configuration in AbstractRepository">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Util/CassandraNamespaces.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2022_17_09_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2022_17_09__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2022_12_16_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2022_12_16__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2022_12_16__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2022_12_16__Changes_1.xml" beforeDir="false" />
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="Finished Cassandra configuration (runs well with docker), added namespaces, mapping in model and creating keyspaces and tables in AbstractRepository (not sure about some data types)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ClientDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/RoomDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ShowDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/TicketDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/managers/CinemaManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mappers/ClientMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mappers/RoomMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mappers/ShowMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/mappers/TicketMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/application.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/application.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/CassandraNamespaces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/CassandraNamespaces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ShowManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/TicketManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Show.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/AbstractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/AbstractRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/ClientTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RoomTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/RoomTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ShowTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/ShowTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TicketTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TicketTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ShowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ShowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ORM-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Util/AbstractMongoRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Util/EntityManagerCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Util/UniqueIdCodec.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Util/UniqueIdCodecProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/ClientManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/RoomManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/ShowManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/managers/TicketManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Client$ClientType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Show$ShowType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Show.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Ticket$TicketType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Ticket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/AbstractRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/ClientRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/Repository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/RoomRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/ShowRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketCacheRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/BenchmarkTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ClientTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RedisTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RoomTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ShowTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-BenchmarkTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ClientTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-RedisTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-RoomTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ShowTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TicketTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TicketTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/BenchmarkTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ClientTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RedisTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RoomTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ShowTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TicketTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +84,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -212,7 +261,8 @@
       <workItem from="1669232845995" duration="822000" />
       <workItem from="1670068976683" duration="1885000" />
       <workItem from="1670087142595" duration="313000" />
-      <workItem from="1671445413728" duration="2682000" />
+      <workItem from="1671445413728" duration="3027000" />
+      <workItem from="1671564832236" duration="5461000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>
@@ -263,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670070741874</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Finished Cassandra configuration (runs well with docker), added namespaces, mapping in model and creating keyspaces and tables in AbstractRepository (not sure about some data types)">
+      <created>1671448381993</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671448381993</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +345,7 @@
     <MESSAGE value="a simple redis cache file" />
     <MESSAGE value="redisTest passed, success connecting to redis at localhost:8001 in browser" />
     <MESSAGE value="added basic configuration in docker-compose.yml, updated pom.xml, added NbdAddressTranslator and session configuration in AbstractRepository" />
-    <option name="LAST_COMMIT_MESSAGE" value="added basic configuration in docker-compose.yml, updated pom.xml, added NbdAddressTranslator and session configuration in AbstractRepository" />
+    <MESSAGE value="Finished Cassandra configuration (runs well with docker), added namespaces, mapping in model and creating keyspaces and tables in AbstractRepository (not sure about some data types)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Cassandra configuration (runs well with docker), added namespaces, mapping in model and creating keyspaces and tables in AbstractRepository (not sure about some data types)" />
   </component>
 </project>
