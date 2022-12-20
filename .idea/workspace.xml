@@ -1,49 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2022_17_09_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_21_11_2022_17_09__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2022_12_16_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_11_2022_12_16__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/managers/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/TicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketCacheRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketCacheRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BenchmarkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BenchmarkTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/RedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RedisTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TicketTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ORM-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ORM-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Util/JedisClientConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/TicketManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/managers/TicketManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Ticket$TicketType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Ticket$TicketType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/ClientRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/ClientRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/Repository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/Repository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/RepositoryDecorator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/RoomRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/RoomRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/ShowRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/ShowRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/cache/RedisCache$Healthcheck.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/cache/RedisCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/cache/TicketCache.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/cache/TicketCacheDecorator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ClientTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/ClientTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/EntityTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-EntityTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ClientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ClientTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ORM-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketCacheRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/TicketCacheRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/BenchmarkTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/BenchmarkTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ClientTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RedisTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RoomTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ShowTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-BenchmarkTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-BenchmarkTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ClientTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-RedisTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-RoomTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ShowTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TicketTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TicketTest.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/RedisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RedisTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/RoomTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RoomTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ShowTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ShowTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TicketTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TicketTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,13 +81,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Maja/Desktop/documents/semestr V/nierelacyjne bazy/project/ORM/docker&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -122,7 +109,7 @@
       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BenchmarkTest.Benchmark">
+  <component name="RunManager" selected="Docker.docker: Compose Deployment">
     <configuration name="BenchmarkTest.Benchmark" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
@@ -133,31 +120,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedisTest.decoratorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RedisTest.CacheAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RedisTest" />
-      <option name="METHOD_NAME" value="decoratorTest" />
+      <option name="METHOD_NAME" value="CacheAddTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RedisTest.redisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RedisTest.CacheRedisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="RedisTest" />
-      <option name="METHOD_NAME" value="redisTest" />
+      <option name="METHOD_NAME" value="CacheRedisTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShowTest.showAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RedisTest.CacheRemoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ShowTest" />
-      <option name="METHOD_NAME" value="showAddTest" />
+      <option name="MAIN_CLASS_NAME" value="RedisTest" />
+      <option name="METHOD_NAME" value="CacheRemoveTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -173,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BenchmarkTest.Benchmark" />
-        <item itemvalue="JUnit.RedisTest.redisTest" />
         <item itemvalue="Docker.docker: Compose Deployment" />
-        <item itemvalue="JUnit.ShowTest.showAddTest" />
-        <item itemvalue="JUnit.RedisTest.decoratorTest" />
+        <item itemvalue="JUnit.RedisTest.CacheRedisTest" />
+        <item itemvalue="JUnit.BenchmarkTest.Benchmark" />
+        <item itemvalue="JUnit.RedisTest.CacheRemoveTest" />
+        <item itemvalue="JUnit.RedisTest.CacheAddTest" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +210,11 @@
       <workItem from="1669188899379" duration="6849000" />
       <workItem from="1669224307219" duration="6714000" />
       <workItem from="1669231167452" duration="1626000" />
-      <workItem from="1669232845995" duration="822000" />
+      <workItem from="1669232845995" duration="3333000" />
+      <workItem from="1669288652313" duration="2097000" />
+      <workItem from="1669794322413" duration="179000" />
+      <workItem from="1669795502243" duration="131000" />
+      <workItem from="1670438835477" duration="1126000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>

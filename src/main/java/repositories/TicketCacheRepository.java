@@ -25,14 +25,17 @@ public class TicketCacheRepository extends TicketRepository {
         try{
             gson = new GsonBuilder().create();
 
-//            Config config = ConfigProvider.getConfig();
-//
-//            String host = config.getValue("jedis.host",String.class);
-//            int port = config.getValue("jedis.port",Integer.class);
+          Config config = ConfigProvider.getConfig();
+
+          String host = config.getValue("jedis.host",String.class);
+          int port = config.getValue("jedis.port",Integer.class);
 
             JedisClientConfig clientConfig = DefaultJedisClientConfig.builder().socketTimeoutMillis(100).build();
-            jedis = new Jedis(new HostAndPort("localhost",6379),clientConfig);
-            pool = new JedisPooled(new HostAndPort("localhost",6379),clientConfig);
+//            jedis = new Jedis(new HostAndPort("localhost",6379),clientConfig);
+//            pool = new JedisPooled(new HostAndPort("localhost",6379),clientConfig);
+//
+          jedis = new Jedis(new HostAndPort(host,port),clientConfig);
+          pool = new JedisPooled(new HostAndPort(host,port),clientConfig);
 
             pool.set("ping","ping");
             connected = true;
