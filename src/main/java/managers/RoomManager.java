@@ -12,9 +12,7 @@ public class RoomManager {
 
     public boolean add(String roomNumber,int capacity){
         Room room = new Room(roomNumber,capacity);
-        if(roomRepository.add(room) == null){
-            return false;
-        }
+        roomRepository.add(room);
         return true;
     }
     public void remove(Room room){

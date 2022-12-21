@@ -17,9 +17,7 @@ public class ShowManager {
 
     public boolean add(String show_id, String room_id, LocalDate beginTime, LocalDate endTime, String showType){
         Show show = new Show(show_id,room_id,beginTime,endTime, showType);
-        if(showRepository.add(show)==null){
-            return false;
-        }
+        showRepository.add(show);
         return true;
     }
 

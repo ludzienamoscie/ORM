@@ -17,9 +17,7 @@ public class ClientManager {
 
     public boolean add(String client_id,LocalDate birthday, String phoneNumber, String firstName, String lastName, String clientType){
         Client client = new Client(client_id,birthday,phoneNumber,firstName,lastName,clientType);
-        if(clientRepository.add(client) == null ){
-            return false;
-        }
+        clientRepository.add(client);
         return true;
     }
     public void remove(Client client){

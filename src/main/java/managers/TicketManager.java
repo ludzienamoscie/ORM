@@ -21,9 +21,7 @@ public class TicketManager {
 //        return ticketRepository.add(ticket) != null;
 
         Ticket ticket1 = new Ticket(ticket,show_id, client_id,price,ticketType);
-        if(ticketRepository.add(ticket1) == null){
-            return false;
-        }
+        ticketRepository.add(ticket1);
         return true;
     }
     public void remove(Ticket ticket){

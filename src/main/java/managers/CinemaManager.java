@@ -36,38 +36,34 @@ public class CinemaManager {
                 .withPartitionKey(CqlIdentifier.fromCql("client_id"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("birthday"), DataTypes.DATE)
                 .withColumn(CqlIdentifier.fromCql("phoneNumber"), DataTypes.TEXT)
-                .withColumn(CqlIdentifier.fromCql("clientType"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("firstName"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("lastName"), DataTypes.TEXT)
+                .withColumn(CqlIdentifier.fromCql("clientType"), DataTypes.TEXT)
                 .build();
         session.execute(createClients);
 
-        SimpleStatement createRooms = SchemaBuilder.createTable(ROOM_ID)
+        SimpleStatement createRooms = SchemaBuilder.createTable(ROOMS_ID)
                 .ifNotExists()
-                .withPartitionKey(CqlIdentifier.fromCql("ID"), DataTypes.UUID)
-                .withPartitionKey(CqlIdentifier.fromCql("roomNumber"), DataTypes.INT)
+                .withPartitionKey(CqlIdentifier.fromCql("room_id"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("capacity"), DataTypes.INT)
                 .build();
         session.execute(createRooms);
 
-        SimpleStatement createShows = SchemaBuilder.createTable(SHOW_ID)
+        SimpleStatement createShows = SchemaBuilder.createTable(SHOWS_ID)
                 .ifNotExists()
-                .withPartitionKey(CqlIdentifier.fromCql("ID"), DataTypes.UUID)
-                .withPartitionKey(CqlIdentifier.fromCql("show_ID"), DataTypes.UUID)
-                .withPartitionKey(CqlIdentifier.fromCql("room_ID"), DataTypes.UUID)
-                // nie widze nic podobnego do localdatetime do wyboru
+                .withPartitionKey(CqlIdentifier.fromCql("show_id"), DataTypes.TEXT)
+                .withPartitionKey(CqlIdentifier.fromCql("room_id"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("beginTime"), DataTypes.DATE)
                 .withColumn(CqlIdentifier.fromCql("endTime"), DataTypes.DATE)
                 .withColumn(CqlIdentifier.fromCql("showType"), DataTypes.TEXT)
-                .withColumn(CqlIdentifier.fromCql("availableSeats"), DataTypes.INT)
                 .build();
         session.execute(createShows);
 
-        SimpleStatement createTickets = SchemaBuilder.createTable(TICKET_ID)
+        SimpleStatement createTickets = SchemaBuilder.createTable(TICKETS_ID)
                 .ifNotExists()
-                .withPartitionKey(CqlIdentifier.fromCql("ID"), DataTypes.UUID)
-                .withColumn(CqlIdentifier.fromCql("show_ID"), DataTypes.UUID)
-                .withColumn(CqlIdentifier.fromCql("client_ID"), DataTypes.UUID)
+                .withPartitionKey(CqlIdentifier.fromCql("ticket_id"), DataTypes.TEXT)
+                .withColumn(CqlIdentifier.fromCql("show_id"), DataTypes.TEXT)
+                .withColumn(CqlIdentifier.fromCql("client_id"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("price"), DataTypes.DOUBLE)
                 .withPartitionKey(CqlIdentifier.fromCql("ticketType"), DataTypes.TEXT)
                 .build();
