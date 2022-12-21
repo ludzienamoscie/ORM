@@ -4,77 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="Finished Cassandra configuration (runs well with docker), added namespaces, mapping in model and creating keyspaces and tables in AbstractRepository (not sure about some data types)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ClientDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/RoomDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/ShowDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/TicketDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/managers/CinemaManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mappers/ClientMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mappers/RoomMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mappers/ShowMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/mappers/TicketMapper.java" afterDir="false" />
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Util/AbstractMongoRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Util/CassandraNamespaces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Util/CassandraNamespaces.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/CinemaManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/CinemaManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ClientManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/managers/RoomManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/RoomManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/managers/ShowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/ShowManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/managers/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/managers/TicketManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Show.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/AbstractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/AbstractRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ClientRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/ShowRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/ShowRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketCacheRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/ORM-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Util/AbstractMongoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Util/EntityManagerCreator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Util/UniqueIdCodec.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Util/UniqueIdCodecProvider.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/ClientManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/RoomManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/ShowManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/managers/TicketManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Client$ClientType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Show$ShowType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Show.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Ticket$TicketType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/Ticket.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/AbstractRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/ClientRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/Repository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/RoomRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/ShowRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketCacheRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BenchmarkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BenchmarkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RedisTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RoomTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RoomTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ShowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ShowTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TicketTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/BenchmarkTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ClientTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RedisTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/RoomTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ShowTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-BenchmarkTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ClientTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-RedisTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-RoomTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ShowTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TicketTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TicketTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/BenchmarkTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ClientTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/RedisTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/RoomTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ShowTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TicketTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +54,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="redis" />
+        <entry key="$PROJECT_DIR$" value="9c88926b54e3bc651e20d46ee935951a340c01c6" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -121,27 +76,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maja/Desktop/documents/semestr V/nierelacyjne bazy/project/ORM/docker&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "C:/Users/Filip Warchoł/Desktop/mba_pt_0830_02-Cassandra29dcf581e96",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;,
-      &quot;mongo&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "mongo"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\docker" />
@@ -263,6 +218,7 @@
       <workItem from="1670087142595" duration="313000" />
       <workItem from="1671445413728" duration="3027000" />
       <workItem from="1671564832236" duration="5461000" />
+      <workItem from="1671644236721" duration="6278000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>

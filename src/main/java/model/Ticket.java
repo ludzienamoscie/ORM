@@ -17,46 +17,31 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @AllArgsConstructor
-//@EqualsAndHashCode(exclude = {})
+@EqualsAndHashCode(exclude = {"show_id","client_id","price","ticketType"})
 @Entity
 @CqlName("tickets_id")
 public class Ticket extends AbstractEntity {
+    @NonNull
+    @PartitionKey
+    @CqlName("ticket_id")
+    private String ticket_id;
 
-//    @BsonCreator
-//    public Ticket(@BsonId UUID uuid,
-//                  @BsonProperty("ticket") Long ticket,
-//                  @BsonProperty("show") Show show,
-//                  @BsonProperty("client") Client client,
-//                  @BsonProperty("price") double price,
-//                  @BsonProperty("ticketType") TicketType ticketType) {
-//        this.uuid = uuid;
-//        this.ticket = ticket;
-//        this.show = show;
-//        this.client = client;
-//        this.price = price;
-//        this.ticketType = ticketType;
-//    }
+    @NonNull
+    @CqlName("show_id")
+    private String show_id;
 
-    public Ticket(
-            Long ticket,
-            UUID show_id,
-            UUID client_id,
-            double price,
-            String ticketType
-    ){
-        this.uuid = UUID.randomUUID();
-        this.ticket = ticket;
-        this.show_id = show_id;
-        // wywala u mnie, ze nie mozna resolve symbol client_id, nie wiem czemu
-        this.client_id = client_id;
-        this.price = price;
-        this.ticketType = ticketType;
-    }
+    @NonNull
+    @CqlName("client_id")
+    private String client_id;
+
+    @NonNull
+    @CqlName("price")
+    private double price;
 
     @ToString
     @RequiredArgsConstructor
     @NoArgsConstructor
-   public enum TicketType{
+    public enum TicketType{
         adultTicket,
         minorTicket,
         seniorTicket,
@@ -68,33 +53,8 @@ public class Ticket extends AbstractEntity {
         private String typeInfo;
 
     }
-    @NonNull
-    @PartitionKey
-    @CqlName("ID")
-    private UUID uuid;
 
     @NonNull
-    @PartitionKey
-    @CqlName("ticket_ID")
-    private Long ticket;
-
-    @NonNull
-    @PartitionKey
-    @CqlName("show_ID")
-    private UUID show_id;
-
-    @NonNull
-    @PartitionKey
-    @CqlName("client_ID")
-    private UUID client;
-
-    @NonNull
-    @PartitionKey
-    @CqlName("price")
-    private double price;
-
-    @NonNull
-    @PartitionKey
     @CqlName("ticketType")
     // nie wiem jak to zrobic ogolnie dla TicketType a nie tylko dla jednego
     private String ticketType = TicketType.adultTicket.getTypeInfo();

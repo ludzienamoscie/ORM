@@ -4,6 +4,7 @@ import model.Room;
 import model.Show;
 import repositories.ShowRepository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -14,7 +15,7 @@ public class ShowManager {
         this.showRepository = showRepository;
     }
 
-    public boolean add(Long show_id, UUID room_id, LocalDateTime beginTime, LocalDateTime endTime, String showType){
+    public boolean add(String show_id, String room_id, LocalDate beginTime, LocalDate endTime, String showType){
         Show show = new Show(show_id,room_id,beginTime,endTime, showType);
         if(showRepository.add(show)==null){
             return false;

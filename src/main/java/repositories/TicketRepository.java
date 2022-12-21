@@ -34,10 +34,10 @@ public class TicketRepository extends AbstractRepository<Ticket> implements Repo
 
     @Override
     protected Ticket rowToEntity(Row row) {
-        return new Ticket(row.getLong(CassandraNamespaces.TICKETS_ID),
-                row.getUuid(CassandraNamespaces.TICKET_ID),
-                row.getUuid(CassandraNamespaces.SHOW_ID),
-                row.getUuid(CassandraNamespaces.CLIENT_ID),
+        return new Ticket(
+                row.getString(CassandraNamespaces.TICKET_ID),
+                row.getString(CassandraNamespaces.SHOW_ID),
+                row.getString(CassandraNamespaces.CLIENT_ID),
                 row.getDouble(CassandraNamespaces.PRICE),
                 row.getString(CassandraNamespaces.TICKETTYPE)
         );
@@ -48,7 +48,7 @@ public class TicketRepository extends AbstractRepository<Ticket> implements Repo
         Select getTicketByID = QueryBuilder
                 .selectFrom(CassandraNamespaces.TICKETS_ID)
                 .all()
-                .where(Relation.column("uuid").isEqualTo(bindMarker()));
+                .where(Relation.column("ticket_id").isEqualTo(bindMarker()));
 
         PreparedStatement preparedStatement = session.prepare(getTicketByID.build());
 

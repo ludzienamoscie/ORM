@@ -1,62 +1,44 @@
 package model;
 
 import com.datastax.oss.driver.api.mapper.annotations.CqlName;
-import com.datastax.oss.driver.api.mapper.annotations.Entity;
 import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
 import lombok.*;
-import org.bson.codecs.pojo.annotations.BsonCreator;
-import org.bson.codecs.pojo.annotations.BsonId;
-import org.bson.codecs.pojo.annotations.BsonProperty;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
+import java.io.Serializable;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @Data
 @ToString
+@AllArgsConstructor
 @RequiredArgsConstructor
 @NoArgsConstructor
-//@EqualsAndHashCode(exclude = {"??"})
+@EqualsAndHashCode(exclude = {"room_id","beginTime","endTime","showType"})
 @CqlName("shows_id")
-@Entity
 public class Show extends AbstractEntity{
 
-//    @BsonCreator
-//    public Show(@BsonId UUID uuid,
-//                @BsonProperty("show_id") Long show_id,
-//                @BsonProperty("room") Room room,
-//                @BsonProperty("beginTime") LocalDateTime beginTime,
-//                @BsonProperty("endTime") LocalDateTime endTime,
-//                @BsonProperty("showType") ShowType showType) {
-//        this.uuid = uuid;
-//        this.show_id = show_id;
-//        this.room = room;
-//        this.beginTime = beginTime;
-//        this.endTime = endTime;
-//        this.showType = showType;
-//        this.availableSeats = room.getCapacity();
-//    }
+    @NonNull
+    @PartitionKey
+    @CqlName("show_id")
+    private String show_id;
 
-    public Show(
-            Long show_id,
-            UUID room_id,
-            LocalDateTime beginTime,
-            LocalDateTime endTime,
-            String showType
-    ){
-        this.uuid = UUID.randomUUID();
-        this.show_id = show_id;
-        this.room_id = room_id;
-        this.beginTime = beginTime;
-        this.endTime = endTime;
-        this.showType = showType;
-    }
+    @NonNull
+    @CqlName("room_id")
+    private String room_id;
+
+    @NonNull
+    @CqlName("beginTime")
+    private LocalDate beginTime;
+
+    @NonNull
+    @CqlName("endTime")
+    private LocalDate endTime;
 
     @ToString
     @RequiredArgsConstructor
     @NoArgsConstructor
-    public enum ShowType {
+    public enum ShowType implements Serializable {
         show2D,
         show3D;
 
@@ -65,41 +47,16 @@ public class Show extends AbstractEntity{
         @CqlName("typeInfo")
         private String typeInfo;
     }
-    @NonNull
-    @PartitionKey
-    @CqlName("ID")
-    private UUID uuid;
 
-    // dwa id?
-    @NonNull
-    @PartitionKey
-    @CqlName("show_ID")
-    private Long show_id;
 
-    @NonNull
-    @PartitionKey
-    @CqlName("room_ID")
-    private UUID room_id;
-
-    @NonNull
-    @CqlName("beginTime")
-    private LocalDateTime beginTime;
-
-    @NonNull
-    @CqlName("endTime")
-    private LocalDateTime endTime;
-
-    @NonNull
     @CqlName("showType")
     // nie wiem jak to zrobic ogolnie dla ShowType a nie tylko dla jednego
     private String showType = ShowType.show2D.getTypeInfo();
 
-    @NonNull
-    @CqlName("availableSeats")
-    private Integer availableSeats;
-
-    public void decreaseSeats(){
-        availableSeats--;
-    }
+//    private Integer availableSeats;
+//
+//    public void decreaseSeats(){
+//        availableSeats--;
+//    }
 
 }

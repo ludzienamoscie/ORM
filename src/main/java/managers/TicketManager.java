@@ -11,11 +11,11 @@ public class TicketManager {
         this.ticketRepository = ticketRepository;
     }
 
-    public boolean isAvailable(Show show) {
-        return show.getAvailableSeats() > 0;
-    }
+//    public boolean isAvailable(Show show) {
+//        return show.getAvailableSeats() > 0;
+//    }
 
-    public boolean tryBook(Long ticket,String show_id, String client_id, double price, String ticketType) {
+    public boolean tryBook(String ticket,String show_id, String client_id, double price, String ticketType) {
 //        if (!isAvailable(show)) return false;
 //        Ticket ticket = new Ticket(show, client, price, ticketType);
 //        return ticketRepository.add(ticket) != null;
@@ -34,7 +34,7 @@ public class TicketManager {
         return ticketRepository.get(ticket);
     }
 
-    public Ticket getByTicket(Long ticket){
-        return ticketRepository.getByTicket(ticket);
-    }
+//    public Ticket getByTicket(Long ticket){
+//        return ticketRepository.getByTicket(ticket);
+//    }
 }

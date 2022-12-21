@@ -17,6 +17,7 @@ import org.bson.conversions.Bson;
 
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -32,12 +33,13 @@ public class ShowRepository extends AbstractRepository<Show> implements Reposito
 
     @Override
     protected Show rowToEntity(Row row) {
-        return new Show(row.getLong(CassandraNamespaces.SHOWS_ID),
-                row.getUuid(CassandraNamespaces.ROOM_ID),
-                // nie ma LocalDateTime??
+        return new Show(
+                row.getString(CassandraNamespaces.SHOW_ID),
+                row.getString(CassandraNamespaces.ROOM_ID),
                 row.getLocalDate(CassandraNamespaces.BEGINTIME),
                 row.getLocalDate(CassandraNamespaces.ENDTIME),
-                row.getString(CassandraNamespaces.SHOWTYPE));
+                row.getString(CassandraNamespaces.SHOWTYPE)
+        );
     }
 
     @Override
@@ -45,7 +47,7 @@ public class ShowRepository extends AbstractRepository<Show> implements Reposito
         Select getShowByID = QueryBuilder
                 .selectFrom(CassandraNamespaces.SHOWS_ID)
                 .all()
-                .where(Relation.column("uuid").isEqualTo(bindMarker()));
+                .where(Relation.column("show_id").isEqualTo(bindMarker()));
 
         PreparedStatement preparedStatement = session.prepare(getShowByID.build());
 

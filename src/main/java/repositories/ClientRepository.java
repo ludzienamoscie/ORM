@@ -31,11 +31,12 @@ public class ClientRepository extends AbstractRepository<Client> implements Repo
 
     @Override
     protected Client rowToEntity(Row row) {
-        return new Client(row.getLocalDate(CassandraNamespaces.BIRTHDAY),
-                row.getString(CassandraNamespaces.PHONENUMBER),
-                row.getString(CassandraNamespaces.FIRSTNAME),
-                row.getString(CassandraNamespaces.LASTNAME),
-                row.getString(CassandraNamespaces.CLIENTTYPE));
+        return new Client(row.getString(CassandraNamespaces.CLIENT_ID),
+                          Objects.requireNonNull(row.getLocalDate(CassandraNamespaces.BIRTHDAY)),
+                          Objects.requireNonNull(row.getString(CassandraNamespaces.PHONENUMBER)),
+                          Objects.requireNonNull(row.getString(CassandraNamespaces.FIRSTNAME)),
+                          Objects.requireNonNull(row.getString(CassandraNamespaces.LASTNAME)),
+                          row.getString(CassandraNamespaces.CLIENTTYPE));
     }
 
     @Override
@@ -70,7 +71,7 @@ public class ClientRepository extends AbstractRepository<Client> implements Repo
                 .selectFrom(CassandraNamespaces.CLIENTS_ID)
                 .all();
         Stream.of(elements).forEach(element ->
-                getClientsByPersonalID.where(Relation.column("client_ID")
+                getClientsByPersonalID.where(Relation.column("client_id")
                         .isEqualTo(literal(element.toString()))));
 
         return session.execute(getClientsByPersonalID.build()).all()

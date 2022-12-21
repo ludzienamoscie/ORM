@@ -5,8 +5,8 @@ services:
     image: docker.io/bitnami/cassandra:latest
     hostname: cassandra1
     ports:
-      - 7000:7000
-      - 9042:9042
+      - "7000:7000"
+      - "9042:9042"
     volumes:
       - cassandra1_data:/bitnami
     networks:

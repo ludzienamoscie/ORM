@@ -18,36 +18,33 @@ import java.util.UUID;
 @Setter
 @Data
 @ToString
+@AllArgsConstructor
 @RequiredArgsConstructor
 @NoArgsConstructor
-//@EqualsAndHashCode(exclude = {"firstName", "lastName", "clientType", "addressId"})
-@Entity(defaultKeyspace = "cinema")
+@EqualsAndHashCode(exclude = {"birthday","phoneNumber","firstName", "lastName", "clientType"})
 @CqlName("clients_id")
 public class Client extends AbstractEntity{
 
-//    public Client() {
-//        this.uuid = uuid;
-//        this.birthday = birthday;
-//        this.phoneNumber = phoneNumber;
-//        this.clientType = clientType;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//    }
+    @NonNull
+    @PartitionKey
+    @CqlName("client_id")
+    private String client_id;
 
-    public Client(
-            LocalDate birthday,
-            String phoneNumber,
-            String clientType,
-            String firstName,
-            String lastName
-    ){
-        this.uuid = UUID.randomUUID();
-        this.birthday = birthday;
-        this.phoneNumber = phoneNumber;
-        this.clientType = clientType;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+    @NonNull
+    @CqlName("birthday")
+    private LocalDate birthday;
+
+    @NonNull
+    @CqlName("phoneNumber")
+    private String phoneNumber;
+
+    @NonNull
+    @CqlName("firstName")
+    private String firstName;
+
+    @NonNull
+    @CqlName("lastName")
+    private String lastName;
 
     @ToString
     @RequiredArgsConstructor
@@ -61,33 +58,9 @@ public class Client extends AbstractEntity{
         @Getter
         @CqlName("typeInfo")
         private String typeInfo;
-
     }
-
-    @NonNull
-    @PartitionKey
-    @CqlName("client_ID")
-    private UUID uuid;
-
-    @NonNull
-    @CqlName("birthday")
-    private LocalDate birthday;
-
-    @NonNull
-    @CqlName("phoneNumber")
-    private String phoneNumber;
 
     @CqlName("clientType")
     // nie wiem jak to zrobic ogolnie dla ClientType a nie tylko dla jednego
     private String clientType = ClientType.adult.getTypeInfo();
-
-    @NonNull
-    @CqlName("firstName")
-    @BsonProperty("firstName")
-    private String firstName;
-
-    @NonNull
-    @CqlName("lastName")
-    @BsonProperty("lastName")
-    private String lastName;
 }

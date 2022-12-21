@@ -31,9 +31,9 @@ public class CinemaManager {
         SimpleStatement createKeyspace = keyspace.build();
         session.execute(createKeyspace);
 
-        SimpleStatement createClients = SchemaBuilder.createTable(CLIENT_ID)
+        SimpleStatement createClients = SchemaBuilder.createTable(CLIENTS_ID)
                 .ifNotExists()
-                .withPartitionKey(CqlIdentifier.fromCql("ID"), DataTypes.UUID)
+                .withPartitionKey(CqlIdentifier.fromCql("client_id"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("birthday"), DataTypes.DATE)
                 .withColumn(CqlIdentifier.fromCql("phoneNumber"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("clientType"), DataTypes.TEXT)

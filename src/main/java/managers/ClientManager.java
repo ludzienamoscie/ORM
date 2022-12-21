@@ -3,6 +3,8 @@ package managers;
 import model.Client;
 import repositories.ClientRepository;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -13,8 +15,8 @@ public class ClientManager {
         this.clientRepository = clientRepository;
     }
 
-    public boolean add(Date birthday, String phoneNumber, String clientType, String firstName, String lastName){
-        Client client = new Client(birthday,phoneNumber, clientType,firstName,lastName);
+    public boolean add(String client_id,LocalDate birthday, String phoneNumber, String firstName, String lastName, String clientType){
+        Client client = new Client(client_id,birthday,phoneNumber,firstName,lastName,clientType);
         if(clientRepository.add(client) == null ){
             return false;
         }

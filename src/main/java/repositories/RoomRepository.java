@@ -32,8 +32,8 @@ public class RoomRepository extends AbstractRepository<Room> implements Reposito
 
     @Override
     protected Room rowToEntity(Row row) {
-        return new Room(row.getInt(CassandraNamespaces.ROOMNUMBER),
-                row.getInt(CassandraNamespaces.CAPACITY));
+        return new Room(row.getString(CassandraNamespaces.ROOM_ID),
+                        row.getInt(CassandraNamespaces.CAPACITY));
     }
 
     @Override
@@ -70,7 +70,7 @@ public class RoomRepository extends AbstractRepository<Room> implements Reposito
                 .selectFrom(CassandraNamespaces.ROOMS_ID)
                 .all();
         Stream.of(elements).forEach(element ->
-                getRoomsByID.where(Relation.column("uuid")
+                getRoomsByID.where(Relation.column("room_id")
                         .isEqualTo(bindMarker())));
 
         PreparedStatement preparedStatement = session.prepare(getRoomsByID.build());
