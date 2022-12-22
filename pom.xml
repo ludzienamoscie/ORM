@@ -15,19 +15,6 @@
         <mongodb-crypt.version>1.4.1</mongodb-crypt.version>
         <logback-classic.version>1.2.9</logback-classic.version>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.datastax.oss</groupId>
-                <artifactId>java-driver-bom</artifactId>
-                <version>4.15.0</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>jakarta.persistence</groupId>
@@ -35,14 +22,9 @@
             <version>3.1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core-jakarta</artifactId>
-            <version>5.6.12.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>io.smallrye.config</groupId>
-            <artifactId>smallrye-config</artifactId>
-            <version>3.0.0</version>
+            <groupId>com.esri.geometry</groupId>
+            <artifactId>esri-geometry-api</artifactId>
+            <version>2.2.4</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -109,11 +91,6 @@
             <version>4.3.1</version>
         </dependency>
         <dependency>
-            <groupId>biz.paluch.redis</groupId>
-            <artifactId>lettuce</artifactId>
-            <version>3.2.Final</version>
-        </dependency>
-        <dependency>
             <groupId>org.eclipse</groupId>
             <artifactId>yasson</artifactId>
             <version>3.0.1</version>
@@ -131,11 +108,20 @@
 
         <dependency>
             <groupId>com.datastax.oss</groupId>
+            <artifactId>java-driver-bom</artifactId>
+            <version>4.15.0</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.datastax.oss</groupId>
             <artifactId>java-driver-core</artifactId>
+            <version>4.15.0</version>
         </dependency>
         <dependency>
             <groupId>com.datastax.oss</groupId>
             <artifactId>java-driver-query-builder</artifactId>
+            <version>4.15.0</version>
         </dependency>
         <dependency>
             <groupId>com.datastax.oss</groupId>
@@ -145,7 +131,20 @@
         <dependency>
             <groupId>com.datastax.oss</groupId>
             <artifactId>java-driver-mapper-processor</artifactId>
+            <version>4.15.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-math3</artifactId>
+            <version>3.6.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

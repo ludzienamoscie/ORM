@@ -1,14 +1,10 @@
 package repositories;
 
-import com.datastax.oss.driver.api.core.CqlIdentifier;
+
 import com.datastax.oss.driver.api.core.CqlSession;
+import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
-import com.datastax.oss.driver.api.core.cql.SimpleStatement;
-import com.datastax.oss.driver.api.core.metadata.schema.ClusteringOrder;
-import com.datastax.oss.driver.api.core.type.DataTypes;
-import com.datastax.oss.driver.api.querybuilder.SchemaBuilder;
-import com.datastax.oss.driver.api.querybuilder.schema.CreateKeyspace;
-import com.mongodb.ConnectionString;
+
 import dao.ClientDao;
 import dao.RoomDao;
 import dao.ShowDao;
@@ -18,20 +14,7 @@ import model.Client;
 import model.Room;
 import model.Show;
 import model.Ticket;
-import org.bson.UuidRepresentation;
-import org.bson.codecs.configuration.CodecRegistries;
-import org.bson.codecs.configuration.CodecRegistry;
-import org.bson.codecs.pojo.Conventions;
-import org.bson.codecs.pojo.PojoCodecProvider;
 
-import java.awt.*;
-import java.net.InetSocketAddress;
-import java.sql.ResultSet;
-import java.util.List;
-
-import static Util.CassandraNamespaces.*;
-import static com.datastax.oss.driver.api.querybuilder.SchemaBuilder.createKeyspace;
-import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public abstract class AbstractRepository<T> implements ClientDao, RoomDao, ShowDao, TicketDao {
 

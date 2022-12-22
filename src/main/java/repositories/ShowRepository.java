@@ -4,6 +4,7 @@ package repositories;
 import Util.CassandraNamespaces;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
+import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
 import com.datastax.oss.driver.api.querybuilder.QueryBuilder;
 import com.datastax.oss.driver.api.querybuilder.relation.Relation;
@@ -15,7 +16,7 @@ import model.Room;
 import model.Show;
 import org.bson.conversions.Bson;
 
-import java.sql.ResultSet;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;

@@ -1,10 +1,10 @@
 package repositories;
 
-import jakarta.transaction.Transactional;
 
-import java.sql.ResultSet;
+
+
 import java.util.List;
-import java.util.function.Predicate;
+
 
 public interface Repository <T> {
 

@@ -1,4 +1,6 @@
 //
+//import com.datastax.oss.driver.api.core.CqlSession;
+//import managers.CinemaManager;
 //import managers.ClientManager;
 //import model.Client;
 //import org.junit.jupiter.api.Test;
@@ -9,24 +11,18 @@
 //
 //public class ClientTest {
 //
+//    private static CqlSession session = CinemaManager.initSession();
 //    private static final ClientRepository clientRepository = new ClientRepository();
 //    private ClientManager clientManager = new ClientManager(clientRepository);
 //
+//    private Client client;
+//
 //    @Test
 //    void clientAddTest() {
-//        Date date = new Date(2000, 10, 9);
-//        Client client = new Client(date, "500500500", Client.ClientType.adult, "Jan", "Kowalski");
-//        long oldSize1 = clientRepository.size();
 //
-//        //Sprawdzenie czy clientRepository dodaje klienta
-//        assertNotNull(clientRepository.add(client));
-//        assertEquals(oldSize1 + 1, clientRepository.size());
 //
-//        long oldSize2 = clientRepository.size();
 //
-//        //Sprawdzenie czy clientManager dodaje klienta
-//        assertTrue(clientManager.add(date, "400400400", Client.ClientType.minor, "Janina", "Kowalska"));
-//        assertEquals(oldSize2 + 1, clientRepository.size());
+//
 //    }
 //
 //

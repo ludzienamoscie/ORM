@@ -4,15 +4,9 @@ import com.datastax.oss.driver.api.mapper.annotations.CqlName;
 import com.datastax.oss.driver.api.mapper.annotations.Entity;
 import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
 import lombok.*;
-import org.bson.codecs.pojo.annotations.BsonCreator;
-import org.bson.codecs.pojo.annotations.BsonId;
-import org.bson.codecs.pojo.annotations.BsonProperty;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.UUID;
+
 
 @Getter
 @Setter
@@ -21,8 +15,9 @@ import java.util.UUID;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(exclude = {"birthday","phoneNumber","firstName", "lastName", "clientType"})
+@EqualsAndHashCode(exclude = {"phoneNumber","firstName", "lastName", "clientType"})
 @CqlName("clients_id")
+@Entity
 public class Client extends AbstractEntity{
 
     @NonNull
@@ -30,9 +25,9 @@ public class Client extends AbstractEntity{
     @CqlName("client_id")
     private String client_id;
 
-    @NonNull
-    @CqlName("birthday")
-    private LocalDate birthday;
+//    @NonNull
+//    @CqlName("birthday")
+//    private LocalDate birthday;
 
     @NonNull
     @CqlName("phoneNumber")

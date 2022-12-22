@@ -16,9 +16,10 @@ public class CinemaManager {
 
     private static CqlSession session;
 
-    public void initSession() {
-        session = CqlSession.builder().addContactPoint(new InetSocketAddress("cassandra1", 9042))
-                .addContactPoint(new InetSocketAddress("cassandra2", 9043))
+    public static CqlSession initSession() {
+        CqlSession session = CqlSession.builder()
+                .addContactPoint(new InetSocketAddress("localhost", 9042))
+                .addContactPoint(new InetSocketAddress("localhost", 9043))
                 .withLocalDatacenter("dc1")
                 .withAuthCredentials("cassandra", "cassandrapassword")
                 .withKeyspace(CqlIdentifier.fromCql("cinema"))
@@ -34,7 +35,6 @@ public class CinemaManager {
         SimpleStatement createClients = SchemaBuilder.createTable(CLIENTS_ID)
                 .ifNotExists()
                 .withPartitionKey(CqlIdentifier.fromCql("client_id"), DataTypes.TEXT)
-                .withColumn(CqlIdentifier.fromCql("birthday"), DataTypes.DATE)
                 .withColumn(CqlIdentifier.fromCql("phoneNumber"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("firstName"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("lastName"), DataTypes.TEXT)
@@ -52,7 +52,7 @@ public class CinemaManager {
         SimpleStatement createShows = SchemaBuilder.createTable(SHOWS_ID)
                 .ifNotExists()
                 .withPartitionKey(CqlIdentifier.fromCql("show_id"), DataTypes.TEXT)
-                .withPartitionKey(CqlIdentifier.fromCql("room_id"), DataTypes.TEXT)
+                .withColumn(CqlIdentifier.fromCql("room_id"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("beginTime"), DataTypes.DATE)
                 .withColumn(CqlIdentifier.fromCql("endTime"), DataTypes.DATE)
                 .withColumn(CqlIdentifier.fromCql("showType"), DataTypes.TEXT)
@@ -65,10 +65,10 @@ public class CinemaManager {
                 .withColumn(CqlIdentifier.fromCql("show_id"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("client_id"), DataTypes.TEXT)
                 .withColumn(CqlIdentifier.fromCql("price"), DataTypes.DOUBLE)
-                .withPartitionKey(CqlIdentifier.fromCql("ticketType"), DataTypes.TEXT)
+                .withColumn(CqlIdentifier.fromCql("ticketType"), DataTypes.TEXT)
                 .build();
         session.execute(createTickets);
+
+        return session;
     }
-
-
 }

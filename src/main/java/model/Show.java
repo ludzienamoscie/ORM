@@ -1,6 +1,7 @@
 package model;
 
 import com.datastax.oss.driver.api.mapper.annotations.CqlName;
+import com.datastax.oss.driver.api.mapper.annotations.Entity;
 import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
 import lombok.*;
 
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = {"room_id","beginTime","endTime","showType"})
 @CqlName("shows_id")
+@Entity
 public class Show extends AbstractEntity{
 
     @NonNull

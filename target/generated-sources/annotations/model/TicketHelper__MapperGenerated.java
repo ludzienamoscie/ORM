@@ -24,8 +24,8 @@ import com.datastax.oss.driver.internal.mapper.entity.EntityHelperBase;
 import com.datastax.oss.driver.internal.querybuilder.update.DefaultUpdate;
 import com.datastax.oss.driver.shaded.guava.common.collect.ImmutableList;
 import java.lang.Class;
+import java.lang.Double;
 import java.lang.IllegalArgumentException;
-import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -44,7 +44,7 @@ import org.slf4j.LoggerFactory;
 public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
   private static final Logger LOG = LoggerFactory.getLogger(TicketHelper__MapperGenerated.class);
 
-  private static final GenericType<Long> GENERIC_TYPE = new GenericType<Long>(){};
+  private static final GenericType<Double> GENERIC_TYPE = new GenericType<Double>(){};
 
   private static final GenericType<String> GENERIC_TYPE1 = new GenericType<String>(){};
 
@@ -70,9 +70,22 @@ public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
   public <SettableT extends SettableByName<SettableT>> SettableT set(Ticket entity,
       SettableT target, NullSavingStrategy nullSavingStrategy, boolean lenient) {
     if (!lenient || hasProperty(target, "ticket_id")) {
-      if (entity.getTicket() != null || nullSavingStrategy == NullSavingStrategy.SET_TO_NULL) {
-        target = target.set("ticket_id", entity.getTicket(), Long.class);
+      if (entity.getTicket_id() != null || nullSavingStrategy == NullSavingStrategy.SET_TO_NULL) {
+        target = target.set("ticket_id", entity.getTicket_id(), String.class);
       }
+    }
+    if (!lenient || hasProperty(target, "show_id")) {
+      if (entity.getShow_id() != null || nullSavingStrategy == NullSavingStrategy.SET_TO_NULL) {
+        target = target.set("show_id", entity.getShow_id(), String.class);
+      }
+    }
+    if (!lenient || hasProperty(target, "client_id")) {
+      if (entity.getClient_id() != null || nullSavingStrategy == NullSavingStrategy.SET_TO_NULL) {
+        target = target.set("client_id", entity.getClient_id(), String.class);
+      }
+    }
+    if (!lenient || hasProperty(target, "price")) {
+      target = target.setDouble("price", entity.getPrice());
     }
     if (!lenient || hasProperty(target, "ticketType")) {
       if (entity.getTicketType() != null || nullSavingStrategy == NullSavingStrategy.SET_TO_NULL) {
@@ -86,12 +99,24 @@ public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
   public Ticket get(GettableByName source, boolean lenient) {
     Ticket returnValue = new Ticket();
     if (!lenient || hasProperty(source, "ticket_id")) {
-      Long propertyValue = source.get("ticket_id", Long.class);
-      returnValue.setTicket(propertyValue);
+      String propertyValue = source.get("ticket_id", String.class);
+      returnValue.setTicket_id(propertyValue);
+    }
+    if (!lenient || hasProperty(source, "show_id")) {
+      String propertyValue1 = source.get("show_id", String.class);
+      returnValue.setShow_id(propertyValue1);
+    }
+    if (!lenient || hasProperty(source, "client_id")) {
+      String propertyValue2 = source.get("client_id", String.class);
+      returnValue.setClient_id(propertyValue2);
+    }
+    if (!lenient || hasProperty(source, "price")) {
+      double propertyValue3 = source.getDouble("price");
+      returnValue.setPrice(propertyValue3);
     }
     if (!lenient || hasProperty(source, "ticketType")) {
-      String propertyValue1 = source.get("ticketType", String.class);
-      returnValue.setTicketType(propertyValue1);
+      String propertyValue4 = source.get("ticketType", String.class);
+      returnValue.setTicketType(propertyValue4);
     }
     return returnValue;
   }
@@ -104,6 +129,9 @@ public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
         : QueryBuilder.insertInto(keyspaceId, tableId);
     return insertInto
         .value("ticket_id", QueryBuilder.bindMarker("ticket_id"))
+        .value("show_id", QueryBuilder.bindMarker("show_id"))
+        .value("client_id", QueryBuilder.bindMarker("client_id"))
+        .value("price", QueryBuilder.bindMarker("price"))
         .value("ticketType", QueryBuilder.bindMarker("ticketType"));
   }
 
@@ -129,6 +157,9 @@ public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
         : QueryBuilder.selectFrom(keyspaceId, tableId);
     return selectFrom
         .column("ticket_id")
+        .column("show_id")
+        .column("client_id")
+        .column("price")
         .column("ticketType");
   }
 
@@ -165,6 +196,9 @@ public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
         ? QueryBuilder.update(tableId)
         : QueryBuilder.update(keyspaceId, tableId);
     return ((DefaultUpdate)update
+        .setColumn("show_id", QueryBuilder.bindMarker("show_id"))
+        .setColumn("client_id", QueryBuilder.bindMarker("client_id"))
+        .setColumn("price", QueryBuilder.bindMarker("price"))
         .setColumn("ticketType", QueryBuilder.bindMarker("ticketType")));
   }
 
@@ -196,6 +230,9 @@ public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
     Optional<KeyspaceMetadata> keyspace = context.getSession().getMetadata().getKeyspace(keyspaceId);
     List<CqlIdentifier> expectedCqlNames = new ArrayList<>();
     expectedCqlNames.add(CqlIdentifier.fromCql("ticket_id"));
+    expectedCqlNames.add(CqlIdentifier.fromCql("show_id"));
+    expectedCqlNames.add(CqlIdentifier.fromCql("client_id"));
+    expectedCqlNames.add(CqlIdentifier.fromCql("price"));
     expectedCqlNames.add(CqlIdentifier.fromCql("ticketType"));
     Optional<TableMetadata> tableMetadata = keyspace.flatMap(v -> v.getTable(tableId));
     Optional<UserDefinedType> userDefinedType = keyspace.flatMap(v -> v.getUserDefinedType(tableId));
@@ -214,8 +251,11 @@ public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
       }
       // validation of types
       Map<CqlIdentifier, GenericType<?>> expectedTypesPerColumn = new LinkedHashMap<>();
-      expectedTypesPerColumn.put(CqlIdentifier.fromCql("ticket_id"), GENERIC_TYPE);
+      expectedTypesPerColumn.put(CqlIdentifier.fromCql("price"), GENERIC_TYPE);
+      expectedTypesPerColumn.put(CqlIdentifier.fromCql("ticket_id"), GENERIC_TYPE1);
       expectedTypesPerColumn.put(CqlIdentifier.fromCql("ticketType"), GENERIC_TYPE1);
+      expectedTypesPerColumn.put(CqlIdentifier.fromCql("show_id"), GENERIC_TYPE1);
+      expectedTypesPerColumn.put(CqlIdentifier.fromCql("client_id"), GENERIC_TYPE1);
       List<String> missingTableTypes = findTypeMismatches(expectedTypesPerColumn, tableMetadata.get().getColumns(), context.getSession().getContext().getCodecRegistry());
       throwMissingTableTypesIfNotEmpty(missingTableTypes, keyspaceId, tableId, entityClassName);
     }
@@ -228,8 +268,11 @@ public class TicketHelper__MapperGenerated extends EntityHelperBase<Ticket> {
       }
       // validation of UDT types
       Map<CqlIdentifier, GenericType<?>> expectedTypesPerColumn = new LinkedHashMap<>();
-      expectedTypesPerColumn.put(CqlIdentifier.fromCql("ticket_id"), GENERIC_TYPE);
+      expectedTypesPerColumn.put(CqlIdentifier.fromCql("price"), GENERIC_TYPE);
+      expectedTypesPerColumn.put(CqlIdentifier.fromCql("ticket_id"), GENERIC_TYPE1);
       expectedTypesPerColumn.put(CqlIdentifier.fromCql("ticketType"), GENERIC_TYPE1);
+      expectedTypesPerColumn.put(CqlIdentifier.fromCql("show_id"), GENERIC_TYPE1);
+      expectedTypesPerColumn.put(CqlIdentifier.fromCql("client_id"), GENERIC_TYPE1);
       List<CqlIdentifier> expectedColumns = userDefinedType.get().getFieldNames();
       List<DataType> expectedTypes = userDefinedType.get().getFieldTypes();
       List<String> missingTableTypes = findTypeMismatches(expectedTypesPerColumn, expectedColumns, expectedTypes, context.getSession().getContext().getCodecRegistry());

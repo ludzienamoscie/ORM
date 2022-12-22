@@ -4,20 +4,16 @@ import Util.CassandraNamespaces;
 import Util.EntityManagerCreator;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.PreparedStatement;
+import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
 import com.datastax.oss.driver.api.querybuilder.QueryBuilder;
 import com.datastax.oss.driver.api.querybuilder.relation.Relation;
 import com.datastax.oss.driver.api.querybuilder.select.Select;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
-import jakarta.persistence.EntityManager;
-import model.Room;
-import model.Show;
-import model.Ticket;
-import org.bson.conversions.Bson;
 
-import java.sql.ResultSet;
+import model.Ticket;
+
+
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

@@ -1,7 +1,7 @@
 package managers;
 
 import model.*;
-import org.hibernate.mapping.TableOwner;
+
 import repositories.TicketRepository;
 
 public class TicketManager {

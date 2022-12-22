@@ -26,7 +26,6 @@ import com.datastax.oss.driver.shaded.guava.common.collect.ImmutableList;
 import java.lang.Class;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
-import java.lang.Long;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -45,7 +44,7 @@ import org.slf4j.LoggerFactory;
 public class RoomHelper__MapperGenerated extends EntityHelperBase<Room> {
   private static final Logger LOG = LoggerFactory.getLogger(RoomHelper__MapperGenerated.class);
 
-  private static final GenericType<Long> GENERIC_TYPE = new GenericType<Long>(){};
+  private static final GenericType<String> GENERIC_TYPE = new GenericType<String>(){};
 
   private static final GenericType<Integer> GENERIC_TYPE1 = new GenericType<Integer>(){};
 
@@ -72,7 +71,7 @@ public class RoomHelper__MapperGenerated extends EntityHelperBase<Room> {
       NullSavingStrategy nullSavingStrategy, boolean lenient) {
     if (!lenient || hasProperty(target, "room_id")) {
       if (entity.getRoom_id() != null || nullSavingStrategy == NullSavingStrategy.SET_TO_NULL) {
-        target = target.set("room_id", entity.getRoom_id(), Long.class);
+        target = target.set("room_id", entity.getRoom_id(), String.class);
       }
     }
     if (!lenient || hasProperty(target, "capacity")) {
@@ -85,7 +84,7 @@ public class RoomHelper__MapperGenerated extends EntityHelperBase<Room> {
   public Room get(GettableByName source, boolean lenient) {
     Room returnValue = new Room();
     if (!lenient || hasProperty(source, "room_id")) {
-      Long propertyValue = source.get("room_id", Long.class);
+      String propertyValue = source.get("room_id", String.class);
       returnValue.setRoom_id(propertyValue);
     }
     if (!lenient || hasProperty(source, "capacity")) {

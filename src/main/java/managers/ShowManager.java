@@ -5,8 +5,7 @@ import model.Show;
 import repositories.ShowRepository;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.UUID;
+
 
 public class ShowManager {
     ShowRepository showRepository;

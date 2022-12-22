@@ -1,7 +1,15 @@
 package mappers;
 
+import com.datastax.oss.driver.internal.core.util.concurrent.LazyReference;
+import com.datastax.oss.driver.internal.mapper.DaoCacheKey;
 import com.datastax.oss.driver.internal.mapper.DefaultMapperContext;
+import dao.ClientDao;
+import dao.ClientDaoImpl__MapperGenerated;
+import java.lang.Override;
+import java.lang.String;
 import java.lang.SuppressWarnings;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * Do not instantiate this class directly, use {@link ClientMapperBuilder} instead.
@@ -12,7 +20,23 @@ import java.lang.SuppressWarnings;
 public class ClientMapperImpl__MapperGenerated implements ClientMapper {
   private final DefaultMapperContext context;
 
+  private final LazyReference<ClientDao> clientDaoCache1;
+
+  private final ConcurrentMap<DaoCacheKey, ClientDao> clientDaoCache = new ConcurrentHashMap<>();
+
   public ClientMapperImpl__MapperGenerated(DefaultMapperContext context) {
     this.context = context;
+    this.clientDaoCache1 = new LazyReference<>(() -> ClientDaoImpl__MapperGenerated.init(context));
+  }
+
+  @Override
+  public ClientDao clientDao(String keyspace, String table) {
+    DaoCacheKey key = new DaoCacheKey(keyspace, table, null, null);
+    return clientDaoCache.computeIfAbsent(key, k -> ClientDaoImpl__MapperGenerated.init(context.withDaoParameters(k.getKeyspaceId(), k.getTableId(), k.getExecutionProfileName(), k.getExecutionProfile())));
+  }
+
+  @Override
+  public ClientDao clientDao() {
+    return clientDaoCache1.get();
   }
 }
