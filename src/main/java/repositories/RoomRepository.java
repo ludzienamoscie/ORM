@@ -42,7 +42,7 @@ public class RoomRepository extends AbstractRepository<Room> implements Reposito
         Select getRoomByID = QueryBuilder
                 .selectFrom(CassandraNamespaces.ROOMS_ID)
                 .all()
-                .where(Relation.column("uuid").isEqualTo(bindMarker()));
+                .where(Relation.column("room_id").isEqualTo(bindMarker()));
 
         PreparedStatement preparedStatement = session.prepare(getRoomByID.build());
 
