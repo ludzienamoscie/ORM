@@ -5,12 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
-      <change afterPath="$PROJECT_DIR$/src/test/java/repositories/RoomRepositoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b555b017-5161-4228-a564-f0a8f30ab471.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b555b017-5161-4228-a564-f0a8f30ab471.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/repositories/ShowRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/repositories/TicketRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BenchmarkTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ClientTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RedisTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RoomTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ShowTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TicketTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/repositories/ClientRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/repositories/ClientRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/repositories/RoomRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/repositories/RoomRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/repositories/ClientRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/repositories/ClientRepositoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/repositories/RoomRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/repositories/RoomRepositoryTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,17 +107,8 @@
       <recent name="managers" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RoomRepositoryTest.testUpdate">
-    <configuration name="ClientRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ORM" />
-      <option name="PACKAGE_NAME" value="repositories" />
-      <option name="MAIN_CLASS_NAME" value="repositories.ClientRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RoomRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TicketRepositoryTest.testUpdate">
+    <configuration name="ShowRepositoryTest.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <extension name="coverage">
         <pattern>
@@ -119,45 +117,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="repositories" />
-      <option name="MAIN_CLASS_NAME" value="repositories.RoomRepositoryTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RoomRepositoryTest.testAddAndGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ORM" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="repositories" />
-      <option name="MAIN_CLASS_NAME" value="repositories.RoomRepositoryTest" />
-      <option name="METHOD_NAME" value="testAddAndGet" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RoomRepositoryTest.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ORM" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="repositories.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="repositories" />
-      <option name="MAIN_CLASS_NAME" value="repositories.RoomRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="repositories.ShowRepositoryTest" />
       <option name="METHOD_NAME" value="testDelete" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoomRepositoryTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShowRepositoryTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <extension name="coverage">
         <pattern>
@@ -166,7 +133,55 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="repositories" />
-      <option name="MAIN_CLASS_NAME" value="repositories.RoomRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="repositories.ShowRepositoryTest" />
+      <option name="METHOD_NAME" value="testUpdate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicketRepositoryTest.testAddAndGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="repositories" />
+      <option name="MAIN_CLASS_NAME" value="repositories.TicketRepositoryTest" />
+      <option name="METHOD_NAME" value="testAddAndGet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicketRepositoryTest.testDelete" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="repositories" />
+      <option name="MAIN_CLASS_NAME" value="repositories.TicketRepositoryTest" />
+      <option name="METHOD_NAME" value="testDelete" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TicketRepositoryTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="repositories.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="repositories" />
+      <option name="MAIN_CLASS_NAME" value="repositories.TicketRepositoryTest" />
       <option name="METHOD_NAME" value="testUpdate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -175,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RoomRepositoryTest.testUpdate" />
-        <item itemvalue="JUnit.RoomRepositoryTest.testDelete" />
-        <item itemvalue="JUnit.RoomRepositoryTest.testAddAndGet" />
-        <item itemvalue="JUnit.RoomRepositoryTest" />
-        <item itemvalue="JUnit.ClientRepositoryTest" />
+        <item itemvalue="JUnit.TicketRepositoryTest.testUpdate" />
+        <item itemvalue="JUnit.TicketRepositoryTest.testDelete" />
+        <item itemvalue="JUnit.TicketRepositoryTest.testAddAndGet" />
+        <item itemvalue="JUnit.ShowRepositoryTest.testUpdate" />
+        <item itemvalue="JUnit.ShowRepositoryTest.testDelete" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +250,7 @@
       <workItem from="1671707818714" duration="496000" />
       <workItem from="1671708357931" duration="4819000" />
       <workItem from="1671740447533" duration="58000" />
-      <workItem from="1672673919341" duration="1628000" />
+      <workItem from="1672673919341" duration="3607000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>

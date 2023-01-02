@@ -1,20 +1,11 @@
 package repositories;
-
-
 import com.datastax.oss.driver.api.core.CqlSession;
 import managers.CinemaManager;
-
 import model.BasicsTest;
 import model.Client;
-
-import org.apache.commons.lang3.SerializationUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
-import repositories.ClientRepository;
-
-
 import java.util.NoSuchElementException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ClientRepositoryTest extends BasicsTest {
