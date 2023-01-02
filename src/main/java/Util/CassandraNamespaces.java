@@ -6,7 +6,6 @@ public class CassandraNamespaces {
     public static final CqlIdentifier CINEMA_NAMESPACE = CqlIdentifier.fromCql("cinema");
     public static final CqlIdentifier CLIENTS_ID = CqlIdentifier.fromCql("clients_id");
         public static final CqlIdentifier CLIENT_ID = CqlIdentifier.fromCql("client_id");
-        public static final CqlIdentifier BIRTHDAY = CqlIdentifier.fromCql("birthday");
         public static final CqlIdentifier PHONENUMBER = CqlIdentifier.fromCql("phoneNumber");
         public static final CqlIdentifier FIRSTNAME = CqlIdentifier.fromCql("firstName");
         public static final CqlIdentifier LASTNAME = CqlIdentifier.fromCql("lastName");

@@ -5,7 +5,6 @@ import com.datastax.oss.driver.api.mapper.annotations.Entity;
 import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
 import lombok.*;
 
-
 @Getter
 @Setter
 @Data
@@ -52,7 +51,6 @@ public class Ticket extends AbstractEntity {
 
     @NonNull
     @CqlName("ticketType")
-    // nie wiem jak to zrobic ogolnie dla TicketType a nie tylko dla jednego
     private String ticketType = TicketType.adultTicket.getTypeInfo();
 
 }

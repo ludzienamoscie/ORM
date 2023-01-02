@@ -2,23 +2,15 @@ package repositories;
 
 import Util.CassandraNamespaces;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
-import managers.CinemaManager;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.Row;
 import com.datastax.oss.driver.api.querybuilder.QueryBuilder;
 import com.datastax.oss.driver.api.querybuilder.relation.Relation;
 import com.datastax.oss.driver.api.querybuilder.select.Select;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Updates;
 import model.Client;
-import org.bson.conversions.Bson;
-
-
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,7 +25,6 @@ public class ClientRepository extends AbstractRepository<Client> implements Repo
     @Override
     protected Client rowToEntity(Row row) {
         return new Client(row.getString(CassandraNamespaces.CLIENT_ID),
-//                          Objects.requireNonNull(row.getLocalDate(CassandraNamespaces.BIRTHDAY)),
                           Objects.requireNonNull(row.getString(CassandraNamespaces.PHONENUMBER)),
                           Objects.requireNonNull(row.getString(CassandraNamespaces.FIRSTNAME)),
                           Objects.requireNonNull(row.getString(CassandraNamespaces.LASTNAME)),

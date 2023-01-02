@@ -52,13 +52,6 @@ public class Show extends AbstractEntity{
 
 
     @CqlName("showType")
-    // nie wiem jak to zrobic ogolnie dla ShowType a nie tylko dla jednego
     private String showType = ShowType.show2D.getTypeInfo();
-
-//    private Integer availableSeats;
-//
-//    public void decreaseSeats(){
-//        availableSeats--;
-//    }
 
 }

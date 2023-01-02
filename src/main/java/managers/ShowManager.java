@@ -1,6 +1,5 @@
 package managers;
 
-import model.Room;
 import model.Show;
 import repositories.ShowRepository;
 

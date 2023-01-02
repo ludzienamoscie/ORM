@@ -25,10 +25,6 @@ public class Client extends AbstractEntity{
     @CqlName("client_id")
     private String client_id;
 
-//    @NonNull
-//    @CqlName("birthday")
-//    private LocalDate birthday;
-
     @NonNull
     @CqlName("phoneNumber")
     private String phoneNumber;
@@ -56,6 +52,5 @@ public class Client extends AbstractEntity{
     }
 
     @CqlName("clientType")
-    // nie wiem jak to zrobic ogolnie dla ClientType a nie tylko dla jednego
     private String clientType = ClientType.adult.getTypeInfo();
 }

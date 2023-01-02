@@ -1,0 +1,6 @@
+repositories\TicketRepositoryTest.class
+repositories\ClientRepositoryTest.class
+model\BasicsTest.class
+repositories\ShowRepositoryTest.class
+managers\BasicsManagerTest.class
+repositories\RoomRepositoryTest.class

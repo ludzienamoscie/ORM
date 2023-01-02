@@ -10,8 +10,8 @@ public class RoomManager {
         this.roomRepository = roomRepository;
     }
 
-    public boolean add(String roomNumber,int capacity){
-        Room room = new Room(roomNumber,capacity);
+    public boolean add(String room_id,int capacity){
+        Room room = new Room(room_id,capacity);
         roomRepository.add(room);
         return true;
     }

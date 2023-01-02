@@ -28,7 +28,6 @@ public abstract class AbstractRepository<T> implements ClientDao, RoomDao, ShowD
     protected TicketMapper ticketMapper;
     protected TicketDao ticketDao;
 
-    // Z jakiegos powodu nie rozpoznaje builderow
     public AbstractRepository(CqlSession session) {
         this.session = session;
         this.clientMapper = new ClientMapperBuilder(session).build();

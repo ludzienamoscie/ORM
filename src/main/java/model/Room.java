@@ -5,9 +5,6 @@ import com.datastax.oss.driver.api.mapper.annotations.Entity;
 import com.datastax.oss.driver.api.mapper.annotations.PartitionKey;
 import lombok.*;
 
-
-import java.util.UUID;
-
 @Getter
 @Setter
 @Data
