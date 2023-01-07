@@ -2,17 +2,8 @@
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-222.4345.14">
     <data-source name="@localhost" uuid="b555b017-5161-4228-a564-f0a8f30ab471">
-      <database-info product="Cassandra" version="4.0.7" jdbc-version="4.2" driver-name="Cassandra JDBC Driver" driver-version="1.4" dbms="CASSANDRA" exact-version="4.0.7" exact-driver-version="1.4">
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>cassandra</user-name>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="schema" negative="1" />
-        </introspection-scope>
-      </schema-mapping>
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="CASSANDRA" exact-version="0" />
+      <schema-mapping />
     </data-source>
   </component>
 </project>
