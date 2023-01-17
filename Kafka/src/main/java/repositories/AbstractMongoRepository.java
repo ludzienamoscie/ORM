@@ -6,7 +6,8 @@ import com.mongodb.MongoCredential;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
-import mongo.UniqueIdCodecProvider;
+import main.java.mongo.UniqueIdCodecProvider;
+import main.java.mongo.UniqueIdCodecProvider;
 import org.bson.UuidRepresentation;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.bson.codecs.configuration.CodecRegistry;
@@ -28,7 +29,7 @@ public abstract class AbstractMongoRepository {
             .conventions(List.of(Conventions.ANNOTATION_CONVENTION))
             .build());
     protected MongoClient mongoClient;
-    protected MongoDatabase hotelDB;
+    protected MongoDatabase cinemaDB;
 
     public void initDbConnection() {
         MongoClientSettings settings = MongoClientSettings.builder()
@@ -57,6 +58,6 @@ public abstract class AbstractMongoRepository {
             throw new RuntimeException(e);
         }
         this.initDbConnection();
-        this.hotelDB = mongoClient.getDatabase("hotel");
+        this.cinemaDB = mongoClient.getDatabase("cinema");
     }
 }

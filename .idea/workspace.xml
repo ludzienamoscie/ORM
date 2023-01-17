@@ -4,31 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="Modified managers, namespaces, added Daos and Mappers, there's errors but idk why yet">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/Kafka.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/docker/kafka/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/docker/mongo/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/docker/mongo/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/docker/mongo/keyFile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/docker/mongo/mongod.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/docker/redis/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/kafka/topics/Topics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/mongo/AbstractEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/mongo/UniqueIdCodec.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/mongo/UniqueIdCodecProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/mongo/UniqueIdMgd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/redis/AbstractRedisConnector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/repositories/AbstractMongoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/repositories/ClientMongoRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kafka/src/main/resources/credentials.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KafkaConsumer/KafkaConsumer.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KafkaConsumer/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="Started configuration, we have to create two projects (Kafka and KafkaConsumer) outside and without ORM. This exercise will likely only run on Linux.">
+      <change afterPath="$PROJECT_DIR$/Kafka/src/main/java/repositories/RoomMongoRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/Kafka.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/Kafka.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/redis/AbstractRedisConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/src/main/java/redis/AbstractRedisConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/repositories/AbstractMongoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/src/main/java/repositories/AbstractMongoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Kafka/src/main/java/repositories/ClientMongoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Kafka/src/main/java/repositories/ClientMongoRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,29 +60,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-18&quot;,
-    &quot;last_directory_selection&quot;: &quot;D:/ORM/src/main/java/repositories&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maja/Desktop/documents/semestr V/nierelacyjne bazy/project/ORM/Kafka/src&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.runner&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "corretto-18",
+    "last_directory_selection": "D:/ORM/src/main/java/repositories",
+    "last_opened_file_path": "C:/Users/Maja/Desktop/documents/semestr V/nierelacyjne bazy/project/ORM/Kafka/src",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.runner"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;,
-      &quot;mongo&quot;,
-      &quot;cassandra&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "mongo",
+      "cassandra"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\Kafka\src" />
@@ -110,11 +96,11 @@
       <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\src\main\java\Util" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\src\main\resources" />
+      <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\KafkaConsumer\docker\redis" />
+      <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\KafkaConsumer\docker\mongo" />
+      <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\KafkaConsumer\docker\kafka" />
       <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\Kafka\docker\mongo" />
-      <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM\ORM\src\main\java\repositories" />
-      <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM\src" />
-      <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM\docker" />
-      <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="repositories" />
@@ -269,7 +255,8 @@
       <workItem from="1673125036287" duration="40000" />
       <workItem from="1673125465766" duration="14000" />
       <workItem from="1673125744310" duration="1064000" />
-      <workItem from="1673126819037" duration="693000" />
+      <workItem from="1673126819037" duration="1673000" />
+      <workItem from="1673983572676" duration="2104000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>
@@ -327,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671448381993</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Started configuration, we have to create two projects (Kafka and KafkaConsumer) outside and without ORM. This exercise will likely only run on Linux.">
+      <created>1673127887927</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673127887927</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,6 +347,7 @@
     <MESSAGE value="redisTest passed, success connecting to redis at localhost:8001 in browser" />
     <MESSAGE value="added basic configuration in docker-compose.yml, updated pom.xml, added NbdAddressTranslator and session configuration in AbstractRepository" />
     <MESSAGE value="Finished Cassandra configuration (runs well with docker), added namespaces, mapping in model and creating keyspaces and tables in AbstractRepository (not sure about some data types)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished Cassandra configuration (runs well with docker), added namespaces, mapping in model and creating keyspaces and tables in AbstractRepository (not sure about some data types)" />
+    <MESSAGE value="Started configuration, we have to create two projects (Kafka and KafkaConsumer) outside and without ORM. This exercise will likely only run on Linux." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started configuration, we have to create two projects (Kafka and KafkaConsumer) outside and without ORM. This exercise will likely only run on Linux." />
   </component>
 </project>

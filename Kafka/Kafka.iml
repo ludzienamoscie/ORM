@@ -10,5 +10,19 @@
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-sync:4.2.3" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:4.2.3" level="project" />
     <orderEntry type="library" name="Maven: org.mongodb:bson:4.2.3" level="project" />
+    <orderEntry type="library" name="Maven: com.datastax.oss:java-driver-mapper-runtime:4.15.0" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.m2/repository/org/projectlombok/lombok/1.18.22/lombok-1.18.22.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: jakarta.json.bind:jakarta.json.bind-api:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: redis.clients:jedis:4.3.1" level="project" />
+    <orderEntry type="library" name="Maven: com.datastax.oss:java-driver-query-builder:4.15.0" level="project" />
+    <orderEntry type="library" name="Maven: com.datastax.oss:java-driver-core:4.15.0" level="project" />
   </component>
 </module>

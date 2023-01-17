@@ -2,10 +2,10 @@ package main.java.repositories;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
-import main.java.model.Client;
+import main.java.model.Room;
 import main.java.repositories.AbstractMongoRepository;
 import main.java.repositories.Repository;
-import main.java.model.Client;
+import main.java.model.Room;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,49 +14,50 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ClientMongoRepository extends AbstractMongoRepository implements Repository<Client> {
+public class RoomMongoRepository extends AbstractMongoRepository implements Repository<Room> {
 
-    private MongoCollection<Client> collection;
+    private MongoCollection<Room> collection;
 
-    public ClientMongoRepository() {
+    public RoomMongoRepository() {
         super();
-        this.collection = cinemaDB.getCollection("clients", Client.class);
+        this.collection = cinemaDB.getCollection("rooms", Room.class);
     }
 
     @Override
-    public Client get(Object element) {
-        return Optional.ofNullable(collection.find(Filters.eq("personalID", (
-                (Client) element).getClient_id())).first()).orElseThrow();
+    public Room get(Object element) {
+        return Optional.ofNullable(collection.find(
+                        Filters.eq("roomNumber", ((Room) element).getRoom_id())).first())
+                .orElseThrow();
     }
 
     @Override
-    public void add(Client... elements) {
+    public void add(Room... elements) {
         Stream.of(elements).forEach(collection::insertOne);
     }
 
     @Override
-    public void remove(Client... elements) {
+    public void remove(Room... elements) {
         Stream.of(elements).forEach(element -> collection.deleteOne(
-                Filters.eq("personalID", element.getClient_id())
+                Filters.eq("roomNumber", element.getRoom_id())
         ));
     }
 
     @Override
-    public void update(Client... elements) {
+    public void update(Room... elements) {
         Stream.of(elements).forEach(element -> {
-            collection.replaceOne(Filters.eq("personalID", element.getClient_id()), element);
+            collection.replaceOne(Filters.eq("roomNumber", element.getRoom_id()), element);
         });
     }
 
     @Override
-    public List<Client> find(Object... elements) {
+    public List<Room> find(Object... elements) {
         return Optional.of(Arrays.stream(elements)
                 .map(this::get)
                 .collect(Collectors.toList())).orElseThrow();
     }
 
     @Override
-    public List<Client> getAll() {
+    public List<Room> getAll() {
         return collection.find().into(new ArrayList<>());
     }
 
