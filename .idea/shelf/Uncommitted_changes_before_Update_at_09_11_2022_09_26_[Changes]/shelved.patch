@@ -1,0 +1,196 @@
+Index: src/main/java/model/Client.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package model;\r\n\r\nimport jakarta.persistence.*;\r\nimport lombok.Getter;\r\nimport lombok.Setter;\r\nimport org.bson.codecs.pojo.annotations.BsonCreator;\r\nimport org.bson.codecs.pojo.annotations.BsonProperty;\r\nimport repositories.UniqueIdMgd;\r\n\r\nimport java.util.Date;\r\n\r\n\r\n@Getter\r\n@Setter\r\npublic class Client extends AbstractEntity{\r\n\r\n    @BsonCreator\r\n    public Client(@BsonProperty(\"id\") UniqueIdMgd entityId,\r\n                  @BsonProperty(\"client_id\") Long client_id,\r\n                  @BsonProperty(\"birthday\") Date birthday,\r\n                  @BsonProperty(\"phoneNumber\") String phoneNumber,\r\n                  @BsonProperty(\"clientType\") ClientType clientType,\r\n                  @BsonProperty(\"firstName\") String firstName,\r\n                  @BsonProperty(\"lastname\") String lastName) {\r\n        super(entityId);\r\n        this.client_id = client_id;\r\n        this.birthday = birthday;\r\n        this.phoneNumber = phoneNumber;\r\n        this.clientType = clientType;\r\n        this.firstName = firstName;\r\n        this.lastName = lastName;\r\n    }\r\n\r\n    public Client(\r\n            Long client_id,\r\n            Date birthday,\r\n            String phoneNumber,\r\n            ClientType clientType,\r\n            String firstName,\r\n            String lastName\r\n    ){\r\n        super(new UniqueIdMgd());\r\n        this.client_id = client_id;\r\n        this.birthday = birthday;\r\n        this.phoneNumber = phoneNumber;\r\n        this.clientType = clientType;\r\n        this.firstName = firstName;\r\n        this.lastName = lastName;\r\n    }\r\n\r\n    //    Nie wem jak to przerobic\r\n    public enum ClientType {\r\n        adult,\r\n        minor,\r\n        senior\r\n    }\r\n\r\n//    Nie wem jak to przerobic // jest szansa ze ma byc tak\r\n\r\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\r\n    @BsonProperty(\"client_id\")\r\n    private Long client_id;\r\n\r\n    @BsonProperty(\"birthday\")\r\n    private Date birthday;\r\n\r\n    @BsonProperty(\"phoneNumber\")\r\n    private String phoneNumber;\r\n\r\n    @BsonProperty(\"clientType\")\r\n    private ClientType clientType;\r\n\r\n    @BsonProperty(\"firstName\")\r\n    private String firstName;\r\n\r\n    @BsonProperty(\"lastname\")\r\n    private String lastName;\r\n\r\n    @Override\r\n    public void close() throws Exception {\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/model/Client.java b/src/main/java/model/Client.java
+--- a/src/main/java/model/Client.java	(revision 4970c7547ba6f28c7f734c0ff4b083a90f5cf0ea)
++++ b/src/main/java/model/Client.java	(date 1667982014700)
+@@ -80,4 +80,28 @@
+     public void close() throws Exception {
+ 
+     }
++
++    public Long getClient_id() {
++        return client_id;
++    }
++
++    public Date getBirthday() {
++        return birthday;
++    }
++
++    public String getPhoneNumber() {
++        return phoneNumber;
++    }
++
++    public ClientType getClientType() {
++        return clientType;
++    }
++
++    public String getFirstName() {
++        return firstName;
++    }
++
++    public String getLastName() {
++        return lastName;
++    }
+ }
+\ No newline at end of file
+Index: src/main/java/mapper/ClientMapper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package mapper;\r\n\r\npublic class ClientMapper {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/mapper/ClientMapper.java b/src/main/java/mapper/ClientMapper.java
+--- a/src/main/java/mapper/ClientMapper.java	(revision 4970c7547ba6f28c7f734c0ff4b083a90f5cf0ea)
++++ b/src/main/java/mapper/ClientMapper.java	(date 1667982075003)
+@@ -1,4 +1,22 @@
+ package mapper;
++import model.Client;
++import org.bson.Document;
++
++import static org.hibernate.jpamodelgen.util.Constants.ID;
+ 
+ public class ClientMapper {
++
++    public static Document toMongoClient(Client client) {
++        Document clientDocument = new Document(
++                ID, client.getEntityId().getUuid())
++                .append(client_id, client.getClient_id())
++                .append(birthday, client.getBirthday())
++                .append(phoneNumber, client.getPhoneNumber())
++                .append(clientType, client.getClientType())
++                .append(firstName, client.getFirstName())
++                .append(lastName, client.getLastName()
++                );
++        return clientDocument;
++    }
++
+ }
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+new file mode 100644
+--- /dev/null	(date 1667981363860)
++++ b/.idea/dataSources.xml	(date 1667981363860)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
++    <data-source source="LOCAL" name="@localhost" uuid="fe2cb37c-d259-401d-812a-3938c678cb53">
++      <driver-ref>mongo</driver-ref>
++      <synchronize>true</synchronize>
++      <jdbc-driver>com.dbschema.MongoJdbcDriver</jdbc-driver>
++      <jdbc-url>mongodb://localhost:27017</jdbc-url>
++      <working-dir>$ProjectFileDir$</working-dir>
++    </data-source>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"773b02e9-fa76-42e9-a8ca-39e3a9b353c9\" name=\"Changes\" comment=\"-\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2022_08_46__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2022_08_46__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Dockerfile\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/docker/Dockerfile\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/keyFile\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/docker/keyFile\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/mongod.conf\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/docker/mongod.conf\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"useMavenConfig\" value=\"true\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2G2jGhWJllxQCEojyoceGriJEsk\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/Filip Warchoł/Desktop/NBDRepo&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.SQL&quot;\n  },\n  &quot;keyToStringList&quot;: {\n    &quot;DatabaseDriversLRU&quot;: [\n      &quot;postgresql&quot;\n    ]\n  }\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\----Politechnika\\Semestr 5\\Nierelacyjne bazy danych\\Laboratorium\\ORM\\src\" />\r\n      <recent name=\"D:\\----Politechnika\\Semestr 5\\Nierelacyjne bazy danych\\Laboratorium\\ORM\\docker\" />\r\n      <recent name=\"D:\\----Politechnika\\Semestr 5\\Nierelacyjne bazy danych\\Laboratorium\\ORM\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Docker.docker: Compose Deployment\">\r\n    <configuration name=\"ClientTest.clientRemoveTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"ORM\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"ClientTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"clientRemoveTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TicketTest.ticketAddTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"ORM\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"TicketTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"ticketAddTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TicketTest.ticketRemoveTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"ORM\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"TicketTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"ticketRemoveTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TicketTest.versionTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"ORM\" />\r\n      <option name=\"PACKAGE_NAME\" value=\"\" />\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"TicketTest\" />\r\n      <option name=\"METHOD_NAME\" value=\"versionTest\" />\r\n      <option name=\"TEST_OBJECT\" value=\"method\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"docker: Compose Deployment\" type=\"docker-deploy\" factoryName=\"docker-compose.yml\" temporary=\"true\" server-name=\"Docker\">\r\n      <deployment type=\"docker-compose.yml\">\r\n        <settings>\r\n          <option name=\"sourceFilePath\" value=\"docker/docker-compose.yml\" />\r\n        </settings>\r\n      </deployment>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Docker.docker: Compose Deployment\" />\r\n        <item itemvalue=\"JUnit.TicketTest.ticketAddTest\" />\r\n        <item itemvalue=\"JUnit.ClientTest.clientRemoveTest\" />\r\n        <item itemvalue=\"JUnit.TicketTest.ticketRemoveTest\" />\r\n        <item itemvalue=\"JUnit.TicketTest.versionTest\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"3fa2af75-3a79-4184-b35d-8a362af0ae05\" name=\"Changes\" comment=\"\" />\r\n      <created>1665593482335</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1665593482335</updated>\r\n      <workItem from=\"1665593483411\" duration=\"1321000\" />\r\n      <workItem from=\"1665595434547\" duration=\"327000\" />\r\n      <workItem from=\"1665603405890\" duration=\"2975000\" />\r\n      <workItem from=\"1665656295601\" duration=\"5419000\" />\r\n      <workItem from=\"1665662872310\" duration=\"4116000\" />\r\n      <workItem from=\"1665685194950\" duration=\"2194000\" />\r\n      <workItem from=\"1665687789823\" duration=\"1070000\" />\r\n      <workItem from=\"1665688899312\" duration=\"1043000\" />\r\n      <workItem from=\"1665690069460\" duration=\"4741000\" />\r\n      <workItem from=\"1665784558506\" duration=\"2027000\" />\r\n      <workItem from=\"1665858596892\" duration=\"1890000\" />\r\n      <workItem from=\"1665860646005\" duration=\"274000\" />\r\n      <workItem from=\"1665868025230\" duration=\"175000\" />\r\n      <workItem from=\"1666093835248\" duration=\"1296000\" />\r\n      <workItem from=\"1666114515469\" duration=\"6655000\" />\r\n      <workItem from=\"1666121655653\" duration=\"7385000\" />\r\n      <workItem from=\"1666163879446\" duration=\"2250000\" />\r\n      <workItem from=\"1666171972790\" duration=\"60000\" />\r\n      <workItem from=\"1666190509752\" duration=\"26094000\" />\r\n      <workItem from=\"1666218499335\" duration=\"6000\" />\r\n      <workItem from=\"1666260940927\" duration=\"4600000\" />\r\n      <workItem from=\"1667933314288\" duration=\"4815000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 4970c7547ba6f28c7f734c0ff4b083a90f5cf0ea)
++++ b/.idea/workspace.xml	(date 1667982329041)
+@@ -4,12 +4,11 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="773b02e9-fa76-42e9-a8ca-39e3a9b353c9" name="Changes" comment="-">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2022_08_46__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_11_2022_08_46__Changes_.xml" afterDir="false" />
++    <list default="true" id="773b02e9-fa76-42e9-a8ca-39e3a9b353c9" name="Changes" comment="changes in localization">
++      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/Dockerfile" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/keyFile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/keyFile" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/mongod.conf" beforeDir="false" afterPath="$PROJECT_DIR$/docker/mongod.conf" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/mapper/ClientMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mapper/ClientMapper.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/model/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Client.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -43,28 +42,30 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Filip Warchoł/Desktop/NBDRepo&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.SQL&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "jdk.selected.JAVA_MODULE": "17",
++    "last_opened_file_path": "C:/Users/Filip Warchoł/Desktop/NBDRepo",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Artifacts",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.SQL"
+   },
+-  &quot;keyToStringList&quot;: {
+-    &quot;DatabaseDriversLRU&quot;: [
+-      &quot;postgresql&quot;
++  "keyToStringList": {
++    "DatabaseDriversLRU": [
++      "postgresql",
++      "mongo"
+     ]
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\ORM\docker" />
+       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM\src" />
+       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM\docker" />
+       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
+@@ -160,6 +161,14 @@
+       <workItem from="1666260940927" duration="4600000" />
+       <workItem from="1667933314288" duration="4815000" />
+     </task>
++    <task id="LOCAL-00001" summary="changes in localization">
++      <created>1667981059903</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1667981059903</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -176,4 +185,8 @@
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="changes in localization" />
++    <option name="LAST_COMMIT_MESSAGE" value="changes in localization" />
++  </component>
+ </project>
+\ No newline at end of file

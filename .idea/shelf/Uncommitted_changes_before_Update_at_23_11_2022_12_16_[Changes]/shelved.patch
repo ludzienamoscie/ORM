@@ -1,0 +1,22 @@
+Index: src/main/java/repositories/RedisCache.java
+===================================================================
+diff --git a/src/main/java/repositories/RedisCache.java b/src/main/java/repositories/RedisCache.java
+--- a/src/main/java/repositories/RedisCache.java	
++++ b/src/main/java/repositories/RedisCache.java	
+@@ -9,7 +9,7 @@
+ import java.io.IOException;
+ import java.util.Properties;
+ 
+-public class RedisCache implements AutoCloseable {
++public class RedisCache {
+ 
+     RedisClient redisClient;
+     RedisConnection<String, String> connection;
+@@ -46,7 +46,6 @@
+ 
+     }
+ 
+-    @Override
+     public void close() {
+         // Chcemy zawsze czyscic przed zamknieciem?
+         cleanCache();

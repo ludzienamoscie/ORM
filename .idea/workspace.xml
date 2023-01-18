@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="REBASE" />
+      </set>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="mongodb" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2G2jGhWJllxQCEojyoceGriJEsk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maja/Desktop/documents/semestr V/nierelacyjne bazy/project/ORM/docker&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;mongo&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\docker" />
+      <recent name="C:\Users\Maja\Desktop\documents\semestr V\nierelacyjne bazy\project\ORM\src\main\java\Util" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM\ORM\src\main\java\repositories" />
+      <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM\src" />
+      <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM\docker" />
+      <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.docker: Compose Deployment">
+    <configuration name="BenchmarkTest.Benchmark" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BenchmarkTest" />
+      <option name="METHOD_NAME" value="Benchmark" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.CacheAddTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RedisTest" />
+      <option name="METHOD_NAME" value="CacheAddTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.CacheRedisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RedisTest" />
+      <option name="METHOD_NAME" value="CacheRedisTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RedisTest.CacheRemoveTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ORM" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="RedisTest" />
+      <option name="METHOD_NAME" value="CacheRemoveTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="docker: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.docker: Compose Deployment" />
+        <item itemvalue="JUnit.RedisTest.CacheRedisTest" />
+        <item itemvalue="JUnit.BenchmarkTest.Benchmark" />
+        <item itemvalue="JUnit.RedisTest.CacheRemoveTest" />
+        <item itemvalue="JUnit.RedisTest.CacheAddTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="" />
+      <created>1665593482335</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665593482335</updated>
+      <workItem from="1665593483411" duration="1321000" />
+      <workItem from="1665595434547" duration="327000" />
+      <workItem from="1665603405890" duration="2975000" />
+      <workItem from="1665656295601" duration="5419000" />
+      <workItem from="1665662872310" duration="4116000" />
+      <workItem from="1665685194950" duration="2194000" />
+      <workItem from="1665687789823" duration="1070000" />
+      <workItem from="1665688899312" duration="1043000" />
+      <workItem from="1665690069460" duration="4741000" />
+      <workItem from="1665784558506" duration="2027000" />
+      <workItem from="1665858596892" duration="1890000" />
+      <workItem from="1665860646005" duration="274000" />
+      <workItem from="1665868025230" duration="175000" />
+      <workItem from="1666093835248" duration="1296000" />
+      <workItem from="1666114515469" duration="6655000" />
+      <workItem from="1666121655653" duration="7385000" />
+      <workItem from="1666163879446" duration="2250000" />
+      <workItem from="1666171972790" duration="60000" />
+      <workItem from="1666190509752" duration="26094000" />
+      <workItem from="1666218499335" duration="6000" />
+      <workItem from="1666260940927" duration="4600000" />
+      <workItem from="1667933314288" duration="4815000" />
+      <workItem from="1668005019722" duration="3377000" />
+      <workItem from="1668014483186" duration="9499000" />
+      <workItem from="1668121787427" duration="4112000" />
+      <workItem from="1668465959871" duration="1228000" />
+      <workItem from="1668684560041" duration="2837000" />
+      <workItem from="1669026667011" duration="1451000" />
+      <workItem from="1669028217533" duration="825000" />
+      <workItem from="1669130237068" duration="587000" />
+      <workItem from="1669152209200" duration="151000" />
+      <workItem from="1669188899379" duration="6849000" />
+      <workItem from="1669224307219" duration="6714000" />
+      <workItem from="1669231167452" duration="1626000" />
+      <workItem from="1669232845995" duration="3333000" />
+      <workItem from="1669288652313" duration="2097000" />
+      <workItem from="1669794322413" duration="179000" />
+      <workItem from="1669795502243" duration="131000" />
+      <workItem from="1670438835477" duration="1126000" />
+    </task>
+    <task id="LOCAL-00001" summary=".git ignore updated">
+      <created>1667982484262</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667982484262</updated>
+    </task>
+    <task id="LOCAL-00002" summary="init push">
+      <created>1668684671505</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668684671505</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Start of configuration for redis">
+      <created>1668687086015</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668687086015</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added back mongo docker files, updated docker-compose.yml and added back mongo, started with cache, updated pom.xml">
+      <created>1669027426929</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669027426929</updated>
+    </task>
+    <task id="LOCAL-00005" summary="a simple redis cache file">
+      <created>1669029033377</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669029033377</updated>
+    </task>
+    <task id="LOCAL-00006" summary="redisTest passed, success connecting to redis at localhost:8001 in browser">
+      <created>1669190508526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669190508526</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value=".git ignore updated" />
+    <MESSAGE value="init push" />
+    <MESSAGE value="Start of configuration for redis" />
+    <MESSAGE value="added back mongo docker files, updated docker-compose.yml and added back mongo, started with cache, updated pom.xml" />
+    <MESSAGE value="a simple redis cache file" />
+    <MESSAGE value="redisTest passed, success connecting to redis at localhost:8001 in browser" />
+    <option name="LAST_COMMIT_MESSAGE" value="redisTest passed, success connecting to redis at localhost:8001 in browser" />
+  </component>
+</project>
