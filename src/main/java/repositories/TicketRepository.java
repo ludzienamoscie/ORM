@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class TicketRepository extends AbstractRepository implements Repository<Ticket>{
 
-    MongoCollection<Ticket> ticketCollection = mongoDatabase.getCollection("tickets", Ticket.class);
+    MongoCollection<Ticket> ticketCollection = mongoDatabase.getCollection("consumer", Ticket.class);
 
     //create
     @Override
