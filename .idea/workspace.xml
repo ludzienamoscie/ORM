@@ -4,12 +4,27 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment="">
+    <list default="true" id="3fa2af75-3a79-4184-b35d-8a362af0ae05" name="Changes" comment=".git ignore updated">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Util/TicketProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a727ba9e-30c5-4697-b22b-a269f40d2c6e.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketCacheRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketCacheRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repositories/TicketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RedisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RedisTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketCacheRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/TicketCacheRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/repositories/TicketRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2022-12-07T19-48-20_406-jvmRun1.dump" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/2022-12-07T19-48-20_406-jvmRun1.dumpstream" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/BenchmarkTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-BenchmarkTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RedisTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RedisTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +78,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maja/Desktop/documents/semestr V/nierelacyjne bazy/project/ORM/docker&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projekty/Repozytoria/Kafka_consumer/ORM&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -89,7 +104,7 @@
       <recent name="D:\----Politechnika\Semestr 5\Nierelacyjne bazy danych\Laboratorium\ORM" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker: Compose Deployment">
+  <component name="RunManager" selected="JUnit.RedisTest.CacheRedisTest">
     <configuration name="BenchmarkTest.Benchmark" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ORM" />
       <option name="PACKAGE_NAME" value="" />
@@ -140,8 +155,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker: Compose Deployment" />
         <item itemvalue="JUnit.RedisTest.CacheRedisTest" />
+        <item itemvalue="Docker.docker: Compose Deployment" />
         <item itemvalue="JUnit.BenchmarkTest.Benchmark" />
         <item itemvalue="JUnit.RedisTest.CacheRemoveTest" />
         <item itemvalue="JUnit.RedisTest.CacheAddTest" />
@@ -195,6 +210,10 @@
       <workItem from="1669794322413" duration="179000" />
       <workItem from="1669795502243" duration="131000" />
       <workItem from="1670438835477" duration="1126000" />
+      <workItem from="1674054708659" duration="6080000" />
+      <workItem from="1674062115886" duration="84000" />
+      <workItem from="1674062207067" duration="58000" />
+      <workItem from="1674062405708" duration="1071000" />
     </task>
     <task id="LOCAL-00001" summary=".git ignore updated">
       <created>1667982484262</created>

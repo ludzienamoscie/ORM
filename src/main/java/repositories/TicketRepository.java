@@ -1,6 +1,7 @@
 package repositories;
 
 import Util.EntityManagerCreator;
+import Util.TicketProducer;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
@@ -14,7 +15,7 @@ import java.util.UUID;
 public class TicketRepository extends AbstractRepository implements Repository<Ticket>{
 
     MongoCollection<Ticket> ticketCollection = mongoDatabase.getCollection("tickets", Ticket.class);
-
+    TicketProducer ticketProducer = new TicketProducer();
     //create
     @Override
     public synchronized Ticket add(Ticket item) {

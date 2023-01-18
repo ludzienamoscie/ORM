@@ -1,5 +1,6 @@
 package repositories;
 
+import Util.TicketProducer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import managers.TicketManager;
@@ -18,6 +19,7 @@ public class TicketCacheRepository extends TicketRepository {
     private Jedis jedis;
     private Gson gson;
 
+    private TicketProducer ticketProducer = new TicketProducer();
     private long lastCheck;
     private boolean connected;
 
@@ -68,6 +70,7 @@ public class TicketCacheRepository extends TicketRepository {
         if(connected){
             try {
                 addToCache(ticket);
+                ticketProducer.produceTicket(ticket);
             } catch (Exception e){
                 jedisConnectionExceptionHandler(e);
             }

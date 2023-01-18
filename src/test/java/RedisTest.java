@@ -16,7 +16,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RedisTest {
-    private static final TicketRepository ticketCacheRepository = new TicketCacheRepository();
+    private static final TicketCacheRepository ticketCacheRepository = new TicketCacheRepository();
     private static final TicketManager ticketManagerCache = new TicketManager(ticketCacheRepository);
 
     protected DefaultJedisClientConfig jedisClientConfig = DefaultJedisClientConfig.builder().build();
